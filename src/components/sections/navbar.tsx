@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { createClient } from "@/lib/supabase/client";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -13,7 +14,65 @@ const navLinks = [
   { name: "Academy", href: "/lakshya-deploy/index.html" },
   { name: "Travels", href: "/travels/index.html" },
   { name: "Contact", href: "#contact" },
+  { name: "Client Portal", href: "/portal" },
 ];
+
+// Shows "My Portal" when signed in, "Client Portal" otherwise.
+// Admins additionally get an "Admin" link in the navbar.
+function PortalLink({
+  mobile,
+  onClick,
+}: {
+  mobile?: boolean;
+  onClick?: () => void;
+}) {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    try {
+      const client = createClient();
+      client.auth
+        .getUser()
+        .then(async ({ data }) => {
+          if (!mounted) return;
+          setIsSignedIn(Boolean(data.user));
+          if (data.user) {
+            const { data: profile } = await client
+              .from("profiles")
+              .select("is_admin")
+              .eq("id", data.user.id)
+              .maybeSingle();
+            if (mounted) setIsAdmin(Boolean(profile?.is_admin));
+          }
+        })
+        .catch(() => {});
+    } catch {
+      // Supabase not configured yet — keep the default labels.
+    }
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const linkClasses = mobile
+    ? "text-lg font-medium text-neutral-900 dark:text-white"
+    : "text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors";
+
+  return (
+    <>
+      <a href="/portal" onClick={onClick} className={linkClasses}>
+        {isSignedIn ? "My Portal" : "Client Portal"}
+      </a>
+      {isAdmin && (
+        <a href="/admin" onClick={onClick} className={linkClasses}>
+          Admin
+        </a>
+      )}
+    </>
+  );
+}
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,18 +115,22 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link, i) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-            >
-              {link.name}
-            </motion.a>
-          ))}
+          {navLinks.map((link, i) =>
+            link.href === "/portal" ? (
+              <PortalLink key={link.name} />
+            ) : (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                {link.name}
+              </motion.a>
+            )
+          )}
           <MagneticButton className="!px-6 !py-2 text-sm">
             Get Started
           </MagneticButton>
@@ -103,16 +166,24 @@ export function Navbar() {
             exit={{ height: 0, opacity: 0 }}
           >
             <div className="flex flex-col items-center gap-4 py-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-lg font-medium text-neutral-900 dark:text-white"
-                  onClick={() => setIsMobileOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.href === "/portal" ? (
+                  <PortalLink
+                    key={link.name}
+                    mobile
+                    onClick={() => setIsMobileOpen(false)}
+                  />
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-lg font-medium text-neutral-900 dark:text-white"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
               <MagneticButton className="!px-8 !py-3">Get Started</MagneticButton>
             </div>
           </motion.div>

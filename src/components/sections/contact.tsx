@@ -4,8 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Spotlight } from "@/components/ui/spotlight";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { GlowCard } from "@/components/ui/glow-card";
-
-const FORMGRID_ENDPOINT = "https://formgrid.dev/api/f/atyrgcpb";
+import { submitContact } from "@/app/actions/contact";
 
 const contactMethods = [
   {
@@ -52,18 +51,11 @@ export function Contact() {
 
     try {
       const formData = new FormData(e.currentTarget as HTMLFormElement);
-      const response = await fetch(FORMGRID_ENDPOINT, {
-        method: "POST",
-        redirect: "manual",
-        body: formData,
-      });
-
-      // FormGrid answers with a 302 redirect to its success page; treat the
-      // redirect (or a 2xx) as a successful submission regardless of the
-      // CORS headers served by the redirect target.
-      const submitted = response.type === "opaqueredirect" || response.ok;
-      if (!submitted) {
-        throw new Error("Something went wrong. Please try again.");
+      // Saved straight into the Supabase database via a server action
+      // (service-role key stays server-side, spam honeypot preserved).
+      const result = await submitContact(formData);
+      if (!result.ok) {
+        throw new Error(result.error || "Something went wrong. Please try again.");
       }
 
       setSubmitStatus("success");

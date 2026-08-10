@@ -24,6 +24,7 @@ const footerLinks = {
     { name: "Careers", href: "#" },
     { name: "Press", href: "#" },
     { name: "Partners", href: "#" },
+    { name: "Client Portal", href: "/portal" },
   ],
   Resources: [
     { name: "Blog", href: "#" },
