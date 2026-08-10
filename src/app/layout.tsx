@@ -12,10 +12,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://laksya-groups.vercel.app";
+const TITLE = "Laksya Groups | Innovating Tomorrow, Delivering Excellence Today";
+const DESCRIPTION =
+  "A multi-service conglomerate empowering businesses with cutting-edge technology, strategic consulting, and global solutions. Services include App & Web Development, Consultancy, Import & Export, Customer Support, Transport, Tours & Travel, and Laksya Academy.";
+
 export const metadata: Metadata = {
-  title: "Laksya Groups | Innovating Tomorrow, Delivering Excellence Today",
-  description:
-    "A multi-service conglomerate empowering businesses with cutting-edge technology, strategic consulting, and global solutions. Services include App & Web Development, Consultancy, Import & Export, Customer Support, Transport, Tours & Travel, and Laksya Academy.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: "%s | Laksya Groups",
+  },
+  description: DESCRIPTION,
   keywords: [
     "Laksya Groups",
     "technology consulting",
@@ -27,19 +35,30 @@ export const metadata: Metadata = {
     "tours travel",
     "business consultancy",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Laksya Groups | Innovating Tomorrow, Delivering Excellence Today",
-    description:
-      "A multi-service conglomerate empowering businesses with cutting-edge technology, strategic consulting, and global solutions.",
+    title: TITLE,
+    description: DESCRIPTION,
     type: "website",
     locale: "en_US",
     siteName: "Laksya Groups",
+    url: "/",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Laksya Groups — Innovating Tomorrow, Delivering Excellence Today",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laksya Groups | Innovating Tomorrow, Delivering Excellence Today",
-    description:
-      "A multi-service conglomerate empowering businesses with cutting-edge technology, strategic consulting, and global solutions.",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og-image.png"],
   },
 };
 
@@ -55,6 +74,39 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-neutral-950 text-white">
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": `${SITE_URL}/#organization`,
+                  name: "Laksya Groups",
+                  url: SITE_URL,
+                  logo: `${SITE_URL}/laksya-logo.png`,
+                  description:
+                    "A multi-service conglomerate empowering businesses with cutting-edge technology, strategic consulting, and global solutions.",
+                  email: "admin@lakshyagroups.in",
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    email: "admin@lakshyagroups.in",
+                    contactType: "customer service",
+                    availableLanguage: ["English", "Hindi"],
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": `${SITE_URL}/#website`,
+                  name: "Laksya Groups",
+                  url: SITE_URL,
+                  publisher: { "@id": `${SITE_URL}/#organization` },
+                },
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );

@@ -87,6 +87,7 @@ export function Hero() {
         </motion.div>
 
         <TextGenerateEffect
+          as="h1"
           words="Innovating Tomorrow, Delivering Excellence Today"
           className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight"
         />

@@ -8,6 +8,7 @@ interface TextGenerateEffectProps {
   className?: string;
   filter?: boolean;
   duration?: number;
+  as?: "h1" | "h2" | "div";
 }
 
 export function TextGenerateEffect({
@@ -15,6 +16,7 @@ export function TextGenerateEffect({
   className,
   filter = true,
   duration = 0.5,
+  as = "div",
 }: TextGenerateEffectProps) {
   const wordsArray = words.split(" ");
 
@@ -26,8 +28,10 @@ export function TextGenerateEffect({
     }),
   };
 
+  const Tag = as === "h1" ? motion.h1 : as === "h2" ? motion.h2 : motion.div;
+
   return (
-    <motion.div
+    <Tag
       className={cn("font-bold", className)}
       initial="hidden"
       whileInView="visible"
@@ -45,6 +49,6 @@ export function TextGenerateEffect({
           </motion.span>
         ))}
       </motion.span>
-    </motion.div>
+    </Tag>
   );
 }
