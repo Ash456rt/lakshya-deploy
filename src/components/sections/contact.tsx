@@ -5,6 +5,8 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { GlowCard } from "@/components/ui/glow-card";
 
+const FORMGRID_ENDPOINT = "https://formgrid.dev/api/f/atyrgcpb";
+
 const contactMethods = [
   {
     icon: "📧",
@@ -37,15 +39,43 @@ export function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setFormState({ name: "", email: "", service: "", message: "" });
-    alert("Thank you! We'll get back to you soon.");
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    try {
+      const formData = new FormData(e.currentTarget as HTMLFormElement);
+      const response = await fetch(FORMGRID_ENDPOINT, {
+        method: "POST",
+        redirect: "manual",
+        body: formData,
+      });
+
+      // FormGrid answers with a 302 redirect to its success page; treat the
+      // redirect (or a 2xx) as a successful submission regardless of the
+      // CORS headers served by the redirect target.
+      const submitted = response.type === "opaqueredirect" || response.ok;
+      if (!submitted) {
+        throw new Error("Something went wrong. Please try again.");
+      }
+
+      setSubmitStatus("success");
+      setFormState({ name: "", email: "", service: "", message: "" });
+    } catch (err) {
+      setSubmitStatus("error");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Network error. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -100,6 +130,14 @@ export function Contact() {
           >
             <GlowCard glowColor="rgba(236, 72, 153, 0.3)">
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  name="_honey"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
@@ -107,6 +145,7 @@ export function Contact() {
                     </label>
                     <input
                       type="text"
+                      name="name"
                       value={formState.name}
                       onChange={(e) =>
                         setFormState({ ...formState, name: e.target.value })
@@ -122,6 +161,7 @@ export function Contact() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       value={formState.email}
                       onChange={(e) =>
                         setFormState({ ...formState, email: e.target.value })
@@ -137,6 +177,7 @@ export function Contact() {
                     Service Interest
                   </label>
                   <select
+                    name="service"
                     value={formState.service}
                     onChange={(e) =>
                       setFormState({ ...formState, service: e.target.value })
@@ -159,6 +200,7 @@ export function Contact() {
                     Your Message
                   </label>
                   <textarea
+                    name="message"
                     value={formState.message}
                     onChange={(e) =>
                       setFormState({ ...formState, message: e.target.value })
@@ -169,6 +211,17 @@ export function Contact() {
                     required
                   />
                 </div>
+                {submitStatus === "success" && (
+                  <p className="text-sm font-medium text-green-500 bg-green-500/10 border border-green-500/20 rounded-xl px-4 py-3">
+                    Thank you! Your message has been sent — we will get back to
+                    you soon.
+                  </p>
+                )}
+                {submitStatus === "error" && (
+                  <p className="text-sm font-medium text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
+                    {errorMessage}
+                  </p>
+                )}
                 <MagneticButton
                   type="submit"
                   className="w-full !bg-gradient-to-r from-pink-600 to-purple-600"
