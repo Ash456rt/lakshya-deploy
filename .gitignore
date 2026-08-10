@@ -42,3 +42,6 @@ next-env.d.ts
 
 server.log
 dev.log
+
+.vercel
+.env*
