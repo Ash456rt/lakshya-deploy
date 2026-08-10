@@ -20,14 +20,14 @@ const footerLinks = {
     { name: "Travel Packages", href: "/travels/index.html#packages" },
   ],
   Company: [
-    { name: "About Us", href: "#about" },
+    { name: "About Us", href: "/about" },
     { name: "Careers", href: "#" },
     { name: "Press", href: "#" },
     { name: "Partners", href: "#" },
     { name: "Client Portal", href: "/portal" },
   ],
   Resources: [
-    { name: "Blog", href: "#" },
+    { name: "Blog", href: "/blog" },
     { name: "Case Studies", href: "#" },
     { name: "Documentation", href: "#" },
     { name: "Support", href: "#contact" },

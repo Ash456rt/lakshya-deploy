@@ -9,7 +9,8 @@ import { createClient } from "@/lib/supabase/client";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
+  { name: "About Us", href: "/about" },
+  { name: "Blog", href: "/blog" },
   { name: "Stats", href: "#stats" },
   { name: "Academy", href: "/lakshya-deploy/index.html" },
   { name: "Travels", href: "/travels/index.html" },
