@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshya Groups Travels — Discover Incredible India</title>
+  <meta name="description" content="Lakshya Groups Travels crafts unforgettable journeys across India — Karnataka, Kerala, Goa, Tamil Nadu, Rajasthan, Kashmir and more. Custom tour packages, group tours and pilgrimage trips." />
+  <meta name="theme-color" content="#1e2a5a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lakshya Groups Travels — Discover Incredible India" />
+  <meta property="og:description" content="Handcrafted India tour packages across South & North India. Aim for the journey." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/india-highlights.jpeg" />
+
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== TOP BAR ===================== -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__contact">
+        <a href="tel:+919902841875"><span class="ico">&#9742;</span> +91 99028 41875</a>
+        <a href="mailto:lakshyagroups.official@gmail.com"><span class="ico">&#9993;</span> lakshyagroups.official@gmail.com</a>
+      </div>
+      <div class="topbar__social" aria-label="Social links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="WhatsApp">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#home" class="brand" aria-label="Lakshya Groups Travels home">
+        <img src="assets/img/logo.jpeg" alt="Lakshya Groups Travels logo" class="brand__logo" />
+        <span class="brand__text">
+          <strong>Lakshya Groups</strong>
+          <small>TRAVELS</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <button class="nav__close" id="navClose" aria-label="Close menu">&times;</button>
+        <a href="#home" class="nav__link">Home</a>
+        <a href="#destinations" class="nav__link">Destinations</a>
+        <a href="#packages" class="nav__link">Packages</a>
+        <a href="#why" class="nav__link">Why Us</a>
+        <a href="#gallery" class="nav__link">Gallery</a>
+        <a href="#contact" class="nav__link nav__link--cta">Enquire Now</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/img/india-highlights.jpeg">
+      <source src="video/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <p class="hero__eyebrow">&#9733; Aim For The Journey &#9733;</p>
+      <h1 class="hero__title">Discover the Colours of <span>Incredible India</span></h1>
+      <p class="hero__subtitle">
+        From the backwaters of Kerala to the palaces of Rajasthan and the temples of Tamil Nadu —
+        Lakshya Groups Travels turns your travel goals into handcrafted, hassle-free journeys.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#packages" class="btn btn--primary">Explore Packages</a>
+        <a href="#contact" class="btn btn--ghost">Plan My Trip</a>
+      </div>
+
+      <!-- Quick enquiry card -->
+      <form class="quick-enquiry" id="quickEnquiry" novalidate>
+        <div class="quick-enquiry__field">
+          <label for="qeDestination">Destination</label>
+          <select id="qeDestination" name="destination" required>
+            <option value="">Choose a region</option>
+            <optgroup label="National (India)">
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Goa</option>
+              <option>Tamil Nadu</option>
+              <option>North India</option>
+              <option>India Highlights</option>
+            </optgroup>
+            <optgroup label="International">
+              <option>United Kingdom</option>
+              <option>Switzerland</option>
+              <option>Norway</option>
+              <option>Thailand</option>
+              <option>Philippines</option>
+              <option>Pattaya</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="quick-enquiry__field">
+          <label for="qeDate">Travel date</label>
+          <input type="date" id="qeDate" name="date" />
+        </div>
+        <div class="quick-enquiry__field">
+          <label for="qeGuests">Travellers</label>
+          <select id="qeGuests" name="guests">
+            <option>1–2</option>
+            <option>3–5</option>
+            <option>6–10</option>
+            <option>10+ (Group)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--primary quick-enquiry__submit">Check Availability</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat"><span class="stat__num" data-count="15">0</span><span class="stat__plus">+</span><p>Years of Experience</p></div>
+      <div class="stat"><span class="stat__num" data-count="12000">0</span><span class="stat__plus">+</span><p>Happy Travellers</p></div>
+      <div class="stat"><span class="stat__num" data-count="28">0</span><span class="stat__plus">+</span><p>States Covered</p></div>
+      <div class="stat"><span class="stat__num" data-count="150">0</span><span class="stat__plus">+</span><p>Curated Tours</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== DESTINATIONS ===================== -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Where will you go?</p>
+        <h2 class="section__title">Featured Destinations</h2>
+        <p class="section__lead">Six of India's most loved regions — each a world of its own. Tap any region to start planning.</p>
+      </div>
+
+      <div class="dest-grid">
+        <article class="dest-card reveal">
+          <img src="assets/img/karnataka.jpeg" alt="Karnataka — Hampi, Mysuru, Coorg, Shimoga" loading="lazy" />
+          <div class="dest-card__body">
+            <h3>Karnataka</h3>
+            <p>Hampi ruins, Mysuru palaces, Coorg coffee hills &amp; Jog Falls.</p>
+            <a href="#contact" class="dest-card__link">Plan Karnataka &rarr;</a>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="assets/img/kerala.jpeg" alt="Kerala — Fort Kochi, Varkala, Alleppey, Marari" loading="lazy" />
+          <div class="dest-card__body">
+            <h3>Kerala</h3>
+            <p>Backwater houseboats, Chinese nets, Varkala cliffs &amp; beaches.</p>
+            <a href="#contact" class="dest-card__link">Plan Kerala &rarr;</a>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="assets/img/goa.jpeg" alt="Goa — Old Goa, Chapora Fort, Spice plantations, Anjuna" loading="lazy" />
+          <div class="dest-card__body">
+            <h3>Goa</h3>
+            <p>Old Goa churches, Chapora Fort, spice trails &amp; beach nightlife.</p>
+            <a href="#contact" class="dest-card__link">Plan Goa &rarr;</a>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="assets/img/tamil-nadu.jpeg" alt="Tamil Nadu — Thanjavur, Madurai, Ooty, Chennai" loading="lazy" />
+          <div class="dest-card__body">
+            <h3>Tamil Nadu</h3>
+            <p>Grand temples, Rameshwaram bridge, Nilgiri hills &amp; Chennai arts.</p>
+            <a href="#contact" class="dest-card__link">Plan Tamil Nadu &rarr;</a>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="assets/img/north-india.jpeg" alt="North India — Kashmir, Jaipur, Darjeeling, Delhi" loading="lazy" />
+          <div class="dest-card__body">
+            <h3>North India</h3>
+            <p>Kashmir shikaras, Jaipur forts, Darjeeling rail &amp; Old Delhi bazaars.</p>
+            <a href="#contact" class="dest-card__link">Plan North India &rarr;</a>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="assets/img/india-highlights.jpeg" alt="India Highlights — Taj Mahal, Hampi, Darjeeling, Amer Fort" loading="lazy" />
+          <div class="dest-card__body">
+            <h3>India Highlights</h3>
+            <p>Taj Mahal, Hampi, Amer Fort &amp; Himalayan tea gardens in one grand tour.</p>
+            <a href="#contact" class="dest-card__link">Plan Grand Tour &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PACKAGES ===================== -->
+  <section class="section section--tint" id="packages">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Best value, best memories</p>
+        <h2 class="section__title">Popular Tour Packages</h2>
+        <p class="section__lead">Fixed-departure and customisable packages with stays, transfers, guides &amp; sightseeing included.</p>
+      </div>
+
+      <!-- National / International tabs -->
+      <div class="pkg-tabs" role="tablist" aria-label="Tour type">
+        <button class="pkg-tab is-active" id="tabNational" role="tab" aria-selected="true" aria-controls="pkgNational" data-target="pkgNational">
+          <span class="pkg-tab__flag">&#127470;&#127475;</span> National Tours
+        </button>
+        <button class="pkg-tab" id="tabInternational" role="tab" aria-selected="false" aria-controls="pkgInternational" data-target="pkgInternational">
+          <span class="pkg-tab__flag">&#127757;</span> International Tours
+        </button>
+      </div>
+
+      <!-- National (India) packages -->
+      <div class="pkg-panel" id="pkgNational" role="tabpanel" aria-labelledby="tabNational">
+      <div class="pkg-grid">
+        <!-- Package 1 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media" style="background-image:url('assets/img/kerala.jpeg')">
+            <span class="pkg-card__badge">Best Seller</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Kerala Backwaters &amp; Beaches</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 6 Days / 5 Nights</li>
+              <li>&#128205; Kochi &middot; Alleppey &middot; Varkala</li>
+            </ul>
+            <p class="pkg-card__desc">Houseboat cruise, Fort Kochi heritage walk and sunset at Varkala cliffs.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;18,999 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 2 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media" style="background-image:url('assets/img/karnataka.jpeg')">
+            <span class="pkg-card__badge">Heritage</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Karnataka Heritage Circuit</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 7 Days / 6 Nights</li>
+              <li>&#128205; Mysuru &middot; Hampi &middot; Coorg</li>
+            </ul>
+            <p class="pkg-card__desc">Mysore Palace, UNESCO Hampi ruins and misty Coorg coffee estates.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;21,499 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 3 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media" style="background-image:url('assets/img/goa.jpeg')">
+            <span class="pkg-card__badge">Popular</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Goa Beaches &amp; Spice Trail</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 4 Days / 3 Nights</li>
+              <li>&#128205; North &amp; South Goa</li>
+            </ul>
+            <p class="pkg-card__desc">Chapora Fort, Old Goa churches, a spice plantation lunch and Anjuna nights.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;13,499 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 4 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media" style="background-image:url('assets/img/tamil-nadu.jpeg')">
+            <span class="pkg-card__badge">Pilgrimage</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Tamil Nadu Temple Trail</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 6 Days / 5 Nights</li>
+              <li>&#128205; Madurai &middot; Thanjavur &middot; Rameshwaram</li>
+            </ul>
+            <p class="pkg-card__desc">Meenakshi Temple, Brihadeeswarar and the Rameshwaram sea bridge.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;17,299 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 5 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media" style="background-image:url('assets/img/north-india.jpeg')">
+            <span class="pkg-card__badge">Scenic</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Kashmir &amp; Himalayan Escape</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 8 Days / 7 Nights</li>
+              <li>&#128205; Srinagar &middot; Gulmarg &middot; Pahalgam</li>
+            </ul>
+            <p class="pkg-card__desc">Dal Lake shikara stays, snow meadows and Mughal gardens.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;27,999 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 6 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media" style="background-image:url('assets/img/india-highlights.jpeg')">
+            <span class="pkg-card__badge">Grand Tour</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Golden Triangle &amp; Beyond</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 9 Days / 8 Nights</li>
+              <li>&#128205; Delhi &middot; Agra &middot; Jaipur</li>
+            </ul>
+            <p class="pkg-card__desc">Taj Mahal at sunrise, Amer Fort and the bazaars of Old Delhi.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;24,499 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      </div><!-- /#pkgNational -->
+
+      <!-- International packages -->
+      <div class="pkg-panel" id="pkgInternational" role="tabpanel" aria-labelledby="tabInternational" hidden>
+      <div class="pkg-grid">
+        <!-- Intl 1 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media pkg-card__media--intl pkg-card__media--uk">
+            <span class="pkg-card__badge">Best Seller</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">United Kingdom Explorer</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 7 Days / 6 Nights</li>
+              <li>&#128205; London &middot; Oxford &middot; Edinburgh</li>
+            </ul>
+            <p class="pkg-card__desc">Big Ben &amp; London Eye, Oxford colleges, Windsor Castle and the Scottish Highlands.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;1,29,999 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Intl 2 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media pkg-card__media--intl pkg-card__media--switzerland">
+            <span class="pkg-card__badge">Honeymoon</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Switzerland Alpine Dream</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 7 Days / 6 Nights</li>
+              <li>&#128205; Zurich &middot; Interlaken &middot; Jungfrau</li>
+            </ul>
+            <p class="pkg-card__desc">Mount Titlis snow, Jungfraujoch railway, Lake Geneva and charming Alpine towns.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;1,44,999 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Intl 3 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media pkg-card__media--intl pkg-card__media--norway">
+            <span class="pkg-card__badge">Scenic</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Norway Fjords &amp; Northern Lights</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 8 Days / 7 Nights</li>
+              <li>&#128205; Oslo &middot; Bergen &middot; Troms&oslash;</li>
+            </ul>
+            <p class="pkg-card__desc">Dramatic fjord cruises, the Flam Railway and Aurora hunting in the Arctic north.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;1,64,999 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Intl 4 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media pkg-card__media--intl pkg-card__media--thailand">
+            <span class="pkg-card__badge">Popular</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Thailand — Bangkok &amp; Phuket</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 6 Days / 5 Nights</li>
+              <li>&#128205; Bangkok &middot; Phuket &middot; Phi Phi Islands</li>
+            </ul>
+            <p class="pkg-card__desc">Grand Palace, floating markets, Phi Phi island hopping and vibrant nightlife.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;42,499 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Intl 5 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media pkg-card__media--intl pkg-card__media--philippines">
+            <span class="pkg-card__badge">Beaches</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Philippines Island Hopper</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 7 Days / 6 Nights</li>
+              <li>&#128205; Manila &middot; Cebu &middot; Palawan</li>
+            </ul>
+            <p class="pkg-card__desc">El Nido lagoons, Cebu waterfalls, whale-shark swims and white-sand beaches.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;69,999 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Intl 6 -->
+        <article class="pkg-card reveal">
+          <div class="pkg-card__media pkg-card__media--intl pkg-card__media--pattaya">
+            <span class="pkg-card__badge">Family</span>
+          </div>
+          <div class="pkg-card__body">
+            <h3 class="pkg-card__title">Pattaya Fun &amp; Coral Island</h3>
+            <ul class="pkg-card__meta">
+              <li>&#128337; 5 Days / 4 Nights</li>
+              <li>&#128205; Pattaya &middot; Coral Island &middot; Bangkok</li>
+            </ul>
+            <p class="pkg-card__desc">Coral Island speedboat, Alcazar show, Sanctuary of Truth and beachfront resorts.</p>
+            <div class="pkg-card__foot">
+              <span class="pkg-card__price"><small>from</small> &#8377;38,999 <em>/ person</em></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Book</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      </div><!-- /#pkgInternational -->
+
+      <div class="section__cta">
+        <a href="#contact" class="btn btn--primary">Request a Custom Itinerary</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY US ===================== -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">The Lakshya promise</p>
+        <h2 class="section__title">Why Travel With Us</h2>
+        <p class="section__lead">We handle the logistics so you can focus on the memories.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-card__icon">&#127758;</div>
+          <h3>Local Expertise</h3>
+          <p>Handpicked stays, verified guides and routes refined over 15 years across India.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon">&#128176;</div>
+          <h3>Best Price Promise</h3>
+          <p>Transparent pricing with no hidden costs — and price-match on comparable packages.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon">&#128241;</div>
+          <h3>24&#215;7 Support</h3>
+          <p>A dedicated trip manager on call before, during and after your journey.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon">&#9999;&#65039;</div>
+          <h3>Fully Customisable</h3>
+          <p>Family, group, honeymoon or pilgrimage — every itinerary is tailored to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="section section--tint" id="gallery">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">A glimpse of India</p>
+        <h2 class="section__title">Gallery</h2>
+        <p class="section__lead">Click any image to view it full-size.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <button class="gallery-item reveal" data-full="assets/img/india-highlights.jpeg"><img src="assets/img/india-highlights.jpeg" alt="India highlights collage" loading="lazy" /></button>
+        <button class="gallery-item reveal" data-full="assets/img/karnataka.jpeg"><img src="assets/img/karnataka.jpeg" alt="Karnataka collage" loading="lazy" /></button>
+        <button class="gallery-item reveal" data-full="assets/img/kerala.jpeg"><img src="assets/img/kerala.jpeg" alt="Kerala collage" loading="lazy" /></button>
+        <button class="gallery-item reveal" data-full="assets/img/goa.jpeg"><img src="assets/img/goa.jpeg" alt="Goa collage" loading="lazy" /></button>
+        <button class="gallery-item reveal" data-full="assets/img/tamil-nadu.jpeg"><img src="assets/img/tamil-nadu.jpeg" alt="Tamil Nadu collage" loading="lazy" /></button>
+        <button class="gallery-item reveal" data-full="assets/img/north-india.jpeg"><img src="assets/img/north-india.jpeg" alt="North India collage" loading="lazy" /></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Loved by travellers</p>
+        <h2 class="section__title">What Our Guests Say</h2>
+      </div>
+
+      <div class="review-grid">
+        <blockquote class="review reveal">
+          <div class="review__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Our Kerala houseboat trip was flawless — every transfer on time, the guide was wonderful. Lakshya thought of everything."</p>
+          <footer><strong>Priya &amp; Rahul</strong><span>Bengaluru</span></footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <div class="review__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"We did the Karnataka heritage circuit as a group of 14. Superb coordination and genuinely great value."</p>
+          <footer><strong>S. Venkatesh</strong><span>Chennai</span></footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <div class="review__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Kashmir in the snow was a dream. The team customised our honeymoon to the last detail. Highly recommend!"</p>
+          <footer><strong>Ayesha K.</strong><span>Hyderabad</span></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BANNER ===================== -->
+  <section class="cta-banner">
+    <div class="container cta-banner__inner">
+      <div>
+        <h2>Ready to aim for your next journey?</h2>
+        <p>Tell us your dates and dream destination — we'll send a tailored itinerary within 24 hours.</p>
+      </div>
+      <a href="#contact" class="btn btn--light">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="section__eyebrow">Let's plan together</p>
+        <h2 class="section__title">Enquire Now</h2>
+        <p class="section__lead">Share a few details and our travel expert will get in touch.</p>
+
+        <ul class="contact-list">
+          <li><span class="ico">&#128205;</span><div><strong>Office</strong><br>36/2, Bhuvaneshwari Nilaya, Megacity Layout,<br>Maragondanahalli Main Rd, TC Palya,<br>Bengaluru, Karnataka 560036</div></li>
+          <li><span class="ico">&#9742;</span><div><strong>Phone</strong><br><a href="tel:+919902841875">+91 99028 41875</a></div></li>
+          <li><span class="ico">&#9993;</span><div><strong>Email</strong><br><a href="mailto:lakshyagroups.official@gmail.com">lakshyagroups.official@gmail.com</a></div></li>
+          <li><span class="ico">&#127760;</span><div><strong>Website</strong><br><a href="https://lakshyagroups.in/" target="_blank" rel="noopener">lakshyagroups.in</a></div></li>
+          <li><span class="ico">&#128336;</span><div><strong>Hours</strong><br>Mon–Sat, 9:30 AM – 7:00 PM</div></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="cfName">Full name *</label>
+          <input type="text" id="cfName" name="name" placeholder="Your name" required />
+          <span class="field__error" data-for="cfName"></span>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="cfEmail">Email *</label>
+            <input type="email" id="cfEmail" name="email" placeholder="you@example.com" required />
+            <span class="field__error" data-for="cfEmail"></span>
+          </div>
+          <div class="field">
+            <label for="cfPhone">Phone *</label>
+            <input type="tel" id="cfPhone" name="phone" placeholder="+91 …" required />
+            <span class="field__error" data-for="cfPhone"></span>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="cfDest">Destination</label>
+            <select id="cfDest" name="destination">
+              <option value="">Any / Not sure</option>
+              <optgroup label="National (India)">
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Goa</option>
+                <option>Tamil Nadu</option>
+                <option>North India</option>
+                <option>India Highlights</option>
+              </optgroup>
+              <optgroup label="International">
+                <option>United Kingdom</option>
+                <option>Switzerland</option>
+                <option>Norway</option>
+                <option>Thailand</option>
+                <option>Philippines</option>
+                <option>Pattaya</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cfDate">Preferred date</label>
+            <input type="date" id="cfDate" name="date" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cfMsg">Message</label>
+          <textarea id="cfMsg" name="message" rows="4" placeholder="Tell us about your ideal trip…"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Send Enquiry</button>
+        <p class="contact-form__note" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col footer__brand">
+        <a href="#home" class="brand brand--footer">
+          <img src="assets/img/logo.jpeg" alt="Lakshya Groups Travels logo" class="brand__logo" />
+          <span class="brand__text"><strong>Lakshya Groups</strong><small>TRAVELS</small></span>
+        </a>
+        <p>Aim for the journey. We design memorable, hassle-free India tours for families, groups and pilgrims.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Regions</h4>
+        <ul>
+          <li><a href="#packages">Karnataka</a></li>
+          <li><a href="#packages">Kerala</a></li>
+          <li><a href="#packages">Goa</a></li>
+          <li><a href="#packages">Tamil Nadu</a></li>
+          <li><a href="#packages">North India</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+919902841875">+91 99028 41875</a></li>
+          <li><a href="mailto:lakshyagroups.official@gmail.com">lakshyagroups.official@gmail.com</a></li>
+          <li><a href="https://lakshyagroups.in/" target="_blank" rel="noopener">lakshyagroups.in</a></li>
+          <li>36/2, Bhuvaneshwari Nilaya, Megacity Layout, Maragondanahalli Main Rd, TC Palya, Bengaluru, Karnataka 560036</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; <span id="year">2026</span> Lakshya Groups Travels. All rights reserved.</p>
+        <p class="footer__credit">Designed for wanderers &#10024;</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/919902841875" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <span>&#128172;</span>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
