@@ -12,7 +12,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://laksya-groups.vercel.app";
+import { SITE_URL } from "@/lib/site";
+
 const TITLE = "Laksya Groups | Innovating Tomorrow, Delivering Excellence Today";
 const DESCRIPTION =
   "A multi-service conglomerate empowering businesses with cutting-edge technology, strategic consulting, and global solutions. Services include App & Web Development, Consultancy, Import & Export, Customer Support, Transport, Tours & Travel, and Laksya Academy.";

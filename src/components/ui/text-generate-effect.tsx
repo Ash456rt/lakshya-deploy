@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 interface TextGenerateEffectProps {
   words: string;
   className?: string;
-  filter?: boolean;
   duration?: number;
   as?: "h1" | "h2" | "div";
 }
@@ -14,7 +13,6 @@ interface TextGenerateEffectProps {
 export function TextGenerateEffect({
   words,
   className,
-  filter = true,
   duration = 0.5,
   as = "div",
 }: TextGenerateEffectProps) {
