@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     "tours travel",
     "business consultancy",
   ],
+  verification: {
+    google: "cn4_9cBODH294-lbinkjOOPzoqlTvUOmxKxe1e3wUXc",
+  },
   alternates: {
     canonical: "/",
   },
