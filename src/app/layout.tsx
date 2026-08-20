@@ -100,12 +100,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#030712" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="A0hSyyGtpIy06RtZHlsRWFgXJ5qflDfnuo-RLAvWwuk" />
-        {/* Strip Dark Reader injected attributes before React hydrates */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `if(typeof Element!=="undefined"){var drAttrs=["data-darkreader-inline-color","data-darkreader-inline-bgcolor","data-darkreader-inline-bgimage","data-darkreader-inline-stroke"];var drCSS=["--darkreader-inline-color","--darkreader-inline-bgcolor","--darkreader-inline-bgimage","--darkreader-inline-stroke"];var origSA=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(drAttrs.indexOf(n)!==-1)return;if(typeof v==="string")for(var i=0;i<drCSS.length;i++)v=v.replace(new RegExp(drCSS[i]+"[^"]*"+"\\s*"),"");return origSA.call(this,n,v)};var origSAN=Element.prototype.setAttributeNS;Element.prototype.setAttributeNS=function(ns,n,v){if(drAttrs.indexOf(n)!==-1)return;return origSAN.call(this,ns,n,v)};var origSS=Element.prototype.setAttribute;var cleanStyle=function(s){if(!s||!s.removeProperty)return;for(var i=0;i<drCSS.length;i++)try{s.removeProperty(drCSS[i])}catch(e){}};var obs=new MutationObserver(function(muts){for(var i=0;i<muts.length;i++){var nodes=muts[i].addedNodes;for(var j=0;j<nodes.length;j++){var el=nodes[j];if(el.nodeType!==1)continue;cleanStyle(el.style);for(var k=0;k<drAttrs.length;k++)if(el.hasAttribute&&el.hasAttribute(drAttrs[k]))el.removeAttribute(drAttrs[k])}}});obs.observe(document.documentElement,{attributes:true,childList:true,subtree:true,attributeFilter:drAttrs})}`
-          }}
-        />
+        {/* Tell Dark Reader this site is already dark — prevents style injection */}
+        <meta name="color-scheme" content="dark" />
       </head>
       <body className="min-h-full flex flex-col bg-neutral-950 text-white" suppressHydrationWarning>
         {/* Google Analytics */}
