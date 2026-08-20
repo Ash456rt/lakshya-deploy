@@ -95,15 +95,15 @@ export function About() {
             </div>
             
             <p className="text-neutral-400 text-lg mb-6 leading-relaxed">
-              Founded with a vision to transform industries, Lakshya Groups has
-              grown into a multi-service conglomerate serving businesses across
-              the globe. Our journey spans over a decade of excellence, innovation,
-              and unwavering commitment to client success.
+              We started as a web development shop in Bengaluru. Today, Laksya
+              Groups runs seven service divisions because our clients kept asking
+              us to solve the next problem too. Development led to consultancy.
+              Consultancy led to operations support. Each service exists because
+              a real client needed it, not because we wanted a bigger menu.
             </p>
             <p className="text-neutral-400 text-lg leading-relaxed">
-              We combine deep industry expertise with technological innovation to
-              deliver comprehensive solutions that drive growth, efficiency, and
-              sustainable success for our partners.
+              We build for businesses that want one accountable partner instead
+              of seven vendors. If that sounds like what you need, let us talk.
             </p>
           </motion.div>
 

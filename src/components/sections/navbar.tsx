@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
   { name: "About Us", href: "/about" },
+  { name: "Case Studies", href: "/case-studies" },
   { name: "Blog", href: "/blog" },
   { name: "Stats", href: "#stats" },
   { name: "Academy", href: "/lakshya-deploy/index.html" },

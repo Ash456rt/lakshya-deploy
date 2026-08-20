@@ -18,10 +18,10 @@ const services = [
 ];
 
 const stats = [
-  { value: '500+', label: 'Projects Completed' },
-  { value: '50+', label: 'Countries Served' },
-  { value: '10,000+', label: 'Happy Clients' },
-  { value: '15+', label: 'Years of Experience' },
+  { value: '7', label: 'Service Divisions' },
+  { value: '50+', label: 'Countries Reached' },
+  { value: '3', label: 'Case Studies Published' },
+  { value: '8+', label: 'Years of Building' },
 ];
 
 const values = [

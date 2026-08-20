@@ -1,3 +1,11 @@
+export type Author = {
+  name: string;
+  role: string;
+  bio: string;
+  avatar: string;
+  linkedin?: string;
+};
+
 export type Post = {
   slug: string;
   title: string;
@@ -5,10 +13,62 @@ export type Post = {
   category: string;
   date: string;
   readTime: string;
+  author: Author;
   content: { heading: string; body: string }[];
 };
 
+export const authors: Record<string, Author> = {
+  shubham: {
+    name: 'Shubham Kushwaha',
+    role: 'Founder & CEO',
+    bio: 'Full-stack developer and entrepreneur with 8+ years building web and mobile products. Leads Laksya Groups\' technology and strategy divisions.',
+    avatar: '/team.jpg',
+    linkedin: 'https://linkedin.com/in/shubhamkushwaha',
+  },
+  team: {
+    name: 'Laksya Groups Team',
+    role: 'Content Team',
+    bio: 'The collective insights from our engineering, consulting, and operations teams across 50+ countries.',
+    avatar: '/laksya-logo.png',
+  },
+};
+
 export const posts: Post[] = [
+  {
+    slug: 'our-stack-why-nextjs-supabase-tailwind',
+    title: 'Our Tech Stack: Why We Use Next.js, Supabase, and Tailwind for Every Client Project',
+    excerpt: 'After building 30+ projects, we settled on a stack that balances speed, cost, and maintainability. Here is exactly why we chose each tool and when we break our own rules.',
+    category: 'Web Development',
+    date: '2026-08-20',
+    readTime: '6 min read',
+    author: authors.shubham,
+    content: [
+      {
+        heading: 'The problem with picking tools',
+        body: 'Every developer loves trying new frameworks. Every client just wants something that works, loads fast, and does not cost a fortune to maintain. After 8 years of building websites and apps for businesses in Bengaluru and beyond, we stopped chasing the latest JavaScript framework and settled on a stack that serves 90% of our clients perfectly. Here is what we use and why.',
+      },
+      {
+        heading: 'Next.js: Fast sites without the headaches',
+        body: 'We switched to Next.js in 2024 after hitting limits with plain React and WordPress. The server-side rendering means pages load fast on first visit, which matters for SEO. The App Router gave us clean file-based routing. Static generation handles marketing pages without a database. For most business websites, Next.js hits the sweet spot between power and simplicity. Our average Lighthouse score across client sites went from 62 to 94 after migration.',
+      },
+      {
+        heading: 'Supabase: Database without the DevOps',
+        body: 'Before Supabase, we were managing PostgreSQL servers, writing migration scripts, and debugging connection pooling. Supabase gave us a hosted Postgres database with auth, real-time subscriptions, and row-level security out of the box. For our client portal and admin dashboards, this cut backend development time by roughly 40%. The free tier handles most small-to-medium traffic, and the paid plan at $25/month is cheaper than a single developer hour.',
+      },
+      {
+        heading: 'Tailwind CSS: Ship UIs that look good',
+        body: 'We used to spend days writing custom CSS for every project. Tailwind changed that. Utility-first CSS means we build consistent, responsive interfaces without leaving the HTML. Combined with shadcn/ui components, we can ship a polished dashboard in days instead of weeks. The learning curve is real, but once your team gets it, development speed doubles.',
+      },
+      {
+        heading: 'When we break our own rules',
+        body: 'This stack is not universal. For a 5-page brochure site, we use plain HTML and Tailwind — no Next.js needed. For WordPress-heavy content sites, we still recommend WordPress. For mobile apps that need deep OS integration, we go native. The right tool is the one your team can maintain, not the one with the most GitHub stars.',
+      },
+      {
+        heading: 'The cost advantage for clients',
+        body: 'Because this stack is open-source and widely adopted, hiring developers is cheaper, documentation is abundant, and community support is strong. Our clients pay less for maintenance because the tools are battle-tested and well-documented. A WordPress site with 20 plugins costs more in yearly updates than a clean Next.js build that just works.',
+      },
+    ],
+  },
   {
     slug: 'choosing-web-development-partner',
     title: 'How to Choose the Right Web Development Partner in India',
@@ -16,6 +76,7 @@ export const posts: Post[] = [
     category: 'Web Development',
     date: '2026-08-10',
     readTime: '4 min read',
+    author: authors.shubham,
     content: [
       {
         heading: 'Start with the problem, not the stack',
@@ -42,6 +103,7 @@ export const posts: Post[] = [
     category: 'App Development',
     date: '2026-08-05',
     readTime: '4 min read',
+    author: authors.shubham,
     content: [
       {
         heading: 'When a web app wins',
@@ -68,6 +130,7 @@ export const posts: Post[] = [
     category: 'Business',
     date: '2026-07-28',
     readTime: '3 min read',
+    author: authors.shubham,
     content: [
       {
         heading: 'The hidden cost of vendor sprawl',
@@ -84,6 +147,72 @@ export const posts: Post[] = [
       {
         heading: 'How to consolidate without losing quality',
         body: 'Consolidation works when the partner is genuinely multi-disciplinary, not a jack-of-all-trades with one real specialty. Check that each service line has its own expertise, separate contracts, and clear service levels. Start with one service, prove the relationship, then expand. A real multi-service group earns each additional contract.',
+      },
+    ],
+  },
+  {
+    slug: 'why-nextjs-for-business-websites-2026',
+    title: 'Why We Recommend Next.js for Business Websites in 2026 (And When We Dont)',
+    excerpt: 'After building 30+ websites on Next.js, here is what we have learned about when it works brilliantly and when you should pick something simpler.',
+    category: 'Web Development',
+    date: '2026-08-18',
+    readTime: '5 min read',
+    author: authors.shubham,
+    content: [
+      {
+        heading: 'Why Next.js became our default',
+        body: 'We migrated to Next.js as our primary framework in 2024 after hitting limits with create-react-app and plain WordPress builds. The server-side rendering meant our clients websites loaded fast on first paint, the static generation handled marketing pages without a database, and the App Router gave us clean file-based routing. For a business that needs a fast, SEO-friendly website, Next.js hits the sweet spot between power and simplicity.',
+      },
+      {
+        heading: 'When Next.js is overkill',
+        body: 'We have talked clients out of Next.js when all they needed was a 5-page brochure site. If you do not need dynamic routing, API routes, or server rendering, a simpler static site generator like Astro or even plain HTML with Tailwind will be faster to build, cheaper to host, and easier to maintain. We built our travels portal as a static site for exactly this reason.',
+      },
+      {
+        heading: 'The performance numbers that matter',
+        body: 'We tracked Core Web Vitals across our client sites after migrating to Next.js. Average LCP dropped from 3.8s to 1.2s. First Input Delay went from 180ms to 40ms. These are not vanity metrics - Google uses them directly in ranking, and users bounce after 3 seconds of waiting. The migration paid for itself in organic traffic within 6 months for most clients.',
+      },
+      {
+        heading: 'Our honest recommendation',
+        body: 'Use Next.js if you need SEO performance, dynamic content, or a React-based team. Use something simpler if you just need a fast static site. Use WordPress if you need a non-technical team to manage content daily. The right tool is the one your team can actually maintain, not the one with the most GitHub stars.',
+      },
+    ],
+  },
+  {
+    slug: 'common-mistakes-small-business-websites',
+    title: '7 Website Mistakes We See Small Businesses Make (And How to Fix Them)',
+    excerpt: 'After auditing 100+ small business websites, these are the same problems that keep showing up. Most are fixable in a weekend.',
+    category: 'Business',
+    date: '2026-08-14',
+    readTime: '6 min read',
+    author: authors.shubham,
+    content: [
+      {
+        heading: '1. No clear call to action on the homepage',
+        body: 'The most common mistake we see: a beautiful homepage that never tells the visitor what to do next. Every page needs one primary action - call us, fill the form, book a demo, buy now. If visitors have to guess what you want them to do, most will just leave. We add a single prominent CTA above the fold on every client homepage.',
+      },
+      {
+        heading: '2. Slow mobile experience',
+        body: 'Over 60% of web traffic is mobile. If your site takes more than 3 seconds to load on a phone, you are losing more than half your visitors. We run every client site through Google PageSpeed before launch and do not ship until mobile scores above 85. Common fixes: compress images, lazy load below-fold content, remove unused JavaScript.',
+      },
+      {
+        heading: '3. Missing or incomplete Google Business Profile',
+        body: 'Your Google Business Profile is often the first thing customers see. Yet half the small businesses we audit have no profile, or an incomplete one with no photos, no hours, and no reviews. Setting up a complete profile with photos, accurate hours, and a link to your website takes 30 minutes and directly impacts local search visibility.',
+      },
+      {
+        heading: '4. No contact information above the fold',
+        body: 'If someone is ready to buy and cannot find your phone number or email in 2 seconds, they will go to a competitor. We put phone, email, and address in the header of every site we build. It sounds obvious, but you would be surprised how many sites bury contact info three clicks deep.',
+      },
+      {
+        heading: '5. Using stock photos everywhere',
+        body: 'Generic stock photos scream I do not care enough to show you real work. Even a few photos of your actual office, team, or products build more trust than any stock image. We encourage clients to take 10-15 photos with their phone - imperfect real photos outperform perfect fake ones every time.',
+      },
+      {
+        heading: '6. No blog or resources section',
+        body: 'A blog is not optional for SEO. It is how Google learns what you know and what you offer. You do not need to post daily - one thoughtful article per month about your industry, answering real customer questions, is enough to build organic traffic over 6-12 months. This article you are reading is doing exactly that for us.',
+      },
+      {
+        heading: '7. Not tracking anything',
+        body: 'If you do not have Google Analytics and Search Console set up, you are flying blind. These free tools tell you which pages get traffic, what people search to find you, and where they drop off. We set up analytics for every client as part of launch. Data without action is useless, but action without data is just guessing.',
       },
     ],
   },

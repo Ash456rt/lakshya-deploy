@@ -38,6 +38,14 @@ export default function BlogPage() {
                   {post.date} · {post.readTime}
                 </span>
               </div>
+              <div className="flex items-center gap-3 mb-4">
+                <img
+                  src={post.author.avatar}
+                  alt={post.author.name}
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+                <span className="text-sm text-neutral-400">{post.author.name}</span>
+              </div>
               <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
                 {post.title}
               </h2>
