@@ -68,13 +68,13 @@ export function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-green-400 bg-green-500/10 border border-green-500/20 rounded-full">
+          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
             Client Stories
           </span>
-          <h2 id="testimonials-heading" className="text-3xl md:text-5xl font-black mb-4">
+          <h2 id="testimonials-heading" className="heading-section mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl mx-auto">
             Real feedback from businesses we have helped grow. These are actual
             results, not marketing copy.
           </p>
@@ -87,10 +87,10 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + index * 0.15, duration: 0.5 }}
-              className="rounded-2xl bg-white/5 border border-white/10 p-8 hover:border-blue-500/30 transition-all duration-300"
+              className="card p-8"
             >
               <StarRating count={t.rating} />
-              <p className="text-neutral-300 leading-relaxed mb-6 italic">
+              <p className="text-zinc-300 leading-relaxed mb-6">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="flex items-center gap-4">

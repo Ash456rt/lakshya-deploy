@@ -19,13 +19,13 @@ export function BlogPreview() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-orange-400 bg-orange-500/10 border border-orange-500/20 rounded-full">
+          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
             From Our Blog
           </span>
-          <h2 id="blog-heading" className="text-3xl md:text-5xl font-black mb-4">
+          <h2 id="blog-heading" className="heading-section mb-4">
             Insights & Guides
           </h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl mx-auto">
             Practical advice from our team on technology, business, and building
             things that actually work.
           </p>
@@ -41,18 +41,18 @@ export function BlogPreview() {
             >
               <Link
                 href={`/blog/${post.slug}`}
-                className="group block h-full rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-blue-500/40 hover:bg-white/10 transition-all duration-300"
+                className="group block h-full card p-6"
               >
                 <div className="flex items-center gap-3 mb-3 text-sm">
-                  <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                  <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-medium">
                     {post.category}
                   </span>
                   <span className="text-neutral-500">{post.readTime}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-amber-400 transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                   {post.excerpt}
                 </p>
                 <div className="flex items-center gap-3 mt-auto">

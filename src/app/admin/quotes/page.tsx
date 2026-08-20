@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 const STATUSES = ["pending", "quoted", "accepted", "declined"];
 
 const inputClasses =
-  "rounded-lg bg-neutral-900/80 border border-neutral-700 px-3 py-2 text-sm text-white outline-none focus:border-blue-500";
+  "rounded-lg bg-neutral-900/80 border border-neutral-700 px-3 py-2 text-sm text-white outline-none focus:border-amber-500";
 
 export default async function AdminQuotes() {
   const admin = createAdminClient();

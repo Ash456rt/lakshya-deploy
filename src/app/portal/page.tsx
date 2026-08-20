@@ -78,7 +78,7 @@ export default async function PortalOverview() {
             <h2 className="font-semibold">Recent projects</h2>
             <Link
               href="/portal/projects"
-              className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+              className="text-sm text-amber-400 hover:text-amber-300 transition-colors"
             >
               View all
             </Link>
@@ -93,7 +93,7 @@ export default async function PortalOverview() {
                   </div>
                   <div className="mt-2 h-1.5 rounded-full bg-neutral-800 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-500"
+                      className="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400"
                       style={{ width: `${p.progress}%` }}
                     />
                   </div>
@@ -104,7 +104,7 @@ export default async function PortalOverview() {
           ) : (
             <p className="text-sm text-neutral-500">
               No projects yet.{" "}
-              <Link href="/portal/quote" className="text-blue-400 hover:text-blue-300">
+              <Link href="/portal/quote" className="text-amber-400 hover:text-amber-300">
                 Request a quote
               </Link>{" "}
               to get started.
@@ -118,7 +118,7 @@ export default async function PortalOverview() {
             <h2 className="font-semibold">Recent quote requests</h2>
             <Link
               href="/portal/quote"
-              className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+              className="text-sm text-amber-400 hover:text-amber-300 transition-colors"
             >
               View all
             </Link>

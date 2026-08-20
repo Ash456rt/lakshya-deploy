@@ -26,7 +26,7 @@ export function PortalNav({ isAdmin }: { isAdmin?: boolean }) {
             className={cn(
               "whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-medium transition-colors",
               active
-                ? "bg-blue-600/20 text-blue-300 ring-1 ring-blue-500/30"
+                ? "bg-amber-600/20 text-amber-300 ring-1 ring-amber-500/30"
                 : "text-neutral-400 hover:bg-white/5 hover:text-white"
             )}
           >

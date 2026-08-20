@@ -98,10 +98,10 @@ export function Footer() {
                 className="h-14 w-auto object-contain"
               />
             </motion.a>
-            <p className="text-neutral-400 text-sm mb-4">
+            <p              className="text-zinc-400 text-sm mb-4">
               Empowering businesses with innovative solutions across the globe.
             </p>
-            <div className="space-y-2 text-sm text-neutral-400 mb-6">
+            <div className="space-y-2 text-sm text-zinc-400 mb-6">
               <a
                 href="mailto:admin@lakshyagroups.in"
                 className="flex items-center gap-2 hover:text-white transition-colors"
@@ -128,7 +128,7 @@ export function Footer() {
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 hover:bg-blue-600 hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-white/[0.06] flex items-center justify-center text-white/70 hover:bg-amber-600 hover:text-white transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label={social.label}
@@ -148,7 +148,7 @@ export function Footer() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-neutral-400 text-sm hover:text-white transition-colors"
+                      className="text-zinc-400 text-sm hover:text-white transition-colors"
                     >
                       {link.name}
                     </a>
@@ -161,19 +161,19 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-neutral-500 text-sm">
+          <p className="text-zinc-500 text-sm">
             © {new Date().getFullYear()} Laksya Groups. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a
               href="/privacy"
-              className="text-neutral-500 text-sm hover:text-white transition-colors"
+              className="text-zinc-500 text-sm hover:text-white transition-colors"
             >
               Privacy
             </a>
             <a
               href="/terms"
-              className="text-neutral-500 text-sm hover:text-white transition-colors"
+              className="text-zinc-500 text-sm hover:text-white transition-colors"
             >
               Terms
             </a>

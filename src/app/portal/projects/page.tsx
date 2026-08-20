@@ -46,7 +46,7 @@ export default async function ProjectsPage() {
                 </div>
                 <div className="h-2 rounded-full bg-neutral-800 overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-500 transition-all"
+                    className="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all"
                     style={{ width: `${p.progress}%` }}
                   />
                 </div>
@@ -62,7 +62,7 @@ export default async function ProjectsPage() {
           <p className="text-neutral-400">No projects assigned yet.</p>
           <Link
             href="/portal/quote"
-            className="inline-block mt-4 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white text-sm font-semibold px-6 py-3 transition"
+            className="inline-block mt-4 rounded-lg bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-500 hover:to-amber-400 text-white text-sm font-semibold px-6 py-3 transition"
           >
             Request a quote
           </Link>

@@ -67,7 +67,7 @@ export function Services() {
     <section id="services" aria-labelledby="services-heading" className="relative py-32 bg-neutral-950 overflow-hidden">
       <Spotlight
         className="absolute inset-0 pointer-events-none"
-        spotlightColor="rgba(59, 130, 246, 0.1)"
+        spotlightColor="rgba(245, 158, 11, 0.08)"
         spotlightSize={800}
       />
 
@@ -79,7 +79,7 @@ export function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded-full">
+          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
             Our Services
           </span>
           
@@ -91,7 +91,7 @@ export function Services() {
               particleSize={2.2}
               density={4}
               color="#ffffff"
-              highlightColor="#8b5cf6"
+              highlightColor="#f59e0b"
               scatter={160}
               gatherDuration={1700}
               stagger={380}
@@ -105,7 +105,7 @@ export function Services() {
             />
           </div>
           
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl mx-auto">
             From technology to logistics, we offer end-to-end services designed
             to accelerate your business growth. Scroll or drag to explore.
           </p>
@@ -138,19 +138,18 @@ export function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
             >
-              <div className="relative group overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm p-6 h-full hover:border-blue-500/50 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="card p-6 h-full group">
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-amber-400 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed">
+                  <p className="text-zinc-400 text-sm leading-relaxed">
                     {service.description}
                   </p>
                   {service.href ? (
                     <a
                       href={service.href}
-                      className="mt-4 flex items-center gap-2 text-sm font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="mt-4 flex items-center gap-2 text-sm font-medium text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity"
                     >
                       Learn more
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,7 +158,7 @@ export function Services() {
                     </a>
                   ) : (
                     <motion.div
-                      className="mt-4 flex items-center gap-2 text-sm font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="mt-4 flex items-center gap-2 text-sm font-medium text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity"
                       whileHover={{ x: 5 }}
                     >
                       Learn more

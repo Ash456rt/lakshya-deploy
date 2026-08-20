@@ -97,11 +97,11 @@ export default function AboutPage() {
         </nav>
 
         <div className="text-center mb-20">
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
+          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
             About Laksya Groups
           </span>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            One Partner. <span className="text-blue-500">Seven Services.</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            One Partner. <span className="text-amber-400">Seven Services.</span>
             <br />
             Zero Drama.
           </h1>
@@ -114,7 +114,7 @@ export default function AboutPage() {
 
         <div className="grid md:grid-cols-2 gap-8 mb-20">
           <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-10">
-            <h2 className="text-2xl font-bold mb-4 text-blue-400">Our Mission</h2>
+            <h2 className="text-2xl font-bold mb-4 text-amber-400">Our Mission</h2>
             <p className="text-neutral-300 leading-relaxed">
               To empower businesses - from startups to enterprises - with
               cutting-edge technology, strategic consulting, and global
@@ -122,7 +122,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-10">
-            <h2 className="text-2xl font-bold mb-4 text-blue-400">Our Vision</h2>
+            <h2 className="text-2xl font-bold mb-4 text-amber-400">Our Vision</h2>
             <p className="text-neutral-300 leading-relaxed">
               A world where every growing business has one trusted partner for
               everything it needs to scale - technology, trade, support, and
@@ -132,14 +132,14 @@ export default function AboutPage() {
         </div>
 
         <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-black mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
             What We Do
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl bg-white/5 border border-white/10 p-8 hover:border-blue-500/40 hover:bg-white/10 transition-all duration-300"
+                className="rounded-2xl bg-white/5 border border-white/10 p-8 hover:border-amber-500/40 hover:bg-white/10 transition-all duration-300"
               >
                 <div className="text-3xl mb-4">{service.icon}</div>
                 <h3 className="text-lg font-bold mb-2">{service.title}</h3>
@@ -157,7 +157,7 @@ export default function AboutPage() {
               key={stat.label}
               className="rounded-2xl bg-white/5 border border-white/10 p-8 text-center"
             >
-              <div className="text-3xl md:text-4xl font-black text-blue-500 mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">
                 {stat.value}
               </div>
               <div className="text-sm text-neutral-400">{stat.label}</div>
@@ -166,7 +166,7 @@ export default function AboutPage() {
         </div>
 
         <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-black mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
             Why Businesses Choose Us
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -175,7 +175,7 @@ export default function AboutPage() {
                 key={value.title}
                 className="rounded-2xl bg-white/5 border border-white/10 p-8"
               >
-                <h3 className="text-lg font-bold mb-2 text-blue-400">
+                <h3 className="text-lg font-bold mb-2 text-amber-400">
                   {value.title}
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
@@ -186,8 +186,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-black mb-4">
+        <div className="rounded-2xl bg-gradient-to-br from-amber-600/20 to-amber-600/20 border border-amber-500/30 p-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Let&apos;s build something together
           </h2>
           <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
@@ -197,7 +197,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/#contact"
-              className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors"
+              className="px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors"
             >
               Get in Touch
             </Link>

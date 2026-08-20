@@ -61,10 +61,10 @@ export default function BlogPage() {
           </ol>
         </nav>
 
-        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
+        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
           Insights &amp; Ideas
         </span>
-        <h1 className="text-4xl md:text-5xl font-black mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
           The Laksya Groups Blog
         </h1>
         <p className="text-lg text-neutral-400 max-w-2xl mb-14">
@@ -77,10 +77,10 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={'/blog/' + post.slug}
-              className="group rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-8 hover:border-blue-500/40 hover:bg-white/10 transition-all duration-300 flex flex-col"
+              className="group rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-8 hover:border-amber-500/40 hover:bg-white/10 transition-all duration-300 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4 text-sm">
-                <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                   {post.category}
                 </span>
                 <time dateTime={post.date} className="text-neutral-500">
@@ -98,13 +98,13 @@ export default function BlogPage() {
                 />
                 <span className="text-sm text-neutral-400">{post.author.name}</span>
               </div>
-              <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+              <h2 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">
                 {post.title}
               </h2>
               <p className="text-neutral-400 text-sm leading-relaxed mb-6 flex-1">
                 {post.excerpt}
               </p>
-              <span className="inline-flex items-center gap-2 text-blue-400 text-sm font-medium">
+              <span className="inline-flex items-center gap-2 text-amber-400 text-sm font-medium">
                 Read article
                 <span className="group-hover:translate-x-1 transition-transform">
                   &rarr;

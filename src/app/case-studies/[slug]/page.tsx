@@ -141,7 +141,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </Link>
 
         <div className="flex items-center gap-3 mb-6 text-sm">
-          <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+          <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
             {study.industry}
           </span>
           <time dateTime={study.date} className="text-neutral-500">
@@ -149,7 +149,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </time>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-black leading-tight mb-8">
+        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-8">
           {study.title}
         </h1>
 
@@ -160,7 +160,7 @@ export default async function CaseStudyPage({ params }: Props) {
               key={r.metric}
               className="rounded-2xl bg-white/5 border border-white/10 p-6 text-center"
             >
-              <p className="text-xl md:text-2xl font-black text-blue-400 mb-1">
+              <p className="text-xl md:text-2xl font-bold text-amber-400 mb-1">
                 {r.value}
               </p>
               <p className="text-xs text-neutral-500">{r.metric}</p>
@@ -173,7 +173,7 @@ export default async function CaseStudyPage({ params }: Props) {
           {study.services.map((s) => (
             <span
               key={s}
-              className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 text-sm"
+              className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-sm"
             >
               {s}
             </span>
@@ -182,7 +182,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
         {/* Challenge */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-400">
+          <h2 className="text-2xl font-bold mb-4 text-amber-400">
             The Challenge
           </h2>
           <p className="text-neutral-300 leading-relaxed text-lg">
@@ -192,7 +192,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
         {/* Solution */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-400">
+          <h2 className="text-2xl font-bold mb-4 text-amber-400">
             Our Solution
           </h2>
           <p className="text-neutral-300 leading-relaxed text-lg">
@@ -202,7 +202,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
         {/* Results */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-400">Results</h2>
+          <h2 className="text-2xl font-bold mb-4 text-amber-400">Results</h2>
           <div className="space-y-4">
             {study.results.map((r) => (
               <div
@@ -212,7 +212,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 <div className="w-2 h-2 rounded-full bg-green-400 shrink-0" />
                 <div>
                   <span className="font-semibold text-white">{r.metric}: </span>
-                  <span className="text-green-400 font-bold">{r.value}</span>
+                  <span className="text-amber-400 font-bold">{r.value}</span>
                 </div>
               </div>
             ))}
@@ -220,8 +220,8 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
 
         {/* CTA */}
-        <div className="rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-black mb-4">
+        <div className="rounded-2xl bg-gradient-to-br from-amber-600/20 to-amber-600/20 border border-amber-500/30 p-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Want results like these?
           </h2>
           <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
@@ -229,7 +229,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </p>
           <Link
             href="/#contact"
-            className="inline-block px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors"
+            className="inline-block px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors"
           >
             Get a Free Consultation
           </Link>

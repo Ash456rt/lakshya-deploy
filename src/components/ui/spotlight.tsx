@@ -11,7 +11,7 @@ interface SpotlightProps {
 
 export function Spotlight({
   className,
-  spotlightColor = "rgba(120, 119, 198, 0.15)",
+  spotlightColor = "rgba(245, 158, 11, 0.10)",
   spotlightSize = 400,
   children,
 }: SpotlightProps) {
@@ -35,7 +35,7 @@ export function Spotlight({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800",
+        "relative overflow-hidden rounded-xl border border-white/[0.06]",
         className
       )}
     >

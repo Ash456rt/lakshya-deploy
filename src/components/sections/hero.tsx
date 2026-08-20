@@ -35,12 +35,12 @@ const HYPERSPEED_OPTIONS = {
   colors: {
     roadColor: 0x080808,
     islandColor: 0x0a0a0a,
-    background: 0x000000,
-    shoulderLines: 0xffffff,
-    brokenLines: 0xffffff,
-    leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-    rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-    sticks: 0x03b3c3,
+    background: 0x030712,
+    shoulderLines: 0x333333,
+    brokenLines: 0x222222,
+    leftCars: [0xd97706, 0xb45309, 0xf59e0b],
+    rightCars: [0x92400e, 0x78350f, 0x451a03],
+    sticks: 0xd97706,
   },
 };
 
@@ -59,7 +59,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <Hyperspeed effectOptions={HYPERSPEED_OPTIONS} />
         {/* overlay to keep the hero text readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/30 to-neutral-950/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-neutral-950/40 to-neutral-950/90 pointer-events-none" />
       </div>
 
       <motion.div
@@ -68,7 +68,7 @@ export function Hero() {
       >
         <Spotlight
           className="absolute inset-0 pointer-events-none"
-          spotlightColor="rgba(59, 130, 246, 0.15)"
+          spotlightColor="rgba(245, 158, 11, 0.10)"
           spotlightSize={600}
         />
 
@@ -78,7 +78,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm"
+            className="inline-block px-4 py-2 mb-6 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
@@ -90,11 +90,11 @@ export function Hero() {
         <TextGenerateEffect
           as="h1"
           words="Innovating Tomorrow, Delivering Excellence Today"
-          className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight"
         />
 
         <motion.p
-          className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto mb-10 backdrop-blur-sm bg-neutral-950/30 p-4 rounded-2xl"
+          className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
@@ -110,7 +110,7 @@ export function Hero() {
           transition={{ delay: 0.8 }}
         >
           <MagneticButton>Explore Services</MagneticButton>
-          <MagneticButton className="!bg-transparent !border-2 !border-white/20 hover:!bg-white/10">
+          <MagneticButton className="!bg-transparent !border !border-white/20 hover:!bg-white/5">
             Contact Us
           </MagneticButton>
         </motion.div>

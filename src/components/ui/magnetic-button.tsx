@@ -37,7 +37,7 @@ export function MagneticButton({
       ref={ref}
       type={type}
       className={cn(
-        "relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full overflow-hidden transition-shadow hover:shadow-lg hover:shadow-blue-500/25",
+        "relative inline-flex items-center justify-center px-8 py-4 font-medium text-sm text-white bg-amber-600 rounded-full overflow-hidden transition-all hover:bg-amber-500 hover:shadow-lg hover:shadow-amber-500/25",
         className
       )}
       animate={{ x: position.x, y: position.y }}
@@ -46,11 +46,7 @@ export function MagneticButton({
       onMouseLeave={reset}
     >
       <span className="relative z-10">{children}</span>
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0"
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      />
+
     </motion.button>
   );
 }

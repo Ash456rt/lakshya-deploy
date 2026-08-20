@@ -52,17 +52,17 @@ export default function PrivacyPage() {
           </ol>
         </nav>
 
-        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
+        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
           Legal
         </span>
-        <h1 className="text-4xl md:text-5xl font-black mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Privacy Policy
         </h1>
         <p className="text-neutral-500 mb-12">Last updated: August 20, 2026</p>
 
         <div className="space-y-8 text-neutral-300 leading-relaxed">
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               1. Information We Collect
             </h2>
             <p>We collect information you provide directly to us:</p>
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               2. How We Use Your Information
             </h2>
             <ul className="list-disc list-inside space-y-2 ml-4">
@@ -101,7 +101,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               3. Information Sharing
             </h2>
             <p>
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               4. Data Security
             </h2>
             <p>
@@ -135,7 +135,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               5. Cookies and Analytics
             </h2>
             <p>
@@ -147,7 +147,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               6. Your Rights
             </h2>
             <ul className="list-disc list-inside space-y-2 ml-4">
@@ -171,7 +171,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               7. Data Retention
             </h2>
             <p>
@@ -183,7 +183,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               8. Changes to This Policy
             </h2>
             <p>
@@ -194,21 +194,21 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-blue-400 mb-3">
+            <h2 className="text-2xl font-bold text-amber-400 mb-3">
               9. Contact Us
             </h2>
             <p>
               For questions about this privacy policy, contact us at{" "}
               <a
                 href="mailto:admin@lakshyagroups.in"
-                className="text-blue-400 hover:text-blue-300"
+                className="text-amber-400 hover:text-amber-300"
               >
                 admin@lakshyagroups.in
               </a>{" "}
               or call{" "}
               <a
                 href="tel:+919902841875"
-                className="text-blue-400 hover:text-blue-300"
+                className="text-amber-400 hover:text-amber-300"
               >
                 +91 99028 41875
               </a>
@@ -226,7 +226,7 @@ export default function PrivacyPage() {
           </Link>
           <Link
             href="/"
-            className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors text-center"
+            className="px-6 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors text-center"
           >
             Back to Home
           </Link>

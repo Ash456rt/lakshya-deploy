@@ -6,9 +6,9 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import ParticleText from "@/components/ui/particle-text";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects Completed", color: "#3b82f6" },
-  { value: 50, suffix: "+", label: "Countries Served", color: "#8b5cf6" },
-  { value: 10000, suffix: "+", label: "Happy Clients", color: "#10b981" },
+  { value: 500, suffix: "+", label: "Projects Completed", color: "#f59e0b" },
+  { value: 50, suffix: "+", label: "Countries Served", color: "#f59e0b" },
+  { value: 10000, suffix: "+", label: "Happy Clients", color: "#f59e0b" },
   { value: 15, suffix: "+", label: "Years Experience", color: "#f59e0b" },
 ];
 
@@ -23,13 +23,13 @@ export function Stats() {
       {/* Animated gradient background */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10"
+          className="absolute inset-0 bg-gradient-to-r from-amber-500/[0.06] via-amber-500/[0.03] to-amber-500/[0.06]"
           animate={{
             background: [
-              "linear-gradient(0deg, rgba(59,130,246,0.1), rgba(147,51,234,0.1), rgba(59,130,246,0.1))",
-              "linear-gradient(120deg, rgba(59,130,246,0.1), rgba(147,51,234,0.1), rgba(59,130,246,0.1))",
-              "linear-gradient(240deg, rgba(59,130,246,0.1), rgba(147,51,234,0.1), rgba(59,130,246,0.1))",
-              "linear-gradient(360deg, rgba(59,130,246,0.1), rgba(147,51,234,0.1), rgba(59,130,246,0.1))",
+              "linear-gradient(0deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
+              "linear-gradient(120deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
+              "linear-gradient(240deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
+              "linear-gradient(360deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
             ],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
@@ -45,7 +45,7 @@ export function Stats() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-green-400 bg-green-500/10 border border-green-500/20 rounded-full">
+          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
             Our Impact
           </span>
           <h2 id="stats-heading" className="sr-only">Our Numbers</h2>
@@ -55,7 +55,7 @@ export function Stats() {
               particleSize={2.5}
               density={4}
               color="#ffffff"
-              highlightColor="#10b981"
+              highlightColor="#f59e0b"
               scatter={150}
               gatherDuration={1800}
               stagger={350}
@@ -80,7 +80,7 @@ export function Stats() {
               transition={{ delay: index * 0.15, duration: 0.5 }}
             >
               <motion.div
-                className="inline-block p-6 rounded-3xl bg-white/5 border border-white/10 mb-4 relative overflow-hidden group"
+                className="inline-block p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] mb-4 relative overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
@@ -93,11 +93,11 @@ export function Stats() {
                   <AnimatedCounter
                     value={stat.value}
                     suffix={stat.suffix}
-                    className="text-4xl md:text-5xl font-black text-white"
+                    className="text-4xl md:text-5xl font-bold text-white"
                   />
                 </div>
               </motion.div>
-              <p className="text-neutral-400 font-medium">{stat.label}</p>
+              <p className="text-zinc-400 font-medium text-sm">{stat.label}</p>
             </motion.div>
           ))}
         </div>

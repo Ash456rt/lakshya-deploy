@@ -61,10 +61,10 @@ export default function CaseStudiesPage() {
           </ol>
         </nav>
 
-        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-green-400 bg-green-500/10 border border-green-500/20 rounded-full">
+        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-green-500/10 border border-green-500/20 rounded-full">
           Real Results
         </span>
-        <h1 className="text-4xl md:text-5xl font-black mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Case Studies
         </h1>
         <p className="text-lg text-neutral-400 max-w-2xl mb-14">
@@ -77,7 +77,7 @@ export default function CaseStudiesPage() {
             <Link
               key={study.slug}
               href={`/case-studies/${study.slug}`}
-              className="group block rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-blue-500/40 transition-all duration-300"
+              className="group block rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-amber-500/40 transition-all duration-300"
             >
               <div className="grid md:grid-cols-3 gap-0">
                 <div className="relative h-48 md:h-auto">
@@ -91,12 +91,12 @@ export default function CaseStudiesPage() {
                 </div>
                 <div className="md:col-span-2 p-8">
                   <div className="flex items-center gap-3 mb-3 text-sm">
-                    <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                       {study.industry}
                     </span>
                     <span className="text-neutral-500">{study.client}</span>
                   </div>
-                  <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+                  <h2 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">
                     {study.title}
                   </h2>
                   <p className="text-neutral-400 text-sm leading-relaxed mb-6">
@@ -105,14 +105,14 @@ export default function CaseStudiesPage() {
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {study.results.map((r) => (
                       <div key={r.metric}>
-                        <p className="text-lg font-bold text-blue-400">
+                        <p className="text-lg font-bold text-amber-400">
                           {r.value}
                         </p>
                         <p className="text-xs text-neutral-500">{r.metric}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="flex items-center gap-2 mt-6 text-sm font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center gap-2 mt-6 text-sm font-medium text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">
                     Read full case study
                     <span className="group-hover:translate-x-1 transition-transform">
                       →

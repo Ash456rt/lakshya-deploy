@@ -12,12 +12,12 @@ interface GlowCardProps {
 export function GlowCard({
   children,
   className,
-  glowColor = "rgba(59, 130, 246, 0.5)",
+  glowColor = "rgba(245, 158, 11, 0.2)",
 }: GlowCardProps) {
   return (
     <motion.div
       className={cn(
-        "relative group rounded-2xl bg-white dark:bg-neutral-900 p-6 overflow-hidden",
+        "relative group rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6 overflow-hidden",
         className
       )}
       whileHover={{ scale: 1.02 }}

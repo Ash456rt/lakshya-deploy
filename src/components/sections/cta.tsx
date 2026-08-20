@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 import RippleDistortion from "@/components/ui/ripple-distortion";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { MagneticButton } from "@/components/ui/magnetic-button";
-import { ParticleField } from "@/components/ui/particle-field";
 
 export function CTA() {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,8 +22,8 @@ export function CTA() {
           spread={5}
           fade={3.5}
           spacing={18}
-          tint="#8b5cf6"
-          tintAmount={0.2}
+          tint="#f59e0b"
+          tintAmount={0.15}
           grayscale={true}
           trigger="hover"
           quality="low"
@@ -33,12 +32,11 @@ export function CTA() {
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/50 to-neutral-950/70 pointer-events-none" />
       </div>
       
-      <BackgroundBeams className="opacity-15" />
-      <ParticleField className="opacity-20" particleCount={30} />
+      <BackgroundBeams className="opacity-10" />
 
-      {/* Animated gradient orbs */}
+      {/* Subtle gradient orb */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/[0.06] rounded-full blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.5, 0.8, 0.5],
@@ -54,7 +52,7 @@ export function CTA() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm"
+            className="inline-block px-4 py-2 mb-6 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -62,14 +60,14 @@ export function CTA() {
             Ready to Transform?
           </motion.span>
 
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
+          <h2 className="heading-section md:text-5xl text-white mb-6">
             Let's Build Something{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="text-amber-400">
               Amazing Together
             </span>
           </h2>
 
-          <p className="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto backdrop-blur-sm bg-neutral-950/30 p-4 rounded-2xl">
+          <p className="text-body-lg mb-10 max-w-2xl mx-auto">
             Join 10,000+ businesses that have already transformed their operations
             with Laksya Groups. Your success story starts here.
           </p>
@@ -80,10 +78,10 @@ export function CTA() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <MagneticButton className="!bg-gradient-to-r !from-blue-600 !to-purple-600 !text-lg !px-10 !py-5">
+            <MagneticButton className="!bg-amber-600 hover:!bg-amber-500 !text-lg !px-10 !py-5">
               Start Your Journey
             </MagneticButton>
-            <MagneticButton className="!bg-transparent !border-2 !border-white/20 hover:!bg-white/10 !text-lg !px-10 !py-5">
+            <MagneticButton className="!bg-transparent !border !border-white/20 hover:!bg-white/5 !text-lg !px-10 !py-5">
               Schedule a Call
             </MagneticButton>
           </motion.div>

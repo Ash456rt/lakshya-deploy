@@ -8,19 +8,32 @@ import { submitContact } from "@/app/actions/contact";
 
 const contactMethods = [
   {
-    icon: "📧",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+      </svg>
+    ),
     title: "Email Us",
     description: "admin@lakshyagroups.in",
     link: "mailto:admin@lakshyagroups.in",
   },
   {
-    icon: "📞",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+      </svg>
+    ),
     title: "Call Us",
     description: "+91 99028 41875",
     link: "tel:+919902841875",
   },
   {
-    icon: "📍",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </svg>
+    ),
     title: "Visit Us",
     description:
       "36/2, Beml Layout, Margondanahalli, Bengaluru, Karnataka 560036, India",
@@ -74,14 +87,14 @@ export function Contact() {
     <section id="contact" aria-labelledby="contact-heading" className="relative py-32 bg-neutral-950 overflow-hidden">
       <Spotlight
         className="absolute inset-0 pointer-events-none"
-        spotlightColor="rgba(147, 51, 234, 0.1)"
+        spotlightColor="rgba(245, 158, 11, 0.08)"
         spotlightSize={600}
       />
 
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-0 right-0 w-1/2 h-1/2 bg-purple-500/10 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-1/2 h-1/2 bg-amber-500/[0.06] rounded-full blur-3xl"
           animate={{
             x: [0, 50, 0],
             y: [0, 30, 0],
@@ -98,16 +111,16 @@ export function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-pink-400 bg-pink-500/10 border border-pink-500/20 rounded-full">
+          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
             Get In Touch
           </span>
-          <h2 id="contact-heading" className="text-4xl md:text-5xl font-black text-white mb-4">
-            Let&apos;s Start{" "}
-            <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Something Great
+          <h2 id="contact-heading" className="heading-section text-white mb-4">
+            Let&apos;s Start Something{' '}
+            <span className="text-amber-400">
+              Great
             </span>
           </h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl mx-auto">
             Ready to transform your business? Reach out and let's discuss how we
             can help you achieve your goals.
           </p>
@@ -120,7 +133,7 @@ export function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <GlowCard glowColor="rgba(236, 72, 153, 0.3)">
+            <GlowCard glowColor="rgba(245, 158, 11, 0.15)">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <input
                   type="text"
@@ -132,7 +145,7 @@ export function Contact() {
                 />
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    <label className="block text-sm font-medium text-zinc-300 mb-2">
                       Your Name
                     </label>
                     <input
@@ -142,13 +155,13 @@ export function Contact() {
                       onChange={(e) =>
                         setFormState({ ...formState, name: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.08] text-white placeholder-zinc-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
                       placeholder="John Doe"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+                    <label className="block text-sm font-medium text-zinc-300 mb-2">
                       Email Address
                     </label>
                     <input
@@ -158,23 +171,22 @@ export function Contact() {
                       onChange={(e) =>
                         setFormState({ ...formState, email: e.target.value })
                       }
-                      className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.08] text-white placeholder-zinc-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
                       placeholder="john@example.com"
                       required
                     />
                   </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                    Service Interest
-                  </label>
-                  <select
-                    name="service"
-                    value={formState.service}
-                    onChange={(e) =>
-                      setFormState({ ...formState, service: e.target.value })
-                    }
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
+                <div>                    <label className="block text-sm font-medium text-zinc-300 mb-2">
+                      Service Interest
+                    </label>
+                    <select
+                      name="service"
+                      value={formState.service}
+                      onChange={(e) =>
+                        setFormState({ ...formState, service: e.target.value })
+                      }
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.08] text-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
                     required
                   >
                     <option value="">Select a service</option>
@@ -187,18 +199,17 @@ export function Contact() {
                     <option value="academy">Laksya Academy</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                    Your Message
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formState.message}
-                    onChange={(e) =>
-                      setFormState({ ...formState, message: e.target.value })
-                    }
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all resize-none"
+                <div>                    <label className="block text-sm font-medium text-zinc-300 mb-2">
+                      Your Message
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formState.message}
+                      onChange={(e) =>
+                        setFormState({ ...formState, message: e.target.value })
+                      }
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.08] text-white placeholder-zinc-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none"
                     placeholder="Tell us about your project..."
                     required
                   />
@@ -216,7 +227,7 @@ export function Contact() {
                 )}
                 <MagneticButton
                   type="submit"
-                  className="w-full !bg-gradient-to-r from-pink-600 to-purple-600"
+                  className="w-full !bg-amber-600 hover:!bg-amber-500"
                   strength={0.1}
                 >
                   {isSubmitting ? (
@@ -250,14 +261,14 @@ export function Contact() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
               >
-                <GlowCard glowColor="rgba(59, 130, 246, 0.3)">
+                <GlowCard glowColor="rgba(245, 158, 11, 0.15)">
                   <div className="flex items-center gap-4">
-                    <div className="text-3xl">{method.icon}</div>
+                    <div className="text-amber-400">{method.icon}</div>
                     <div>
-                      <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
+                      <h3 className="text-lg font-bold text-white">
                         {method.title}
                       </h3>
-                      <p className="text-neutral-600 dark:text-neutral-400">
+                      <p className="text-zinc-400">
                         {method.description}
                       </p>
                     </div>
@@ -268,7 +279,7 @@ export function Contact() {
 
             {/* Office location map */}
             <motion.div
-              className="relative h-64 rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800"
+              className="relative h-64 rounded-3xl overflow-hidden border border-white/[0.06]"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.8, duration: 0.5 }}

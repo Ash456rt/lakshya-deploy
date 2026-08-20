@@ -141,14 +141,14 @@ export default async function BlogPostPage({ params }: Props) {
           &larr; Back to blog
         </Link>
         <div className="flex items-center gap-3 mb-6 text-sm">
-          <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+          <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
             {post.category}
           </span>
           <time dateTime={post.date} className="text-neutral-500">
             {post.date} · {post.readTime}
           </time>
         </div>
-        <h1 className="text-4xl md:text-5xl font-black leading-tight mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
           {post.title}
         </h1>
         {/* Author Box */}
@@ -156,7 +156,7 @@ export default async function BlogPostPage({ params }: Props) {
           <img
             src={post.author.avatar}
             alt={post.author.name}
-            className="w-12 h-12 rounded-full object-cover border-2 border-blue-500/30"
+            className="w-12 h-12 rounded-full object-cover border-2 border-amber-500/30"
             width={48}
             height={48}
             loading="lazy"
@@ -170,7 +170,7 @@ export default async function BlogPostPage({ params }: Props) {
               href={post.author.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-auto text-neutral-400 hover:text-blue-400 transition-colors"
+              className="ml-auto text-neutral-400 hover:text-amber-400 transition-colors"
               aria-label={`${post.author.name} LinkedIn profile`}
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -182,7 +182,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="space-y-8 mb-12">
           {post.content.map((section) => (
             <section key={section.heading}>
-              <h2 className="text-2xl font-bold mb-3 text-blue-400">
+              <h2 className="text-2xl font-bold mb-3 text-amber-400">
                 {section.heading}
               </h2>
               <p className="text-neutral-300 leading-relaxed">{section.body}</p>
@@ -196,7 +196,7 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
           <Link
             href="/#contact"
-            className="inline-block px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors"
+            className="inline-block px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors"
           >
             Contact Us
           </Link>
@@ -213,12 +213,12 @@ export default async function BlogPostPage({ params }: Props) {
                 <Link
                   key={related.slug}
                   href={`/blog/${related.slug}`}
-                  className="group rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-blue-500/40 transition-all duration-300"
+                  className="group rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-amber-500/40 transition-all duration-300"
                 >
-                  <span className="text-xs text-blue-400 mb-2 block">
+                  <span className="text-xs text-amber-400 mb-2 block">
                     {related.category}
                   </span>
-                  <h4 className="font-bold group-hover:text-blue-400 transition-colors mb-2">
+                  <h4 className="font-bold group-hover:text-amber-400 transition-colors mb-2">
                     {related.title}
                   </h4>
                   <p className="text-sm text-neutral-400 line-clamp-2">

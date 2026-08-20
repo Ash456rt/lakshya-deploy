@@ -7,9 +7,9 @@ export const dynamic = "force-dynamic";
 const STATUSES = ["in_progress", "on_hold", "completed"];
 
 const inputClasses =
-  "w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-3 py-2 text-sm text-white outline-none focus:border-blue-500";
+  "w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-3 py-2 text-sm text-white outline-none focus:border-amber-500";
 const smallInputClasses =
-  "rounded-lg bg-neutral-900/80 border border-neutral-700 px-3 py-2 text-sm text-white outline-none focus:border-blue-500";
+  "rounded-lg bg-neutral-900/80 border border-neutral-700 px-3 py-2 text-sm text-white outline-none focus:border-amber-500";
 
 export default async function AdminProjects() {
   const admin = createAdminClient();
@@ -63,7 +63,7 @@ export default async function AdminProjects() {
         </div>
         <button
           type="submit"
-          className="rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white text-sm font-semibold px-6 py-3 transition"
+          className="rounded-lg bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-500 hover:to-amber-400 text-white text-sm font-semibold px-6 py-3 transition"
         >
           Create project
         </button>

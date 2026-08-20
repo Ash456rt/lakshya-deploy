@@ -132,16 +132,16 @@ export default function FAQPage() {
           </ol>
         </nav>
 
-        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
+        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
           Help Center
         </span>
-        <h1 className="text-4xl md:text-5xl font-black mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Frequently Asked Questions
         </h1>
         <p className="text-lg text-neutral-400 max-w-2xl mb-14">
           Everything you need to know before working with us. Still have
           questions?{" "}
-          <Link href="/#contact" className="text-blue-400 hover:text-blue-300">
+          <Link href="/#contact" className="text-amber-400 hover:text-amber-300">
             Contact us
           </Link>{" "}
           — we reply within 24 hours.
@@ -153,7 +153,7 @@ export default function FAQPage() {
               key={index}
               className="group rounded-2xl bg-white/5 border border-white/10 overflow-hidden"
             >
-              <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none text-lg font-semibold hover:text-blue-400 transition-colors">
+              <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none text-lg font-semibold hover:text-amber-400 transition-colors">
                 {faq.question}
                 <svg
                   className="w-5 h-5 shrink-0 text-neutral-500 group-open:rotate-180 transition-transform"
@@ -176,8 +176,8 @@ export default function FAQPage() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-black mb-4">
+        <div className="mt-16 rounded-2xl bg-gradient-to-br from-amber-600/20 to-amber-600/20 border border-amber-500/30 p-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Still have questions?
           </h2>
           <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
@@ -186,7 +186,7 @@ export default function FAQPage() {
           </p>
           <Link
             href="/#contact"
-            className="inline-block px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors"
+            className="inline-block px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors"
           >
             Contact Us
           </Link>

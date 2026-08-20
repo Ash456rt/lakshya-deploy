@@ -22,16 +22,13 @@ export function Partners() {
     <section className="relative py-24 bg-neutral-950 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-14">
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 rounded-full">
+          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
             Our Partners
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Tied Up{" "}
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              Partners
-            </span>
+          <h2 className="heading-section text-white mb-4">
+            Our Partners
           </h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl mx-auto">
             We collaborate with trusted organizations to deliver end-to-end
             solutions for our clients.
           </p>

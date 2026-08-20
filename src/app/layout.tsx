@@ -100,8 +100,14 @@ export default function RootLayout({
         <meta name="theme-color" content="#030712" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="A0hSyyGtpIy06RtZHlsRWFgXJ5qflDfnuo-RLAvWwuk" />
+        {/* Strip Dark Reader injected attributes before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(typeof MutationObserver!=="undefined"){var dr="data-darkreader-inline-color,data-darkreader-inline-bgcolor,data-darkreader-inline-bgimage,data-darkreader-inline-stroke".split(",");var rm=function(el){dr.forEach(function(a){if(el.hasAttribute&&el.hasAttribute(a)){el.removeAttribute(a);var p=a.replace("data-darkreader-inline-","--darkreader-inline-");if(el.style&&el.style.removeProperty)el.style.removeProperty(p)}})};new MutationObserver(function(muts){muts.forEach(function(m){Array.prototype.forEach.call(m.addedNodes,function(n){if(n.nodeType===1){rm(n);n.querySelectorAll&&n.querySelectorAll("[data-darkreader-inline-color],[data-darkreader-inline-bgcolor],[data-darkreader-inline-bgimage],[data-darkreader-inline-stroke]").forEach(rm)}})})}).observe(document.documentElement,{childList:true,subtree:true})}`
+          }}
+        />
       </head>
-      <body className="min-h-full flex flex-col bg-neutral-950 text-white">
+      <body className="min-h-full flex flex-col bg-neutral-950 text-white" suppressHydrationWarning>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SGR6KY1CMC"

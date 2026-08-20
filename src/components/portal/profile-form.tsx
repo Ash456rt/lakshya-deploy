@@ -6,7 +6,7 @@ import { updateProfile, type ProfileState } from "@/app/portal/actions";
 const initialState: ProfileState = {};
 
 const inputClasses =
-  "w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition";
+  "w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition";
 
 export function ProfileForm({
   fullName,
@@ -46,7 +46,7 @@ export function ProfileForm({
       <button
         type="submit"
         disabled={pending}
-        className="rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold px-5 py-2.5 transition"
+        className="rounded-lg bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-500 hover:to-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold px-5 py-2.5 transition"
       >
         {pending ? "Saving…" : "Save profile"}
       </button>
