@@ -116,9 +116,9 @@ export default function AboutPage() {
           <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-10">
             <h2 className="text-2xl font-bold mb-4 text-amber-400">Our Mission</h2>
             <p className="text-neutral-300 leading-relaxed">
-              To empower businesses - from startups to enterprises - with
-              cutting-edge technology, strategic consulting, and global
-              solutions that turn ambition into measurable results.
+              To give businesses — from startups to enterprises — reliable
+              technology, practical consulting, and global solutions that
+              turn ambition into measurable results.
             </p>
           </div>
           <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-10">

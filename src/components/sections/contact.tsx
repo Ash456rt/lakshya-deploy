@@ -121,8 +121,8 @@ export function Contact() {
             </span>
           </h2>
           <p className="text-body max-w-2xl mx-auto">
-            Ready to transform your business? Reach out and let's discuss how we
-            can help you achieve your goals.
+            Have a project in mind? Reach out and let's discuss how we
+            can help you move forward.
           </p>
         </motion.div>
 

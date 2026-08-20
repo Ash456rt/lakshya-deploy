@@ -82,8 +82,8 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          A multi-service conglomerate empowering businesses with cutting-edge
-          technology, strategic consulting, and global solutions.
+          A Bengaluru-based multi-service company building web & app platforms,
+          running business consultancy, and delivering global solutions since day one.
         </motion.p>
 
         <motion.div
