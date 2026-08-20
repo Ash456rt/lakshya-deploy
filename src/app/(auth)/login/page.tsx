@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Login",
   description:
-    "Log in to your Laksya Groups member portal to track projects, quotes, and more.",
+    "Log in to your Lakshya Groups member portal to track projects, quotes, and more.",
   robots: { index: false, follow: false },
 };
 

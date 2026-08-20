@@ -32,7 +32,7 @@ export default async function PortalLayout({
           <Link href="/" className="flex items-center">
             <Image
               src="/laksya-logo.png"
-              alt="Laksya Groups"
+              alt="Lakshya Groups"
               width={1240}
               height={799}
               unoptimized

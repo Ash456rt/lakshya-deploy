@@ -188,7 +188,7 @@ export function Navbar() {
         >
           <Image
             src="/laksya-logo.png"
-            alt="Laksya Groups"
+            alt="Lakshya Groups"
             width={1240}
             height={799}
             unoptimized

@@ -71,7 +71,7 @@ export function About() {
               One Partner. Seven Services.
             </h2>
             <p className="text-body-lg mb-6">
-              We started as a web development shop in Bengaluru. Today, Laksya
+              We started as a web development shop in Bengaluru. Today, Lakshya
               Groups runs seven service divisions because our clients kept asking
               us to solve the next problem too. Development led to consultancy.
               Consultancy led to operations support. Each service exists because

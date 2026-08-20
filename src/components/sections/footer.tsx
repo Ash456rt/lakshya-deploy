@@ -91,7 +91,7 @@ export function Footer() {
             >
               <Image
                 src="/laksya-logo.png"
-                alt="Laksya Groups"
+                alt="Lakshya Groups"
                 width={1240}
                 height={799}
                 unoptimized
@@ -170,7 +170,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-zinc-500 text-sm">
-            © {new Date().getFullYear()} Laksya Groups. All rights reserved.
+            © {new Date().getFullYear()} Lakshya Groups. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a

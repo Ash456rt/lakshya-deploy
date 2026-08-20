@@ -4,14 +4,14 @@ import { caseStudies } from "@/data/case-studies";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Real Results from Laksya Groups Clients",
+  title: "Case Studies — Real Results from Lakshya Groups Clients",
   description:
-    "Real results from businesses we have helped. See how Laksya Groups delivered measurable outcomes across travel, exports, fintech, and more.",
+    "Real results from businesses we have helped. See how Lakshya Groups delivered measurable outcomes across travel, exports, fintech, and more.",
   alternates: { canonical: `${SITE_URL}/case-studies` },
   openGraph: {
-    title: "Case Studies — Real Results from Laksya Groups Clients",
+    title: "Case Studies — Real Results from Lakshya Groups Clients",
     description:
-      "Real results from businesses we have helped. See how Laksya Groups delivered measurable outcomes.",
+      "Real results from businesses we have helped. See how Lakshya Groups delivered measurable outcomes.",
     url: `${SITE_URL}/case-studies`,
     type: "website",
   },

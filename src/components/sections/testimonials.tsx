@@ -6,7 +6,7 @@ import { useRef } from "react";
 const testimonials = [
   {
     quote:
-      "Laksya Groups rebuilt our entire booking platform in 6 weeks. What used to take our team 3 hours now takes 10 minutes. The ROI was visible within the first month.",
+      "Lakshya Groups rebuilt our entire booking platform in 6 weeks. What used to take our team 3 hours now takes 10 minutes. The ROI was visible within the first month.",
     name: "Rajesh Patel",
     role: "Operations Director, TravelVue",
     avatar: "/team.jpg",
@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote:
-      "We were managing 4 different vendors for development, support, logistics, and consulting. Moving to Laksya cut our coordination overhead by half and actually improved response times.",
+      "We were managing 4 different vendors for development, support, logistics, and consulting. Moving to Lakshya cut our coordination overhead by half and actually improved response times.",
     name: "Priya Sharma",
     role: "CEO, GreenLeaf Exports",
     avatar: "/laksya-logo.png",
@@ -30,7 +30,7 @@ const testimonials = [
   },
   {
     quote:
-      "The Laksya Academy training program upskilled 12 of our junior developers in 3 months. We saw a measurable improvement in code quality and sprint velocity.",
+      "The Lakshya Academy training program upskilled 12 of our junior developers in 3 months. We saw a measurable improvement in code quality and sprint velocity.",
     name: "Deepa Nair",
     role: "CTO, FinServe Solutions",
     avatar: "/laksya-logo.png",

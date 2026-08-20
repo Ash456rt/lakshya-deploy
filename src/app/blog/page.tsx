@@ -4,12 +4,12 @@ import { posts } from '@/data/posts';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Blog — Web Development & Business Insights | Laksya Groups',
+  title: 'Blog — Web Development & Business Insights | Lakshya Groups',
   description:
-    'Insights on web development, app development, business consultancy, and how multi-service companies grow. Articles from the Laksya Groups team in Bengaluru.',
+    'Insights on web development, app development, business consultancy, and how multi-service companies grow. Articles from the Lakshya Groups team in Bengaluru.',
   alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
-    title: 'Blog — Web Development & Business Insights | Laksya Groups',
+    title: 'Blog — Web Development & Business Insights | Lakshya Groups',
     description:
       'Insights on web development, app development, business consultancy, and how multi-service companies grow.',
     url: `${SITE_URL}/blog`,
@@ -65,7 +65,7 @@ export default function BlogPage() {
           Insights &amp; Ideas
         </span>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          The Laksya Groups Blog
+          The Lakshya Groups Blog
         </h1>
         <p className="text-lg text-neutral-400 max-w-2xl mb-14">
           Practical advice on technology, business, and building with a partner

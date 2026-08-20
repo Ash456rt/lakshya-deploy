@@ -21,12 +21,12 @@ export const authors: Record<string, Author> = {
   shubham: {
     name: 'Shubham Kushwaha',
     role: 'Founder & CEO',
-    bio: 'Full-stack developer and entrepreneur with 8+ years building web and mobile products. Leads Laksya Groups\' technology and strategy divisions.',
+    bio: 'Full-stack developer and entrepreneur with 8+ years building web and mobile products. Leads Lakshya Groups\' technology and strategy divisions.',
     avatar: '/team.jpg',
     linkedin: 'https://linkedin.com/in/shubhamkushwaha',
   },
   team: {
-    name: 'Laksya Groups Team',
+    name: 'Lakshya Groups Team',
     role: 'Content Team',
     bio: 'The collective insights from our engineering, consulting, and operations teams across 50+ countries.',
     avatar: '/laksya-logo.png',

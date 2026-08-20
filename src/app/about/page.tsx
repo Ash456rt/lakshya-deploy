@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'About Us — Laksya Groups | Bengaluru IT Company',
+  title: 'About Us — Lakshya Groups | Bengaluru IT Company',
   description:
-    'Laksya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, customer support, transport, tours & travel, and training through Laksya Academy.',
+    'Lakshya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, customer support, transport, tours & travel, and training through Lakshya Academy.',
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
-    title: 'About Laksya Groups — Bengaluru IT Company',
+    title: 'About Lakshya Groups — Bengaluru IT Company',
     description:
-      'Laksya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, and more.',
+      'Lakshya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, and more.',
     url: `${SITE_URL}/about`,
     type: 'website',
   },
@@ -23,7 +23,7 @@ const services = [
   { icon: '🎧', title: 'Customer Support', text: 'Responsive support teams that keep your customers happy around the clock.' },
   { icon: '🚚', title: 'Transport & Logistics', text: 'Reliable movement of goods and people across India.' },
   { icon: '✈️', title: 'Tours & Travel', text: 'Curated travel experiences and hassle-free trip planning.' },
-  { icon: '🎓', title: 'Laksya Academy', text: 'Training programs that build real, job-ready skills.' },
+  { icon: '🎓', title: 'Lakshya Academy', text: 'Training programs that build real, job-ready skills.' },
 ];
 
 const stats = [
@@ -98,7 +98,7 @@ export default function AboutPage() {
 
         <div className="text-center mb-20">
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
-            About Laksya Groups
+            About Lakshya Groups
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             One Partner. <span className="text-amber-400">Seven Services.</span>
@@ -106,7 +106,7 @@ export default function AboutPage() {
             Zero Drama.
           </h1>
           <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto">
-            Laksya Groups is a multi-service conglomerate headquartered in
+            Lakshya Groups is a multi-service conglomerate headquartered in
             Bengaluru, India. We help businesses move faster by handling their
             technology, operations, logistics, and learning under one roof.
           </p>

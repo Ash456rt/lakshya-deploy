@@ -66,7 +66,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Welcome to Laksya Groups — Bengaluru
+            Welcome to Lakshya Groups — Bengaluru
           </motion.span>
         </motion.div>
 

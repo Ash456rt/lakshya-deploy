@@ -3,14 +3,14 @@ import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQ — Laksya Groups Services, Pricing & Timelines",
+  title: "FAQ — Lakshya Groups Services, Pricing & Timelines",
   description:
-    "Frequently asked questions about Laksya Groups services, pricing, timelines, and how we work. Web development, consultancy, import & export, and more.",
+    "Frequently asked questions about Lakshya Groups services, pricing, timelines, and how we work. Web development, consultancy, import & export, and more.",
   alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
-    title: "FAQ — Laksya Groups Services, Pricing & Timelines",
+    title: "FAQ — Lakshya Groups Services, Pricing & Timelines",
     description:
-      "Frequently asked questions about Laksya Groups services, pricing, timelines, and how we work.",
+      "Frequently asked questions about Lakshya Groups services, pricing, timelines, and how we work.",
     url: `${SITE_URL}/faq`,
     type: "website",
   },
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "What services does Laksya Groups offer?",
+    question: "What services does Lakshya Groups offer?",
     answer:
-      "We offer 7 services under one roof: App & Web Development, Strategic Consultancy, Import & Export, Customer Support, Transport & Logistics, Tours & Travel, and professional training through Laksya Academy. You can use one service or all seven — we scale with your needs.",
+      "We offer 7 services under one roof: App & Web Development, Strategic Consultancy, Import & Export, Customer Support, Transport & Logistics, Tours & Travel, and professional training through Lakshya Academy. You can use one service or all seven — we scale with your needs.",
   },
   {
     question: "How much does a website cost?",

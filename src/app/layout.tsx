@@ -16,19 +16,19 @@ const geistMono = Geist_Mono({
 import { SITE_URL } from "@/lib/site";
 
 const TITLE =
-  "Laksya Groups — Web Development, Consultancy & Global Services | Bengaluru";
+  "Lakshya Groups — Web Development, Consultancy & Global Services | Bengaluru";
 const DESCRIPTION =
-  "Laksya Groups is a Bengaluru-based multi-service company offering web & app development, business consultancy, import & export, customer support, transport & logistics, tours & travel, and professional training through Laksya Academy.";
+  "Lakshya Groups is a Bengaluru-based multi-service company offering web & app development, business consultancy, import & export, customer support, transport & logistics, tours & travel, and professional training through Lakshya Academy.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s | Laksya Groups — Bengaluru",
+    template: "%s | Lakshya Groups — Bengaluru",
   },
   description: DESCRIPTION,
   keywords: [
-    "Laksya Groups",
+    "Lakshya Groups",
     "web development company Bengaluru",
     "app development India",
     "business consultancy Bengaluru",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "customer support services",
     "transport logistics India",
     "tours and travel Bengaluru",
-    "Laksya Academy training",
+    "Lakshya Academy training",
     "technology consulting Bengaluru",
     "Next.js development India",
     "React app development",
@@ -51,24 +51,24 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: "Laksya Groups — Web Development, Consultancy & Global Services",
+    title: "Lakshya Groups — Web Development, Consultancy & Global Services",
     description: DESCRIPTION,
     type: "website",
     locale: "en_US",
-    siteName: "Laksya Groups",
+    siteName: "Lakshya Groups",
     url: SITE_URL,
     images: [
       {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Laksya Groups — Web Development, Consultancy, Import & Export, Tours & Travel, Laksya Academy | Bengaluru, India",
+        alt: "Lakshya Groups — Web Development, Consultancy, Import & Export, Tours & Travel, Lakshya Academy | Bengaluru, India",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laksya Groups — Web Development, Consultancy & Global Services",
+    title: "Lakshya Groups — Web Development, Consultancy & Global Services",
     description: DESCRIPTION,
     images: [`${SITE_URL}/og-image.png`],
   },
@@ -130,7 +130,7 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": `${SITE_URL}/#organization`,
-                  name: "Laksya Groups",
+                  name: "Lakshya Groups",
                   alternateName: "Lakshya Groups",
                   url: SITE_URL,
                   logo: {
@@ -140,7 +140,7 @@ export default function RootLayout({
                     height: 799,
                   },
                   description:
-                    "Laksya Groups is a multi-service conglomerate offering web & app development, business consultancy, import & export, customer support, transport & logistics, tours & travel, and professional training.",
+                    "Lakshya Groups is a multi-service conglomerate offering web & app development, business consultancy, import & export, customer support, transport & logistics, tours & travel, and professional training.",
                   email: "admin@lakshyagroups.in",
                   telephone: "+919902841875",
                   address: {
@@ -168,7 +168,7 @@ export default function RootLayout({
                 {
                   "@type": "WebSite",
                   "@id": `${SITE_URL}/#website`,
-                  name: "Laksya Groups",
+                  name: "Lakshya Groups",
                   url: SITE_URL,
                   publisher: { "@id": `${SITE_URL}/#organization` },
                   potentialAction: {
@@ -180,7 +180,7 @@ export default function RootLayout({
                 {
                   "@type": "LocalBusiness",
                   "@id": `${SITE_URL}/#localbusiness`,
-                  name: "Laksya Groups",
+                  name: "Lakshya Groups",
                   image: `${SITE_URL}/laksya-logo.png`,
                   url: SITE_URL,
                   telephone: "+919902841875",

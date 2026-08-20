@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Create Account",
   description:
-    "Create your free Laksya Groups member account for project tracking and quote requests.",
+    "Create your free Lakshya Groups member account for project tracking and quote requests.",
   robots: { index: false, follow: false },
 };
 

@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: Props) {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Laksya Groups',
+      name: 'Lakshya Groups',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',

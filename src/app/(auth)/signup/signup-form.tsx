@@ -12,7 +12,7 @@ export function SignupForm() {
     <div>
       <h1 className="text-2xl font-bold mb-1">Create your account</h1>
       <p className="text-neutral-400 text-sm mb-8">
-        Join the Laksya Groups client portal to track projects and request quotes.
+        Join the Lakshya Groups client portal to track projects and request quotes.
       </p>
 
       {state.message && (

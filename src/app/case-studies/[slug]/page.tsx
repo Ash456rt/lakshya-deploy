@@ -58,7 +58,7 @@ export default async function CaseStudyPage({ params }: Props) {
     datePublished: study.date,
     author: {
       "@type": "Organization",
-      name: "Laksya Groups",
+      name: "Lakshya Groups",
       url: SITE_URL,
     },
     about: {

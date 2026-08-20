@@ -196,7 +196,7 @@ export function Contact() {
                     <option value="customer-support">Customer Support</option>
                     <option value="transport">Transport & Logistics</option>
                     <option value="travel">Tours & Travel</option>
-                    <option value="academy">Laksya Academy</option>
+                    <option value="academy">Lakshya Academy</option>
                   </select>
                 </div>
                 <div>                    <label className="block text-sm font-medium text-zinc-300 mb-2">
@@ -284,7 +284,7 @@ export function Contact() {
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Laksya Groups office location"
+                title="Lakshya Groups office location"
               />
               <a
                 href="https://maps.app.goo.gl/DpEYMx76VAuJdErv8"

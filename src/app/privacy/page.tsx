@@ -5,7 +5,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Laksya Groups collects, uses, and protects your personal information. Our commitment to your privacy.",
+    "How Lakshya Groups collects, uses, and protects your personal information. Our commitment to your privacy.",
   alternates: { canonical: `${SITE_URL}/privacy` },
 };
 

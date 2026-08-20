@@ -39,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "GreenLeaf was juggling 4 separate vendors for web development, customer support, logistics coordination, and business consulting. Communication gaps caused delayed shipments and frustrated clients.",
     solution:
-      "We consolidated all 4 services under Laksya Groups. Our team integrated their order management system with their logistics provider, set up 24/7 multilingual support, and built a client portal for real-time shipment tracking.",
+      "We consolidated all 4 services under Lakshya Groups. Our team integrated their order management system with their logistics provider, set up 24/7 multilingual support, and built a client portal for real-time shipment tracking.",
     results: [
       { metric: "Vendor coordination overhead", value: "-50%" },
       { metric: "Customer response time", value: "4 hours → 20 minutes" },
@@ -62,7 +62,7 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "FinServe had a team of 12 junior developers who were productive but using outdated practices. Sprint velocity was low, code review cycles were long, and the team struggled with modern React patterns.",
     solution:
-      "Laksya Academy designed a custom 12-week program covering modern React, TypeScript, testing, and DevOps. Each week included hands-on projects mirroring FinServe's actual codebase. We paired training with on-the-job mentoring during real sprints.",
+      "Lakshya Academy designed a custom 12-week program covering modern React, TypeScript, testing, and DevOps. Each week included hands-on projects mirroring FinServe's actual codebase. We paired training with on-the-job mentoring during real sprints.",
     results: [
       { metric: "Sprint velocity", value: "+60% improvement" },
       { metric: "Code review cycles", value: "-40% faster" },

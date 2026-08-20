@@ -5,7 +5,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms and conditions for using Laksya Groups services. Read our policies on payments, refunds, intellectual property, and more.",
+    "Terms and conditions for using Lakshya Groups services. Read our policies on payments, refunds, intellectual property, and more.",
   alternates: { canonical: `${SITE_URL}/terms` },
 };
 
@@ -66,7 +66,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing or using the services provided by Laksya Groups
+              By accessing or using the services provided by Lakshya Groups
               (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), you agree to
               be bound by these Terms of Service. If you do not agree to these
               terms, please do not use our services.
@@ -78,7 +78,7 @@ export default function TermsPage() {
               2. Services
             </h2>
             <p>
-              Laksya Groups provides technology development, business
+              Lakshya Groups provides technology development, business
               consultancy, import and export solutions, customer support,
               transport and logistics, tours and travel, and professional
               training services. The specific scope, deliverables, and timelines
@@ -139,7 +139,7 @@ export default function TermsPage() {
             <p>
               Upon full payment, the client receives ownership of all custom
               code, designs, and deliverables created specifically for their
-              project. Laksya Groups retains ownership of any pre-existing
+              project. Lakshya Groups retains ownership of any pre-existing
               tools, libraries, frameworks, or components used in the
               development process.
             </p>
@@ -162,7 +162,7 @@ export default function TermsPage() {
               7. Limitation of Liability
             </h2>
             <p>
-              Laksya Groups shall not be liable for any indirect, incidental, or
+              Lakshya Groups shall not be liable for any indirect, incidental, or
               consequential damages arising from the use of our services. Our
               total liability shall not exceed the total amount paid by the
               client for the specific project in question.
