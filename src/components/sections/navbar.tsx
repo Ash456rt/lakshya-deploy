@@ -213,7 +213,7 @@ export function Navbar() {
           )}
           <PortalLink />
           <MagneticButton className="!px-6 !py-2 text-sm">
-            Get Started
+            Get a Free Consultation
           </MagneticButton>
         </div>
 
@@ -313,7 +313,7 @@ export function Navbar() {
                 mobile
                 onClick={() => setIsMobileOpen(false)}
               />
-              <MagneticButton className="!px-8 !py-3">Get Started</MagneticButton>
+              <MagneticButton className="!px-8 !py-3">Get a Free Consultation</MagneticButton>
             </div>
           </motion.div>
         )}

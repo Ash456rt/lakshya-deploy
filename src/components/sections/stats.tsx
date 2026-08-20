@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { BackgroundBeams } from "@/components/ui/background-beams";
-import ParticleText from "@/components/ui/particle-text";
 
 const stats = [
   { value: 500, suffix: "+", label: "Projects Completed", color: "#f59e0b" },
@@ -17,60 +16,23 @@ export function Stats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="stats" aria-labelledby="stats-heading" className="relative py-32 bg-neutral-950 overflow-hidden">
+    <section id="stats" aria-labelledby="stats-heading" className="relative py-24 bg-neutral-950 overflow-hidden">
       <BackgroundBeams className="opacity-15" />
 
-      {/* Animated gradient background */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-amber-500/[0.06] via-amber-500/[0.03] to-amber-500/[0.06]"
-          animate={{
-            background: [
-              "linear-gradient(0deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
-              "linear-gradient(120deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
-              "linear-gradient(240deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
-              "linear-gradient(360deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03), rgba(245,158,11,0.06))",
-            ],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        />
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Particle Text Heading */}
         <motion.div
           ref={ref}
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          className="mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
-            Our Impact
-          </span>
-          <h2 id="stats-heading" className="sr-only">Our Numbers</h2>
-          <div style={{ width: '100%', height: 200, background: 'transparent' }}>
-            <ParticleText
-              text="OUR NUMBERS"
-              particleSize={2.5}
-              density={4}
-              color="#ffffff"
-              highlightColor="#f59e0b"
-              scatter={150}
-              gatherDuration={1800}
-              stagger={350}
-              pointerRepel={35}
-              repelRadius={100}
-              idleDrift={0.5}
-              trigger="hover"
-              fontSize="clamp(2rem, 8vw, 5rem)"
-              fontWeight={900}
-              glow={true}
-            />
-          </div>
+          <h2 id="stats-heading" className="heading-section text-white">
+            Proven Results
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -85,7 +47,7 @@ export function Stats() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 {/* Glow effect on hover */}
-                <div 
+                <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
                   style={{ background: `radial-gradient(circle at 50% 50%, ${stat.color}40, transparent 70%)` }}
                 />

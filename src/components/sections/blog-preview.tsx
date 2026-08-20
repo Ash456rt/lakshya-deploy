@@ -14,18 +14,15 @@ export function BlogPreview() {
     <section id="blog" aria-labelledby="blog-heading" className="relative py-32 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
         <motion.div
-          className="text-center mb-16"
+          className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
-            From Our Blog
-          </span>
-          <h2 id="blog-heading" className="heading-section mb-4">
+          <h2 id="blog-heading" className="heading-section text-white mb-4">
             Insights & Guides
           </h2>
-          <p className="text-body max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl">
             Practical advice from our team on technology, business, and building
             things that actually work.
           </p>

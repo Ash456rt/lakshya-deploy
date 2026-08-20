@@ -123,6 +123,12 @@ export function Footer() {
                 </span>
               </p>
             </div>
+            <a
+              href="/#contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-600 hover:bg-amber-500 text-white text-sm font-medium transition-colors mb-4"
+            >
+              Get a Free Consultation
+            </a>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <motion.a

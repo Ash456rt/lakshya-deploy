@@ -60,21 +60,18 @@ export function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="testimonials" aria-labelledby="testimonials-heading" className="relative py-32 bg-neutral-950">
+    <section id="testimonials" aria-labelledby="testimonials-heading" className="relative py-24 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
         <motion.div
-          className="text-center mb-16"
+          className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
-            Client Stories
-          </span>
-          <h2 id="testimonials-heading" className="heading-section mb-4">
+          <h2 id="testimonials-heading" className="heading-section text-white mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-body max-w-2xl mx-auto">
+          <p className="text-body max-w-2xl">
             Real feedback from businesses we have helped grow. These are actual
             results, not marketing copy.
           </p>

@@ -231,14 +231,9 @@ export function Contact() {
                   strength={0.1}
                 >
                   {isSubmitting ? (
-                    <motion.span
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    >
-                      ⏳
-                    </motion.span>
+                    <span>Sending...</span>
                   ) : (
-                    "Send Message"
+                    "Get a Free Consultation"
                   )}
                 </MagneticButton>
               </form>

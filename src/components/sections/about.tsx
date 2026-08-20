@@ -1,10 +1,8 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
 import { Parallax } from "@/components/ui/parallax";
 import { GlowCard } from "@/components/ui/glow-card";
-import ParticleText from "@/components/ui/particle-text";
 
 const features = [
   {
@@ -69,32 +67,9 @@ export function About() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 mb-4 text-xs font-medium tracking-widest uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
-              About Laksya Groups
-            </span>
-            
-            <h2 id="about-heading" className="sr-only">About Laksya Groups</h2>
-            {/* Particle Text for About */}
-            <div style={{ width: '100%', height: 120, background: 'transparent', marginBottom: '1rem' }}>
-              <ParticleText
-                text="ABOUT US"
-                particleSize={2}
-                density={5}
-                color="#ffffff"
-                highlightColor="#f59e0b"
-                scatter={120}
-                gatherDuration={1500}
-                stagger={300}
-                pointerRepel={30}
-                repelRadius={100}
-                idleDrift={0.4}
-                trigger="mount"
-                fontSize="clamp(2rem, 6vw, 4rem)"
-                fontWeight={900}
-                glow={true}
-              />
-            </div>
-            
+            <h2 id="about-heading" className="heading-section text-white mb-6">
+              One Partner. Seven Services.
+            </h2>
             <p className="text-body-lg mb-6">
               We started as a web development shop in Bengaluru. Today, Laksya
               Groups runs seven service divisions because our clients kept asking
