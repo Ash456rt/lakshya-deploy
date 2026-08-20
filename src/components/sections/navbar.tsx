@@ -98,7 +98,7 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main navigation">
         <motion.a
           href="#home"
           className="flex items-center"
@@ -107,7 +107,7 @@ export function Navbar() {
         >
           <Image
             src="/laksya-logo.png"
-            alt="Lakshya Groups"
+            alt="Laksya Groups"
             width={1240}
             height={799}
             unoptimized
@@ -142,6 +142,9 @@ export function Navbar() {
         <button
           className="md:hidden flex flex-col gap-1.5"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
+          aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileOpen}
+          aria-controls="mobile-menu"
         >
           <motion.span
             className="w-6 h-0.5 bg-neutral-900 dark:bg-white"
@@ -162,10 +165,12 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
+            id="mobile-menu"
             className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-neutral-200 dark:border-neutral-800"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
+            role="menu"
           >
             <div className="flex flex-col items-center gap-4 py-6">
               {navLinks.map((link) =>

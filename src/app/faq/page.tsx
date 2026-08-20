@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "FAQ — Laksya Groups Services, Pricing & Timelines",
   description:
-    "Frequently asked questions about Laksya Groups services, pricing, timelines, and how we work. Get answers before you reach out.",
+    "Frequently asked questions about Laksya Groups services, pricing, timelines, and how we work. Web development, consultancy, import & export, and more.",
+  alternates: { canonical: `${SITE_URL}/faq` },
+  openGraph: {
+    title: "FAQ — Laksya Groups Services, Pricing & Timelines",
+    description:
+      "Frequently asked questions about Laksya Groups services, pricing, timelines, and how we work.",
+    url: `${SITE_URL}/faq`,
+    type: "website",
+  },
 };
 
 const faqs = [
@@ -61,9 +70,68 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  // FAQPage structured data
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  // BreadcrumbList structured data
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "FAQ",
+        item: `${SITE_URL}/faq`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <div className="max-w-3xl mx-auto px-6">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-neutral-300">
+              FAQ
+            </li>
+          </ol>
+        </nav>
+
         <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
           Help Center
         </span>

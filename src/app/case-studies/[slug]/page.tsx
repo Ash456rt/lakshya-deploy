@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies } from "@/data/case-studies";
+import { SITE_URL } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,7 +19,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Case Study: ${study.title}`,
     description: study.challenge,
-    alternates: { canonical: "/case-studies/" + study.slug },
+    alternates: { canonical: `${SITE_URL}/case-studies/${study.slug}` },
+    openGraph: {
+      title: `Case Study: ${study.title}`,
+      description: study.challenge,
+      type: "article",
+      url: `${SITE_URL}/case-studies/${study.slug}`,
+      publishedTime: study.date,
+      images: [
+        {
+          url: `${SITE_URL}${study.image}`,
+          width: 1200,
+          height: 630,
+          alt: study.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Case Study: ${study.title}`,
+      description: study.challenge,
+      images: [`${SITE_URL}${study.image}`],
+    },
   };
 }
 
@@ -27,9 +49,90 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = caseStudies.find((s) => s.slug === slug);
   if (!study) notFound();
 
+  // CaseStudy structured data
+  const caseStudyJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CaseStudy",
+    name: study.title,
+    description: study.challenge,
+    datePublished: study.date,
+    author: {
+      "@type": "Organization",
+      name: "Laksya Groups",
+      url: SITE_URL,
+    },
+    about: {
+      "@type": "Organization",
+      name: study.client,
+    },
+    image: `${SITE_URL}${study.image}`,
+  };
+
+  // BreadcrumbList structured data
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Case Studies",
+        item: `${SITE_URL}/case-studies`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: study.title,
+        item: `${SITE_URL}/case-studies/${study.slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <article className="max-w-4xl mx-auto px-6">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <Link
+                href="/case-studies"
+                className="hover:text-white transition-colors"
+              >
+                Case Studies
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-neutral-300">
+              {study.title.length > 50
+                ? study.title.slice(0, 50) + "…"
+                : study.title}
+            </li>
+          </ol>
+        </nav>
+
         <Link
           href="/case-studies"
           className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-10 text-sm"
@@ -41,9 +144,9 @@ export default async function CaseStudyPage({ params }: Props) {
           <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
             {study.industry}
           </span>
-          <span className="text-neutral-500">
+          <time dateTime={study.date} className="text-neutral-500">
             {study.client} · {study.date}
-          </span>
+          </time>
         </div>
 
         <h1 className="text-3xl md:text-5xl font-black leading-tight mb-8">

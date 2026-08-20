@@ -1,10 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About Us — Laksya Groups | Bengaluru IT Company',
   description:
-    'Laksya Groups is a multi-service conglomerate based in Bengaluru, India - delivering app and web development, consultancy, import & export, customer support, transport, tours & travel, and Laksya Academy.',
+    'Laksya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, customer support, transport, tours & travel, and training through Laksya Academy.',
+  alternates: { canonical: `${SITE_URL}/about` },
+  openGraph: {
+    title: 'About Laksya Groups — Bengaluru IT Company',
+    description:
+      'Laksya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, and more.',
+    url: `${SITE_URL}/about`,
+    type: 'website',
+  },
 };
 
 const services = [
@@ -44,9 +53,49 @@ const values = [
 ];
 
 export default function AboutPage() {
+  // BreadcrumbList structured data
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'About Us',
+        item: `${SITE_URL}/about`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <div className="max-w-6xl mx-auto px-6">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-neutral-300">
+              About Us
+            </li>
+          </ol>
+        </nav>
+
         <div className="text-center mb-20">
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
             About Laksya Groups

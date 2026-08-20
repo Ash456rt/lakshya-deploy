@@ -60,7 +60,7 @@ export function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="testimonials" className="relative py-32 bg-neutral-950">
+    <section id="testimonials" aria-labelledby="testimonials-heading" className="relative py-32 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
         <motion.div
           className="text-center mb-16"
@@ -71,7 +71,7 @@ export function Testimonials() {
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-green-400 bg-green-500/10 border border-green-500/20 rounded-full">
             Client Stories
           </span>
-          <h2 className="text-3xl md:text-5xl font-black mb-4">
+          <h2 id="testimonials-heading" className="text-3xl md:text-5xl font-black mb-4">
             What Our Clients Say
           </h2>
           <p className="text-neutral-400 max-w-2xl mx-auto">

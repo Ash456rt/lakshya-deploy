@@ -54,7 +54,7 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative py-32 bg-gradient-to-b from-neutral-950 to-neutral-900 overflow-hidden">
+    <section id="about" aria-labelledby="about-heading" className="relative py-32 bg-gradient-to-b from-neutral-950 to-neutral-900 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/2 left-0 w-1/2 h-1/2 bg-blue-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -70,9 +70,10 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
-              About Lakshya Groups
+              About Laksya Groups
             </span>
             
+            <h2 id="about-heading" className="sr-only">About Laksya Groups</h2>
             {/* Particle Text for About */}
             <div style={{ width: '100%', height: 120, background: 'transparent', marginBottom: '1rem' }}>
               <ParticleText

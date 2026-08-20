@@ -1,17 +1,66 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { caseStudies } from "@/data/case-studies";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Case Studies",
+  title: "Case Studies — Real Results from Laksya Groups Clients",
   description:
     "Real results from businesses we have helped. See how Laksya Groups delivered measurable outcomes across travel, exports, fintech, and more.",
+  alternates: { canonical: `${SITE_URL}/case-studies` },
+  openGraph: {
+    title: "Case Studies — Real Results from Laksya Groups Clients",
+    description:
+      "Real results from businesses we have helped. See how Laksya Groups delivered measurable outcomes.",
+    url: `${SITE_URL}/case-studies`,
+    type: "website",
+  },
 };
 
 export default function CaseStudiesPage() {
+  // BreadcrumbList structured data
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Case Studies",
+        item: `${SITE_URL}/case-studies`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <div className="max-w-6xl mx-auto px-6">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-neutral-300">
+              Case Studies
+            </li>
+          </ol>
+        </nav>
+
         <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-green-400 bg-green-500/10 border border-green-500/20 rounded-full">
           Real Results
         </span>
@@ -36,6 +85,7 @@ export default function CaseStudiesPage() {
                     src={study.image}
                     alt={study.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-neutral-950/80 hidden md:block" />
                 </div>

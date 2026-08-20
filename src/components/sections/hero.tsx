@@ -52,6 +52,7 @@ export function Hero() {
   return (
     <section
       id="home"
+      aria-label="Hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Hyperspeed synthwave background */}
@@ -82,7 +83,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Welcome to Lakshya Groups
+            Welcome to Laksya Groups — Bengaluru
           </motion.span>
         </motion.div>
 

@@ -11,7 +11,7 @@ export function BlogPreview() {
   const latestPosts = posts.slice(0, 3);
 
   return (
-    <section id="blog" className="relative py-32 bg-neutral-950">
+    <section id="blog" aria-labelledby="blog-heading" className="relative py-32 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
         <motion.div
           className="text-center mb-16"
@@ -22,7 +22,7 @@ export function BlogPreview() {
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-orange-400 bg-orange-500/10 border border-orange-500/20 rounded-full">
             From Our Blog
           </span>
-          <h2 className="text-3xl md:text-5xl font-black mb-4">
+          <h2 id="blog-heading" className="text-3xl md:text-5xl font-black mb-4">
             Insights & Guides
           </h2>
           <p className="text-neutral-400 max-w-2xl mx-auto">

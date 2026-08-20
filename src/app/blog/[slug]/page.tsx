@@ -16,13 +16,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: '/blog/' + post.slug },
+    alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
-      url: '/blog/' + post.slug,
+      url: `${SITE_URL}/blog/${post.slug}`,
       publishedTime: post.date,
+      authors: [post.author.name],
+      images: [
+        {
+          url: `${SITE_URL}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [`${SITE_URL}/og-image.png`],
     },
   };
 }
@@ -30,9 +45,95 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
+
+  // Article structured data
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      '@type': 'Person',
+      name: post.author.name,
+      url: post.author.linkedin || undefined,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Laksya Groups',
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/laksya-logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/blog/${post.slug}`,
+    },
+    image: `${SITE_URL}/og-image.png`,
+  };
+
+  // BreadcrumbList structured data
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${SITE_URL}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `${SITE_URL}/blog/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <article className="max-w-3xl mx-auto px-6">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <Link href="/blog" className="hover:text-white transition-colors">
+                Blog
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-neutral-300">
+              {post.title.length > 50 ? post.title.slice(0, 50) + '…' : post.title}
+            </li>
+          </ol>
+        </nav>
+
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-10 text-sm"
@@ -43,9 +144,9 @@ export default async function BlogPostPage({ params }: Props) {
           <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
             {post.category}
           </span>
-          <span className="text-neutral-500">
+          <time dateTime={post.date} className="text-neutral-500">
             {post.date} · {post.readTime}
-          </span>
+          </time>
         </div>
         <h1 className="text-4xl md:text-5xl font-black leading-tight mb-6">
           {post.title}
@@ -56,6 +157,9 @@ export default async function BlogPostPage({ params }: Props) {
             src={post.author.avatar}
             alt={post.author.name}
             className="w-12 h-12 rounded-full object-cover border-2 border-blue-500/30"
+            width={48}
+            height={48}
+            loading="lazy"
           />
           <div>
             <p className="font-semibold text-white">{post.author.name}</p>
@@ -67,7 +171,7 @@ export default async function BlogPostPage({ params }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               className="ml-auto text-neutral-400 hover:text-blue-400 transition-colors"
-              aria-label="LinkedIn profile"
+              aria-label={`${post.author.name} LinkedIn profile`}
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>

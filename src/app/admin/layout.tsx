@@ -35,7 +35,7 @@ export default async function AdminLayout({
           <Link href="/" className="flex items-center">
             <Image
               src="/laksya-logo.png"
-              alt="Lakshya Groups"
+              alt="Laksya Groups"
               width={1240}
               height={799}
               unoptimized

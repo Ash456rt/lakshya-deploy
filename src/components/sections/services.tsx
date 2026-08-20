@@ -64,7 +64,7 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-32 bg-neutral-950 overflow-hidden">
+    <section id="services" aria-labelledby="services-heading" className="relative py-32 bg-neutral-950 overflow-hidden">
       <Spotlight
         className="absolute inset-0 pointer-events-none"
         spotlightColor="rgba(59, 130, 246, 0.1)"
@@ -83,6 +83,7 @@ export function Services() {
             Our Services
           </span>
           
+          <h2 id="services-heading" className="sr-only">Our Services</h2>
           {/* Particle Text for Services */}
           <div style={{ width: '100%', height: 150, background: 'transparent', marginBottom: '1rem' }}>
             <ParticleText

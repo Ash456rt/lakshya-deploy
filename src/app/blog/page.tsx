@@ -1,17 +1,66 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { posts } from '@/data/posts';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Blog — Web Development & Business Insights | Laksya Groups',
   description:
-    'Insights on web development, app development, business consultancy, and how multi-service companies grow. Articles from the Laksya Groups team.',
+    'Insights on web development, app development, business consultancy, and how multi-service companies grow. Articles from the Laksya Groups team in Bengaluru.',
+  alternates: { canonical: `${SITE_URL}/blog` },
+  openGraph: {
+    title: 'Blog — Web Development & Business Insights | Laksya Groups',
+    description:
+      'Insights on web development, app development, business consultancy, and how multi-service companies grow.',
+    url: `${SITE_URL}/blog`,
+    type: 'website',
+  },
 };
 
 export default function BlogPage() {
+  // BreadcrumbList structured data
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${SITE_URL}/blog`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <div className="max-w-5xl mx-auto px-6">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-neutral-300">
+              Blog
+            </li>
+          </ol>
+        </nav>
+
         <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
           Insights &amp; Ideas
         </span>
@@ -34,15 +83,18 @@ export default function BlogPage() {
                 <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
                   {post.category}
                 </span>
-                <span className="text-neutral-500">
+                <time dateTime={post.date} className="text-neutral-500">
                   {post.date} · {post.readTime}
-                </span>
+                </time>
               </div>
               <div className="flex items-center gap-3 mb-4">
                 <img
                   src={post.author.avatar}
                   alt={post.author.name}
                   className="w-8 h-8 rounded-full object-cover"
+                  width={32}
+                  height={32}
+                  loading="lazy"
                 />
                 <span className="text-sm text-neutral-400">{post.author.name}</span>
               </div>

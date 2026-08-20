@@ -71,7 +71,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-32 bg-neutral-950 overflow-hidden">
+    <section id="contact" aria-labelledby="contact-heading" className="relative py-32 bg-neutral-950 overflow-hidden">
       <Spotlight
         className="absolute inset-0 pointer-events-none"
         spotlightColor="rgba(147, 51, 234, 0.1)"
@@ -101,8 +101,8 @@ export function Contact() {
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-pink-400 bg-pink-500/10 border border-pink-500/20 rounded-full">
             Get In Touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Let's Start{" "}
+          <h2 id="contact-heading" className="text-4xl md:text-5xl font-black text-white mb-4">
+            Let&apos;s Start{" "}
             <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
               Something Great
             </span>
@@ -278,7 +278,7 @@ export function Contact() {
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Lakshya Groups office location"
+                title="Laksya Groups office location"
               />
               <a
                 href="https://maps.app.goo.gl/DpEYMx76VAuJdErv8"

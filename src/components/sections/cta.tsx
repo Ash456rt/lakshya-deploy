@@ -71,7 +71,7 @@ export function CTA() {
 
           <p className="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto backdrop-blur-sm bg-neutral-950/30 p-4 rounded-2xl">
             Join 10,000+ businesses that have already transformed their operations
-            with Lakshya Groups. Your success story starts here.
+            with Laksya Groups. Your success story starts here.
           </p>
 
           <motion.div

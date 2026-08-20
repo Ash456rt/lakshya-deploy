@@ -17,7 +17,7 @@ export function Stats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="stats" className="relative py-32 bg-neutral-950 overflow-hidden">
+    <section id="stats" aria-labelledby="stats-heading" className="relative py-32 bg-neutral-950 overflow-hidden">
       <BackgroundBeams className="opacity-15" />
 
       {/* Animated gradient background */}
@@ -48,6 +48,7 @@ export function Stats() {
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-green-400 bg-green-500/10 border border-green-500/20 rounded-full">
             Our Impact
           </span>
+          <h2 id="stats-heading" className="sr-only">Our Numbers</h2>
           <div style={{ width: '100%', height: 200, background: 'transparent' }}>
             <ParticleText
               text="OUR NUMBERS"
