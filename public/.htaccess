@@ -1,0 +1,52 @@
+# Lakshya Groups — static Next.js export on Hostinger (LiteSpeed/Apache)
+
+DirectoryIndex index.html
+Options -Indexes
+
+# Serve clean URLs from sibling .html files produced by `next build` (output: "export"):
+#   /portal  and /portal/  ->  /portal.html
+#   /login   and /login/   ->  /login.html
+#   /about   and /about/   ->  /about.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Directory without index.html, but a sibling .html exists
+  # (non-greedy: /login/ must map to login.html, not login/.html)
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html !-f
+  RewriteRule ^(.*?)/?$ $1.html [L]
+
+  # Extensionless URL that maps to an existing .html file
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# Static 404 page
+ErrorDocument 404 /404.html
+
+# ---- Caching ----
+# HTML and RSC payload (.txt) files must revalidate on every visit so
+# a deploy is visible immediately (Hostinger's CDN caches aggressively).
+# Hashed /_next/static assets are safe to cache forever.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/plain "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 week"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/svg+xml "access plus 1 week"
+  ExpiresByType image/x-icon "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
