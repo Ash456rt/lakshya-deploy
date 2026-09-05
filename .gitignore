@@ -45,4 +45,5 @@ dev.log
 
 .vercel
 .env*
+ADMIN_CREDENTIALS.txt
 izanami-prompt/
