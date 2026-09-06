@@ -8,6 +8,7 @@ interface MagneticButtonProps {
   className?: string;
   strength?: number;
   type?: "button" | "submit" | "reset";
+  href?: string;
 }
 
 export function MagneticButton({
@@ -15,6 +16,7 @@ export function MagneticButton({
   className,
   strength = 0.3,
   type = "button",
+  href,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -32,18 +34,26 @@ export function MagneticButton({
 
   const reset = () => setPosition({ x: 0, y: 0 });
 
+  const handleClick = () => {
+    if (href) {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.button
       ref={ref}
       type={type}
       className={cn(
-        "relative inline-flex items-center justify-center px-8 py-4 font-medium text-sm text-white bg-amber-600 rounded-full overflow-hidden transition-all hover:bg-amber-500 hover:shadow-lg hover:shadow-amber-500/25",
+        "relative inline-flex items-center justify-center px-8 py-4 font-medium text-sm text-white bg-amber-500 hover:bg-amber-400 text-black transition-colors duration-300",
         className
       )}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
+      onClick={handleClick}
     >
       <span className="relative z-10">{children}</span>
 

@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /portal
+Disallow: /admin
+Disallow: /api
+Disallow: /auth
+Disallow: /_next/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /portal
+Disallow: /admin
+Disallow: /api
+Disallow: /auth
+
+User-agent: Bingbot
+Allow: /
+Disallow: /portal
+Disallow: /admin
+Disallow: /api
+Disallow: /auth
+
+Sitemap: https://lakshyagroups.in/sitemap.xml

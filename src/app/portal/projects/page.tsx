@@ -1,34 +1,49 @@
+"use client";
+
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { StatusBadge } from "@/components/portal/status-badge";
 
-export const dynamic = "force-dynamic";
+export default function ProjectsPage() {
+  const [projects, setProjects] = useState<Array<{
+    id: string;
+    title: string;
+    description?: string;
+    status: string;
+    progress: number;
+    updated_at: string;
+  }>>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function ProjectsPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return;
+      const { data } = await supabase
+        .from("client_projects")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("updated_at", { ascending: false });
+      setProjects(data ?? []);
+      setLoading(false);
+    });
+  }, []);
 
-  if (!user) redirect("/login");
-
-  const { data: projects } = await supabase
-    .from("client_projects")
-    .select("*")
-    .eq("user_id", user.id)
-    .order("updated_at", { ascending: false });
+  if (loading) {
+    return <p className="text-neutral-400">Loading…</p>;
+  }
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold">My projects</h1>
         <p className="text-neutral-400 mt-2">
-          Track the progress of the work we're doing for you.
+          Track the progress of the work we&apos;re doing for you.
         </p>
       </div>
 
-      {projects && projects.length > 0 ? (
+      {projects.length > 0 ? (
         <ul className="space-y-4">
           {projects.map((p) => (
             <li key={p.id} className="glass-dark rounded-2xl p-6">

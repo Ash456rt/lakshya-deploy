@@ -1,14 +1,34 @@
-import { createAdminClient } from "@/lib/supabase/admin";
-import { markMessageRead } from "@/app/admin/actions";
+"use client";
 
-export const dynamic = "force-dynamic";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 
-export default async function AdminMessages() {
-  const admin = createAdminClient();
-  const { data: messages } = await admin
-    .from("contact_messages")
-    .select("*")
-    .order("created_at", { ascending: false });
+export default function AdminMessages() {
+  const [messages, setMessages] = useState<Array<{
+    id: string; name: string; email: string; service?: string;
+    message: string; status: string; created_at: string;
+  }>>([]);
+  const [loading, setLoading] = useState(true);
+
+  const loadData = async () => {
+    const admin = createClient();
+    const { data } = await admin
+      .from("contact_messages")
+      .select("*")
+      .order("created_at", { ascending: false });
+    setMessages(data ?? []);
+    setLoading(false);
+  };
+
+  useEffect(() => { loadData(); }, []);
+
+  const markRead = async (id: string) => {
+    const admin = createClient();
+    await admin.from("contact_messages").update({ status: "read" }).eq("id", id);
+    await loadData();
+  };
+
+  if (loading) return <p className="text-neutral-400">Loading…</p>;
 
   return (
     <div className="space-y-8">
@@ -19,7 +39,7 @@ export default async function AdminMessages() {
         </p>
       </div>
 
-      {messages && messages.length > 0 ? (
+      {messages.length > 0 ? (
         <ul className="space-y-4">
           {messages.map((m) => (
             <li
@@ -45,15 +65,12 @@ export default async function AdminMessages() {
                   </p>
                 </div>
                 {m.status === "new" ? (
-                  <form action={markMessageRead}>
-                    <input type="hidden" name="id" value={m.id} />
-                    <button
-                      type="submit"
-                      className="rounded-lg bg-amber-500/20 text-amber-300 ring-1 ring-amber-500/30 hover:bg-amber-500/30 text-sm font-medium px-4 py-2 transition"
-                    >
-                      Mark as read
-                    </button>
-                  </form>
+                  <button
+                    onClick={() => markRead(m.id)}
+                    className="rounded-lg bg-amber-500/20 text-amber-300 ring-1 ring-amber-500/30 hover:bg-amber-500/30 text-sm font-medium px-4 py-2 transition"
+                  >
+                    Mark as read
+                  </button>
                 ) : (
                   <span className="inline-flex rounded-full bg-neutral-500/10 text-neutral-400 ring-1 ring-neutral-500/30 px-3 py-1 text-xs font-medium">
                     Read

@@ -1,12 +1,50 @@
 "use client";
 
-import React, { useActionState } from "react";
-import { signup, type AuthState } from "@/app/(auth)/actions";
-
-const initialState: AuthState = {};
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
 
 export function SignupForm() {
-  const [state, formAction, pending] = useActionState(signup, initialState);
+  const router = useRouter();
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPending(true);
+    setError("");
+    setMessage("");
+
+    try {
+      const supabase = createClient();
+      const { data, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { full_name: fullName } },
+      });
+
+      if (authError) {
+        setError(authError.message);
+        return;
+      }
+
+      // If a session exists immediately, email confirmation is disabled.
+      if (data.session) {
+        router.push("/portal");
+        return;
+      }
+
+      setMessage("Check your inbox for a confirmation link, then sign in.");
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setPending(false);
+    }
+  };
 
   return (
     <div>
@@ -15,18 +53,18 @@ export function SignupForm() {
         Join the Lakshya Groups client portal to track projects and request quotes.
       </p>
 
-      {state.message && (
+      {message && (
         <div className="mb-6 rounded-lg bg-emerald-500/10 border border-emerald-500/30 px-4 py-3 text-sm text-emerald-300">
-          {state.message}
+          {message}
         </div>
       )}
-      {state.error && (
+      {error && (
         <div className="mb-6 rounded-lg bg-red-500/10 border border-red-500/30 px-4 py-3 text-sm text-red-300">
-          {state.error}
+          {error}
         </div>
       )}
 
-      <form action={formAction} className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label htmlFor="full_name" className="block text-sm font-medium text-neutral-300 mb-2">
             Full name
@@ -37,6 +75,8 @@ export function SignupForm() {
             type="text"
             required
             autoComplete="name"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
             className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
             placeholder="Your name"
           />
@@ -51,6 +91,8 @@ export function SignupForm() {
             type="email"
             required
             autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
             placeholder="you@company.com"
           />
@@ -66,6 +108,8 @@ export function SignupForm() {
             required
             minLength={6}
             autoComplete="new-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
             placeholder="At least 6 characters"
           />

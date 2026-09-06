@@ -1,23 +1,37 @@
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+"use client";
+
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { StatusBadge } from "@/components/portal/status-badge";
 import { QuoteForm } from "@/components/portal/quote-form";
 
-export const dynamic = "force-dynamic";
+export default function QuotePage() {
+  const [quotes, setQuotes] = useState<Array<{
+    id: string;
+    service: string;
+    details?: string;
+    status: string;
+    created_at: string;
+  }>>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function QuotePage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return;
+      const { data } = await supabase
+        .from("quote_requests")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+      setQuotes(data ?? []);
+      setLoading(false);
+    });
+  }, []);
 
-  if (!user) redirect("/login");
-
-  const { data: quotes } = await supabase
-    .from("quote_requests")
-    .select("*")
-    .eq("user_id", user.id)
-    .order("created_at", { ascending: false });
+  if (loading) {
+    return <p className="text-neutral-400">Loading…</p>;
+  }
 
   return (
     <div className="space-y-10">
@@ -32,7 +46,7 @@ export default async function QuotePage() {
 
       <div>
         <h2 className="text-xl font-semibold mb-4">My requests</h2>
-        {quotes && quotes.length > 0 ? (
+        {quotes.length > 0 ? (
           <ul className="space-y-4">
             {quotes.map((q) => (
               <li key={q.id} className="glass-dark rounded-xl p-5">

@@ -11,7 +11,7 @@ type NavGroup = { name: string; items: NavItem[] };
 
 const navigation: (NavItem | NavGroup)[] = [
   { name: "Home", href: "#home" },
-  { name: "Services", href: "#services" },
+  { name: "Services", href: "/services" },
   {
     name: "Company",
     items: [
@@ -24,8 +24,8 @@ const navigation: (NavItem | NavGroup)[] = [
   {
     name: "Platforms",
     items: [
-      { name: "Lakshya Academy", href: "/lakshya-deploy/index.html" },
-      { name: "Lakshya Travels", href: "/travels/index.html" },
+      { name: "Lakshya Academy", href: "/lakshya-deploy/" },
+      { name: "Lakshya Travels", href: "/travels/" },
     ],
   },
   { name: "Contact", href: "#contact" },
@@ -186,13 +186,13 @@ export function Navbar() {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
         >
-          <Image
+          {/* Lakshya Groups logo — kept in header as you asked */}
+          <img
             src="/laksya-logo.png"
             alt="Lakshya Groups"
+            className="h-12 w-auto object-contain"
             width={1240}
             height={799}
-            unoptimized
-            className="h-12 w-auto object-contain"
           />
         </motion.a>
 
@@ -212,7 +212,7 @@ export function Navbar() {
             )
           )}
           <PortalLink />
-          <MagneticButton className="!px-6 !py-2 text-sm">
+          <MagneticButton href="#contact" className="!px-6 !py-2 text-sm">
             Get a Free Consultation
           </MagneticButton>
         </div>
@@ -313,7 +313,7 @@ export function Navbar() {
                 mobile
                 onClick={() => setIsMobileOpen(false)}
               />
-              <MagneticButton className="!px-8 !py-3">Get a Free Consultation</MagneticButton>
+              <MagneticButton href="#contact" className="!px-8 !py-3">Get a Free Consultation</MagneticButton>
             </div>
           </motion.div>
         )}

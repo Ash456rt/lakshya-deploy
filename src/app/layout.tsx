@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 import { SITE_URL } from "@/lib/site";
 
 const TITLE =
-  "Lakshya Groups — Web Development, Consultancy & Global Services | Bengaluru";
+  "Lakshya Groups | Web Development & Consultancy in Bengaluru";
 const DESCRIPTION =
   "Lakshya Groups is a Bengaluru-based multi-service company offering web & app development, business consultancy, import & export, customer support, transport & logistics, tours & travel, and professional training through Lakshya Academy.";
 
@@ -24,26 +24,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s | Lakshya Groups — Bengaluru",
+    template: "%s | Lakshya Groups | Bengaluru",
   },
   description: DESCRIPTION,
-  keywords: [
-    "Lakshya Groups",
-    "web development company Bengaluru",
-    "app development India",
-    "business consultancy Bengaluru",
-    "import export company India",
-    "customer support services",
-    "transport logistics India",
-    "tours and travel Bengaluru",
-    "Lakshya Academy training",
-    "technology consulting Bengaluru",
-    "Next.js development India",
-    "React app development",
-    "IT company Bengaluru",
-    "startup consultancy India",
-    "digital transformation services",
-  ],
   verification: {
     google: "A0hSyyGtpIy06RtZHlsRWFgXJ5qflDfnuo-RLAvWwuk",
   },
@@ -51,26 +34,25 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: "Lakshya Groups — Web Development, Consultancy & Global Services",
+    title: "Lakshya Groups | Web Development, Consultancy & Global Services",
     description: DESCRIPTION,
     type: "website",
     locale: "en_US",
     siteName: "Lakshya Groups",
-    url: SITE_URL,
-    images: [
+    url: SITE_URL,        images: [
       {
-        url: `${SITE_URL}/og-image.png`,
+        url: `${SITE_URL}/og-image.webp`,
         width: 1200,
         height: 630,
-        alt: "Lakshya Groups — Web Development, Consultancy, Import & Export, Tours & Travel, Lakshya Academy | Bengaluru, India",
+        alt: "Lakshya Groups | Web Development, Consultancy, Import & Export, Tours & Travel, Lakshya Academy | Bengaluru, India",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lakshya Groups — Web Development, Consultancy & Global Services",
+    title: "Lakshya Groups | Web Development, Consultancy & Global Services",
     description: DESCRIPTION,
-    images: [`${SITE_URL}/og-image.png`],
+    images: [`${SITE_URL}/og-image.webp`],
   },
   robots: {
     index: true,
@@ -102,8 +84,11 @@ export default function RootLayout({
         <meta name="google-site-verification" content="A0hSyyGtpIy06RtZHlsRWFgXJ5qflDfnuo-RLAvWwuk" />
         {/* Tell Dark Reader this site is already dark — prevents style injection */}
         <meta name="color-scheme" content="dark" />
-      </head>
-      <body className="min-h-full flex flex-col bg-neutral-950 text-white" suppressHydrationWarning>
+      </head>      <body className="min-h-full flex flex-col bg-neutral-950 text-white" suppressHydrationWarning>
+        {/* Browser tab icon — Lakshya Groups logo */}
+        <link rel="icon" type="image/png" href="/laksya-logo-300.webp" />
+        <link rel="apple-touch-icon" href="/laksya-logo-300.webp" />
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SGR6KY1CMC"
@@ -135,9 +120,9 @@ export default function RootLayout({
                   url: SITE_URL,
                   logo: {
                     "@type": "ImageObject",
-                    url: `${SITE_URL}/laksya-logo.png`,
-                    width: 1240,
-                    height: 799,
+                    url: `${SITE_URL}/logo.svg`,
+                    width: 32,
+                    height: 32,
                   },
                   description:
                     "Lakshya Groups is a multi-service conglomerate offering web & app development, business consultancy, import & export, customer support, transport & logistics, tours & travel, and professional training.",
@@ -161,8 +146,8 @@ export default function RootLayout({
                   sameAs: [
                     "https://x.com/lakshyagroups",
                     "https://linkedin.com/company/lakshya-groups",
-                    "https://instagram.com/lakshyagroups",
-                    "https://youtube.com/@lakshyagroups",
+                    "https://www.instagram.com/groupslakshya?igsi=ZHdrbnRsc2xhMzFp",
+
                   ],
                 },
                 {
@@ -181,7 +166,7 @@ export default function RootLayout({
                   "@type": "LocalBusiness",
                   "@id": `${SITE_URL}/#localbusiness`,
                   name: "Lakshya Groups",
-                  image: `${SITE_URL}/laksya-logo.png`,
+                  image: `${SITE_URL}/og-image.webp`,
                   url: SITE_URL,
                   telephone: "+919902841875",
                   email: "admin@lakshyagroups.in",

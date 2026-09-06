@@ -1,70 +1,56 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { InfiniteSlider } from "@/components/core/infinite-slider";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const partners = [
-  { src: "/partners/avans.png", name: "Avans", url: "" },
-  { src: "/partners/bank.png", name: "Bank", url: "" },
-  { src: "/partners/cayrys.png", name: "Cayrys", url: "" },
-  {
-    src: "/partners/first-zone.png",
-    name: "First Zone",
-    url: "https://firstzonemarketing.com",
-  },
-  { src: "/partners/saif-learn.png", name: "Saif Learn", url: "" },
-  { src: "/partners/sri-lakshmi.png", name: "Sri Lakshmi", url: "" },
-  { src: "/partners/zetpeak.png", name: "ZetPeak", url: "https://zetpeak.com" },
+  { name: "Avans", src: "/partners/avans.png" },
+  { name: "First Zone", src: "/partners/first-zone.png" },
+  { name: "Saif Learn", src: "/partners/saif-learn.png" },
+  { name: "Sri Lakshmi", src: "/partners/sri-lakshmi.png" },
+  { name: "ZetPeak", src: "/partners/zetpeak.png" },
+  { name: "Cayrys", src: "/partners/cayrys.png" },
+  { name: "Bank", src: "/partners/bank.png" },
 ];
 
 export function Partners() {
-  return (
-    <section className="relative py-24 bg-neutral-950 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10 mb-10">
-        <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-widest">
-          Trusted by leading organizations
-        </h2>
-      </div>
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
 
-      <InfiniteSlider
-        gap={24}
-        reverse
-        duration={40}
-        pauseOnHover
-        className="[mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
-      >
-        {partners.map((partner) => {
-          const logo = (
-            <Image
-              src={partner.src}
-              alt={`${partner.name} logo`}
-              width={160}
-              height={80}
-              className="h-24 md:h-28 w-auto object-contain opacity-80 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
-            />
-          );
-          return (
-            <div
+  return (
+    <section
+      ref={ref}
+      className="relative py-16 bg-[#030712] border-t border-b border-zinc-800/30"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center text-[10px] font-medium tracking-[0.3em] uppercase text-zinc-600 mb-10"
+        >
+          Trusted by teams across industries
+        </motion.p>
+
+        {/* Logo row — monochrome, low opacity, like Stripe/Vercel */}
+        <div className="flex items-center justify-center flex-wrap gap-x-12 gap-y-6">
+          {partners.map((partner, index) => (
+            <motion.div
               key={partner.name}
-              className="flex items-center justify-center px-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
+              className="flex items-center justify-center"
             >
-              {partner.url ? (
-                <a
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit ${partner.name} website`}
-                  className="inline-block"
-                >
-                  {logo}
-                </a>
-              ) : (
-                logo
-              )}
-            </div>
-          );
-        })}
-      </InfiniteSlider>
+              <img
+                src={partner.src}
+                alt={`${partner.name} logo`}
+                className="h-8 md:h-10 w-auto object-contain opacity-30 hover:opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

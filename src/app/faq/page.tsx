@@ -3,12 +3,12 @@ import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQ — Lakshya Groups Services, Pricing & Timelines",
+  title: "FAQ | Lakshya Groups Services, Pricing & Timelines",
   description:
     "Frequently asked questions about Lakshya Groups services, pricing, timelines, and how we work. Web development, consultancy, import & export, and more.",
   alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
-    title: "FAQ — Lakshya Groups Services, Pricing & Timelines",
+    title: "FAQ | Lakshya Groups Services, Pricing & Timelines",
     description:
       "Frequently asked questions about Lakshya Groups services, pricing, timelines, and how we work.",
     url: `${SITE_URL}/faq`,
@@ -20,17 +20,17 @@ const faqs = [
   {
     question: "What services does Lakshya Groups offer?",
     answer:
-      "We offer 7 services under one roof: App & Web Development, Strategic Consultancy, Import & Export, Customer Support, Transport & Logistics, Tours & Travel, and professional training through Lakshya Academy. You can use one service or all seven — we scale with your needs.",
+      "We offer 7 services under one roof: App & Web Development, Strategic Consultancy, Import & Export, Customer Support, Transport & Logistics, Tours & Travel, and professional training through Lakshya Academy. You can use one service or all seven. We scale with your needs.",
   },
   {
     question: "How much does a website cost?",
     answer:
-      "A business website starts from ₹25,000 for a basic 5-page site. Complex web applications, e-commerce platforms, and custom dashboards range from ₹1,00,000 to ₹5,00,000 depending on features. We give fixed-price quotes after understanding your requirements — no surprises.",
+      "A business website starts from ₹25,000 for a basic 5-page site. Complex web applications, e-commerce platforms, and custom dashboards range from ₹1,00,000 to ₹5,00,000 depending on features. We give fixed-price quotes after understanding your requirements. No surprises.",
   },
   {
     question: "How long does it take to build a website?",
     answer:
-      "A simple business website takes 2-3 weeks. A web application with user accounts and database takes 4-8 weeks. A mobile app takes 8-12 weeks. We provide a detailed timeline before starting and hit our deadlines — that is something our clients consistently praise us for.",
+      "A simple business website takes 2-3 weeks. A web application with user accounts and database takes 4-8 weeks. A mobile app takes 8-12 weeks. We provide a detailed timeline before starting and hit our deadlines. That is something our clients consistently praise us for.",
   },
   {
     question: "Do you work with clients outside Bengaluru?",
@@ -144,7 +144,7 @@ export default function FAQPage() {
           <Link href="/#contact" className="text-amber-400 hover:text-amber-300">
             Contact us
           </Link>{" "}
-          — we reply within 24 hours.
+          and we reply within 24 hours.
         </p>
 
         <div className="space-y-4">

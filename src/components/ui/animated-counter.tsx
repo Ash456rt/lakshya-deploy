@@ -18,13 +18,14 @@ export function AnimatedCounter({
   className,
   duration = 2,
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(value); // start at real value so static export shows the number
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!isInView) return;
 
+    // animate from 0 up to value for the JS-enabled view
     let start = 0;
     const increment = value / (duration * 60);
     const timer = setInterval(() => {

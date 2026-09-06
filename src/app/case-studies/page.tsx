@@ -4,121 +4,69 @@ import { caseStudies } from "@/data/case-studies";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Real Results from Lakshya Groups Clients",
+  title: "Case Studies | Real Results from Lakshya Groups Clients",
   description:
-    "Real results from businesses we have helped. See how Lakshya Groups delivered measurable outcomes across travel, exports, fintech, and more.",
+    "See how Lakshya Groups helped businesses save time, cut costs, and grow with our multi-service approach.",
   alternates: { canonical: `${SITE_URL}/case-studies` },
-  openGraph: {
-    title: "Case Studies — Real Results from Lakshya Groups Clients",
-    description:
-      "Real results from businesses we have helped. See how Lakshya Groups delivered measurable outcomes.",
-    url: `${SITE_URL}/case-studies`,
-    type: "website",
-  },
 };
 
 export default function CaseStudiesPage() {
-  // BreadcrumbList structured data
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Case Studies",
-        item: `${SITE_URL}/case-studies`,
-      },
-    ],
-  };
-
   return (
-    <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Breadcrumbs */}
+    <main className="min-h-screen bg-[#030712] text-white pt-32 pb-24">
+      <div className="max-w-5xl mx-auto px-6">
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+          <ol className="flex items-center gap-2 text-xs text-zinc-600">
             <li>
               <Link href="/" className="hover:text-white transition-colors">
                 Home
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-neutral-300">
+            <li aria-current="page" className="text-zinc-400">
               Case Studies
             </li>
           </ol>
         </nav>
 
-        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-green-500/10 border border-green-500/20 rounded-full">
-          Real Results
+        <span className="inline-block px-2.5 py-0.5 mb-6 text-[10px] font-medium tracking-wider uppercase text-amber-400/80 bg-amber-500/5 border border-amber-500/10">
+          Work
         </span>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Case Studies
         </h1>
-        <p className="text-lg text-neutral-400 max-w-2xl mb-14">
-          We do not just talk about results — we document them. Here are real
-          projects with real outcomes. Numbers, not adjectives.
+        <p className="text-lg text-zinc-500 max-w-2xl mb-14">
+          We document our results. Here are real projects with real outcomes.
         </p>
 
-        <div className="space-y-8">
+        <div className="space-y-4">
           {caseStudies.map((study) => (
             <Link
               key={study.slug}
               href={`/case-studies/${study.slug}`}
-              className="group block rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-amber-500/40 transition-all duration-300"
+              className="group block bg-zinc-900/30 border border-zinc-800/50 hover:border-zinc-700/50 p-8 transition-colors duration-500"
             >
-              <div className="grid md:grid-cols-3 gap-0">
-                <div className="relative h-48 md:h-auto">
-                  <img
-                    src={study.image}
-                    alt={study.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-neutral-950/80 hidden md:block" />
-                </div>
-                <div className="md:col-span-2 p-8">
-                  <div className="flex items-center gap-3 mb-3 text-sm">
-                    <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                      {study.industry}
-                    </span>
-                    <span className="text-neutral-500">{study.client}</span>
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="px-2.5 py-0.5 text-[10px] font-medium tracking-wider uppercase text-amber-400/80 bg-amber-500/5 border border-amber-500/10">
+                  {study.industry}
+                </span>
+                <span className="text-xs text-zinc-600">
+                  {study.client} · {study.date}
+                </span>
+              </div>
+              <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors duration-300">
+                {study.title}
+              </h2>
+              <p className="text-zinc-500 text-sm leading-relaxed mb-6 max-w-2xl">
+                {study.challenge}
+              </p>
+              {/* Results preview */}
+              <div className="flex flex-wrap gap-4">
+                {study.results.slice(0, 3).map((r) => (
+                  <div key={r.metric} className="text-sm">
+                    <span className="text-zinc-600">{r.metric}: </span>
+                    <span className="text-amber-400/80 font-medium">{r.value}</span>
                   </div>
-                  <h2 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">
-                    {study.title}
-                  </h2>
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                    {study.challenge}
-                  </p>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {study.results.map((r) => (
-                      <div key={r.metric}>
-                        <p className="text-lg font-bold text-amber-400">
-                          {r.value}
-                        </p>
-                        <p className="text-xs text-neutral-500">{r.metric}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-2 mt-6 text-sm font-medium text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Read full case study
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      →
-                    </span>
-                  </div>
-                </div>
+                ))}
               </div>
             </Link>
           ))}

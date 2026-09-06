@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       authors: [post.author.name],
       images: [
         {
-          url: `${SITE_URL}/og-image.png`,
+          url: `${SITE_URL}/og-image.webp`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: [`${SITE_URL}/og-image.png`],
+      images: [`${SITE_URL}/og-image.webp`],
     },
   };
 }
@@ -56,22 +56,23 @@ export default async function BlogPostPage({ params }: Props) {
     author: {
       '@type': 'Person',
       name: post.author.name,
-      url: post.author.linkedin || undefined,
+      url: `${SITE_URL}/authors/${post.slug === 'our-stack-why-nextjs-supabase-tailwind' || post.slug === 'choosing-web-development-partner' || post.slug === 'app-vs-web-development-2026' || post.slug === 'one-partner-many-services' || post.slug === 'why-nextjs-for-business-websites-2026' || post.slug === 'common-mistakes-small-business-websites' ? 'shubham-kushwaha' : 'shubham-kushwaha'}`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Lakshya Groups',
-      url: SITE_URL,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/laksya-logo.png`,
-      },
+      url: SITE_URL,        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/logo.svg`,
+          width: 32,
+          height: 32,
+        },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/blog/${post.slug}`,
     },
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/og-image.webp`,
   };
 
   // BreadcrumbList structured data

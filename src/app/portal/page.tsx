@@ -1,48 +1,51 @@
+"use client";
+
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { StatusBadge } from "@/components/portal/status-badge";
 import { ProfileForm } from "@/components/portal/profile-form";
 
-export const dynamic = "force-dynamic";
+export default function PortalOverview() {
+  const [user, setUser] = useState<{ id: string; email?: string } | null>(null);
+  const [profile, setProfile] = useState<{ full_name?: string; company?: string; phone?: string } | null>(null);
+  const [projects, setProjects] = useState<Array<{ id: string; title: string; status: string; progress: number; updated_at: string }>>([]);
+  const [quotes, setQuotes] = useState<Array<{ id: string; service: string; status: string; created_at: string }>>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function PortalOverview() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  useEffect(() => {
+    const supabase = createClient();
 
-  if (!user) redirect("/login");
+    supabase.auth.getUser().then(async ({ data: { user: u } }) => {
+      if (!u) return;
+      setUser(u);
 
-  const [{ data: profile }, { data: projects }, { data: quotes }] =
-    await Promise.all([
-      supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", user.id)
-        .maybeSingle(),
-      supabase
-        .from("client_projects")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("updated_at", { ascending: false }),
-      supabase
-        .from("quote_requests")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false }),
-    ]);
+      const [{ data: p }, { data: proj }, { data: q }] = await Promise.all([
+        supabase.from("profiles").select("*").eq("id", u.id).maybeSingle(),
+        supabase.from("client_projects").select("*").eq("user_id", u.id).order("updated_at", { ascending: false }),
+        supabase.from("quote_requests").select("*").eq("user_id", u.id).order("created_at", { ascending: false }),
+      ]);
+
+      setProfile(p);
+      setProjects(proj ?? []);
+      setQuotes(q ?? []);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <p className="text-neutral-400">Loading…</p>;
+  }
 
   const firstName =
     (profile?.full_name && profile.full_name.split(" ")[0]) ||
-    (user.email ? user.email.split("@")[0] : "there");
+    (user?.email ? user.email.split("@")[0] : "there");
 
-  const totalProjects = projects?.length ?? 0;
-  const activeProjects =
-    projects?.filter((p) => p.status === "in_progress").length ?? 0;
-  const totalQuotes = quotes?.length ?? 0;
-  const recentProjects = (projects ?? []).slice(0, 3);
-  const recentQuotes = (quotes ?? []).slice(0, 3);
+  const totalProjects = projects.length;
+  const activeProjects = projects.filter((p) => p.status === "in_progress").length;
+  const totalQuotes = quotes.length;
+  const recentProjects = projects.slice(0, 3);
+  const recentQuotes = quotes.slice(0, 3);
 
   return (
     <div className="space-y-10">
@@ -51,7 +54,7 @@ export default async function PortalOverview() {
           Welcome, {firstName}
         </h1>
         <p className="text-neutral-400 mt-2">
-          Your account: {user.email}
+          Your account: {user?.email}
         </p>
       </div>
 

@@ -1,53 +1,49 @@
+"use client";
+
 import Link from "next/link";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { StatusBadge } from "@/components/portal/status-badge";
 
-export const dynamic = "force-dynamic";
+export default function AdminOverview() {
+  const [stats, setStats] = useState<Array<{ label: string; value: number; href: string }>>([]);
+  const [recentQuotes, setRecentQuotes] = useState<Array<{ id: string; service: string; status: string; created_at: string }>>([]);
+  const [recentMessages, setRecentMessages] = useState<Array<{ id: string; name: string; email: string; service: string; status: string; created_at: string }>>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function AdminOverview() {
-  const admin = createAdminClient();
-  const [
-    { count: userCount },
-    { count: projectCount },
-    { count: quoteCount },
-    { count: pendingQuoteCount },
-    { count: messageCount },
-    { count: newMessageCount },
-    { data: recentQuotes },
-    { data: recentMessages },
-  ] = await Promise.all([
-    admin.from("profiles").select("*", { count: "exact", head: true }),
-    admin.from("client_projects").select("*", { count: "exact", head: true }),
-    admin.from("quote_requests").select("*", { count: "exact", head: true }),
-    admin
-      .from("quote_requests")
-      .select("*", { count: "exact", head: true })
-      .eq("status", "pending"),
-    admin.from("contact_messages").select("*", { count: "exact", head: true }),
-    admin
-      .from("contact_messages")
-      .select("*", { count: "exact", head: true })
-      .eq("status", "new"),
-    admin
-      .from("quote_requests")
-      .select("id, service, status, created_at")
-      .order("created_at", { ascending: false })
-      .limit(4),
-    admin
-      .from("contact_messages")
-      .select("id, name, email, service, status, created_at")
-      .order("created_at", { ascending: false })
-      .limit(4),
-  ]);
+  useEffect(() => {
+    const admin = createClient();
 
-  const stats = [
-    { label: "Clients", value: userCount ?? 0, href: "/admin/users" },
-    { label: "Projects", value: projectCount ?? 0, href: "/admin/projects" },
-    { label: "Quotes", value: quoteCount ?? 0, href: "/admin/quotes" },
-    { label: "Pending quotes", value: pendingQuoteCount ?? 0, href: "/admin/quotes" },
-    { label: "Messages", value: messageCount ?? 0, href: "/admin/messages" },
-    { label: "New messages", value: newMessageCount ?? 0, href: "/admin/messages" },
-  ];
+    Promise.all([
+      admin.from("profiles").select("id", { count: "exact", head: true }),
+      admin.from("client_projects").select("id", { count: "exact", head: true }),
+      admin.from("quote_requests").select("id", { count: "exact", head: true }),
+      admin.from("quote_requests").select("id", { count: "exact", head: true }).eq("status", "pending"),
+      admin.from("contact_messages").select("id", { count: "exact", head: true }),
+      admin.from("contact_messages").select("id", { count: "exact", head: true }).eq("status", "new"),
+      admin.from("quote_requests").select("id, service, status, created_at").order("created_at", { ascending: false }).limit(4),
+      admin.from("contact_messages").select("id, name, email, service, status, created_at").order("created_at", { ascending: false }).limit(4),
+    ]).then(([
+      userCount, projectCount, quoteCount, pendingQuoteCount,
+      messageCount, newMessageCount, quotes, messages,
+    ]) => {
+      setStats([
+        { label: "Clients", value: userCount.count ?? 0, href: "/admin/users" },
+        { label: "Projects", value: projectCount.count ?? 0, href: "/admin/projects" },
+        { label: "Quotes", value: quoteCount.count ?? 0, href: "/admin/quotes" },
+        { label: "Pending quotes", value: pendingQuoteCount.count ?? 0, href: "/admin/quotes" },
+        { label: "Messages", value: messageCount.count ?? 0, href: "/admin/messages" },
+        { label: "New messages", value: newMessageCount.count ?? 0, href: "/admin/messages" },
+      ]);
+      setRecentQuotes(quotes.data ?? []);
+      setRecentMessages(messages.data ?? []);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <p className="text-neutral-400">Loading…</p>;
+  }
 
   return (
     <div className="space-y-10">
@@ -77,7 +73,7 @@ export default async function AdminOverview() {
               View all
             </Link>
           </div>
-          {recentQuotes && recentQuotes.length > 0 ? (
+          {recentQuotes.length > 0 ? (
             <ul className="space-y-3">
               {recentQuotes.map((q) => (
                 <li key={q.id} className="flex items-center justify-between gap-3 border-b border-neutral-800 pb-3 last:border-0 last:pb-0">
@@ -98,7 +94,7 @@ export default async function AdminOverview() {
               View all
             </Link>
           </div>
-          {recentMessages && recentMessages.length > 0 ? (
+          {recentMessages.length > 0 ? (
             <ul className="space-y-3">
               {recentMessages.map((m) => (
                 <li key={m.id} className="flex items-center justify-between gap-3 border-b border-neutral-800 pb-3 last:border-0 last:pb-0">

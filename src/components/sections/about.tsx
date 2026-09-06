@@ -1,109 +1,139 @@
 "use client";
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Parallax } from "@/components/ui/parallax";
-import { GlowCard } from "@/components/ui/glow-card";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const features = [
   {
-    title: "Innovation First",
+    title: "One accountable partner",
     description:
-      "We use current, battle-tested tools — not hype — to ship solutions that actually work.",
-    icon: (
-      <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
+      "Seven services, one team, one point of contact. No finger-pointing between vendors when things matter.",
+    number: "01",
   },
   {
-    title: "Global Reach",
+    title: "Outcomes over output",
     description:
-      "With operations across multiple continents, we serve clients worldwide with local expertise.",
-    icon: (
-      <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
+      "We measure success by your growth - leads, sales, retention - not by how many pages we shipped.",
+    number: "02",
   },
   {
-    title: "Client Centric",
+    title: "Local roots, global reach",
     description:
-      "Every solution is tailored to your unique needs, ensuring maximum ROI and satisfaction.",
-    icon: (
-      <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
+      "Headquartered in Bengaluru with operations and partners across 50+ countries.",
+    number: "03",
   },
   {
-    title: "Sustainable Growth",
+    title: "Transparent pricing",
     description:
-      "We build long-term partnerships focused on sustainable growth and mutual success.",
-    icon: (
-      <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-      </svg>
-    ),
+      "Fixed scopes, clear timelines, and honest answers about what is included and what is not.",
+    number: "04",
   },
 ];
 
-export function About() {
+function RevealText({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" aria-labelledby="about-heading" className="relative py-32 bg-gradient-to-b from-neutral-950 to-neutral-900 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-1/2 h-1/2 bg-amber-500/[0.03] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-amber-500/[0.03] rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-      </div>
+    <div ref={ref} className="overflow-hidden">
+      <motion.div
+        initial={{ y: "100%" }}
+        animate={isInView ? { y: 0 } : {}}
+        transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 id="about-heading" className="heading-section text-white mb-6">
-              One Partner. Seven Services.
-            </h2>
-            <p className="text-body-lg mb-6">
-              We started as a web development shop in Bengaluru. Today, Lakshya
-              Groups runs seven service divisions because our clients kept asking
-              us to solve the next problem too. Development led to consultancy.
-              Consultancy led to operations support. Each service exists because
-              a real client needed it, not because we wanted a bigger menu.
-            </p>
-            <p className="text-body-lg">
-              We build for businesses that want one accountable partner instead
-              of seven vendors. If that sounds like what you need, let us talk.
-            </p>
-          </motion.div>
+export function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
 
-          <div className="grid grid-cols-2 gap-4">
-            {features.map((feature, index) => (
-              <Parallax key={feature.title} speed={0.2} direction={index % 2 === 0 ? "up" : "down"}>
+  const lineWidth = useTransform(scrollYProgress, [0.1, 0.4], ["0%", "100%"]);
+
+  return (
+    <section
+      ref={containerRef}
+      id="about"
+      aria-labelledby="about-heading"
+      className="relative py-32 bg-[#030712] overflow-hidden"
+    >
+      {/* Subtle side accent line */}
+      <div className="absolute left-0 top-0 bottom-0 w-px bg-zinc-900" />
+
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section header — left aligned, asymmetric */}
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-12 mb-24">
+          <div>
+            <RevealText>
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-amber-500/60 mb-4 block">
+                About
+              </span>
+            </RevealText>
+            <RevealText delay={0.1}>
+              <h2
+                id="about-heading"
+                className="text-4xl md:text-5xl font-bold text-white leading-tight"
+              >
+                One Partner.
+                <br />
+                Seven Services.
+              </h2>
+            </RevealText>
+          </div>
+          <div className="lg:pt-8">
+            <RevealText delay={0.2}>
+              <p className="text-lg text-zinc-500 leading-relaxed max-w-xl">
+                We started as a web development shop in Bengaluru. Today, Lakshya
+                Groups runs seven service divisions because our clients kept asking
+                us to solve the next problem too. Each service exists because
+                a real client needed it.
+              </p>
+            </RevealText>
+          </div>
+        </div>
+
+        {/* Animated divider line */}
+        <motion.div
+          style={{ width: lineWidth }}
+          className="h-px bg-zinc-800 mb-24"
+        />
+
+        {/* Values grid — numbered, asymmetric layout */}
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+          {features.map((feature, index) => {
+            const FeatureItem = () => {
+              const ref = useRef<HTMLDivElement>(null);
+              const isInView = useInView(ref, { once: true, margin: "-60px" });
+
+              return (
                 <motion.div
+                  ref={ref}
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: index * 0.15, duration: 0.5 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="group"
                 >
-                  <GlowCard glowColor="rgba(245, 158, 11, 0.15)">
-                    <div className="mb-3">{feature.icon}</div>
-                    <h3 className="text-lg font-bold text-white mb-2">
+                  <div className="flex items-start gap-4 mb-3">
+                    <span className="text-xs font-mono text-amber-500/40 mt-1.5 shrink-0">
+                      {feature.number}
+                    </span>
+                    <h3 className="text-xl font-semibold text-white group-hover:text-amber-400 transition-colors duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-zinc-400">
-                      {feature.description}
-                    </p>
-                  </GlowCard>
+                  </div>
+                  <p className="text-sm text-zinc-500 leading-relaxed pl-10">
+                    {feature.description}
+                  </p>
                 </motion.div>
-              </Parallax>
-            ))}
-          </div>
+              );
+            };
+            return <FeatureItem key={feature.number} />;
+          })}
         </div>
       </div>
     </section>

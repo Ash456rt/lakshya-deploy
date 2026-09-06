@@ -1,19 +1,34 @@
-import { createAdminClient } from "@/lib/supabase/admin";
-import { toggleAdmin } from "@/app/admin/actions";
+"use client";
 
-export const dynamic = "force-dynamic";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 
-export default async function AdminUsers() {
-  const admin = createAdminClient();
-  const [{ data: profiles }, { data: users }] = await Promise.all([
-    admin
+export default function AdminUsers() {
+  const [profiles, setProfiles] = useState<Array<{
+    id: string; full_name?: string; company?: string; phone?: string;
+    is_admin: boolean; created_at: string;
+  }>>([]);
+  const [loading, setLoading] = useState(true);
+
+  const loadData = async () => {
+    const admin = createClient();
+    const { data } = await admin
       .from("profiles")
       .select("id, full_name, company, phone, is_admin, created_at")
-      .order("created_at", { ascending: false }),
-    admin.auth.admin.listUsers(),
-  ]);
+      .order("created_at", { ascending: false });
+    setProfiles(data ?? []);
+    setLoading(false);
+  };
 
-  const emails = new Map((users?.users ?? []).map((u) => [u.id, u.email]));
+  useEffect(() => { loadData(); }, []);
+
+  const toggleAdmin = async (id: string, currentIsAdmin: boolean) => {
+    const admin = createClient();
+    await admin.from("profiles").update({ is_admin: !currentIsAdmin }).eq("id", id);
+    await loadData();
+  };
+
+  if (loading) return <p className="text-neutral-400">Loading…</p>;
 
   return (
     <div className="space-y-8">
@@ -24,7 +39,7 @@ export default async function AdminUsers() {
         </p>
       </div>
 
-      {profiles && profiles.length > 0 ? (
+      {profiles.length > 0 ? (
         <ul className="space-y-4">
           {profiles.map((p) => (
             <li
@@ -34,17 +49,14 @@ export default async function AdminUsers() {
               <div className="min-w-0">
                 <p className="font-semibold">{p.full_name || "Unnamed client"}</p>
                 <p className="text-sm text-neutral-400">
-                  {emails.get(p.id) ?? "no email"}
-                  {p.company ? ` · ${p.company}` : ""}
+                  {p.company ? `${p.company}` : ""}
                   {p.phone ? ` · ${p.phone}` : ""}
                 </p>
                 <p className="text-xs text-neutral-500 mt-1">
                   Joined {new Date(p.created_at).toLocaleDateString()}
                 </p>
               </div>
-              <form action={toggleAdmin} className="flex items-center gap-3">
-                <input type="hidden" name="id" value={p.id} />
-                <input type="hidden" name="is_admin" value={p.is_admin ? "0" : "1"} />
+              <div className="flex items-center gap-3">
                 <span
                   className={
                     p.is_admin
@@ -55,12 +67,12 @@ export default async function AdminUsers() {
                   {p.is_admin ? "Admin" : "Client"}
                 </span>
                 <button
-                  type="submit"
+                  onClick={() => toggleAdmin(p.id, p.is_admin)}
                   className="rounded-lg border border-neutral-700 hover:border-amber-500/50 hover:text-amber-300 text-sm px-4 py-2 transition"
                 >
                   {p.is_admin ? "Remove admin" : "Make admin"}
                 </button>
-              </form>
+              </div>
             </li>
           ))}
         </ul>

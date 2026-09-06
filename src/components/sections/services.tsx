@@ -14,45 +14,45 @@ const serviceDetails: {
     title: "App & Web Development",
     description:
       "Full-stack development - mobile apps, web platforms, and custom software built with modern technologies.",
-    image: "/dev.jpg",
+    image: "/dev.webp",
   },
   {
     title: "Strategic Consultancy",
     description:
       "Expert business consulting to optimize operations, digital transformation, and growth planning.",
-    image: "/consultancy.jpg",
+    image: "/consultancy.webp",
   },
   {
     title: "Import & Export",
     description:
       "Global trade solutions connecting businesses across international markets with efficient supply chains.",
-    image: "/import-export.jpg",
+    image: "/import-export.webp",
   },
   {
     title: "Customer Support",
     description:
       "24/7 multilingual customer support including call centers, help desks, and AI-powered chatbots.",
-    image: "/support.jpg",
+    image: "/support.webp",
   },
   {
     title: "Transport & Logistics",
     description:
       "End-to-end logistics - fleet management, warehousing, and last-mile delivery services.",
-    image: "/transport.jpg",
+    image: "/transport.webp",
   },
   {
     title: "Tours & Travel",
     description:
       "Premium travel experiences with curated tour packages and corporate travel solutions.",
-    image: "/travel.jpg",
-    href: "/travels/index.html#packages",
+    image: "/travel.webp",
+    href: "/travels/",
   },
   {
     title: "Lakshya Academy",
     description:
       "Professional training and certification programs in technology and business management.",
-    image: "/academy.jpg",
-    href: "/lakshya-deploy/courses.html",
+    image: "/academy.webp",
+    href: "/lakshya-deploy/",
   },
 ];
 

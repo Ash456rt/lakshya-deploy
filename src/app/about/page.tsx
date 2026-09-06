@@ -1,184 +1,134 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { SITE_URL } from '@/lib/site';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'About Us — Lakshya Groups | Bengaluru IT Company',
+  title: "About | Lakshya Groups | Bengaluru IT Company",
   description:
-    'Lakshya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, customer support, transport, tours & travel, and training through Lakshya Academy.',
+    "Lakshya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, customer support, transport, tours & travel, and training through Lakshya Academy.",
   alternates: { canonical: `${SITE_URL}/about` },
-  openGraph: {
-    title: 'About Lakshya Groups — Bengaluru IT Company',
-    description:
-      'Lakshya Groups is a Bengaluru-based multi-service company offering app & web development, consultancy, import & export, and more.',
-    url: `${SITE_URL}/about`,
-    type: 'website',
-  },
 };
 
 const services = [
-  { icon: '💻', title: 'App & Web Development', text: 'Modern websites and mobile apps built to convert visitors into customers.' },
-  { icon: '📊', title: 'Strategic Consultancy', text: 'Practical roadmaps for technology, operations, and market entry.' },
-  { icon: '🌍', title: 'Import & Export', text: 'Global trade support that connects Indian businesses to world markets.' },
-  { icon: '🎧', title: 'Customer Support', text: 'Responsive support teams that keep your customers happy around the clock.' },
-  { icon: '🚚', title: 'Transport & Logistics', text: 'Reliable movement of goods and people across India.' },
-  { icon: '✈️', title: 'Tours & Travel', text: 'Curated travel experiences and hassle-free trip planning.' },
-  { icon: '🎓', title: 'Lakshya Academy', text: 'Training programs that build real, job-ready skills.' },
-];
-
-const stats = [
-  { value: '7', label: 'Service Divisions' },
-  { value: '50+', label: 'Countries Reached' },
-  { value: '3', label: 'Case Studies Published' },
-  { value: '8+', label: 'Years of Building' },
+  { icon: "01", title: "App & Web Development", text: "Websites and mobile apps that convert." },
+  { icon: "02", title: "Strategic Consultancy", text: "Roadmaps that actually get executed." },
+  { icon: "03", title: "Import & Export", text: "Global trade, simplified." },
+  { icon: "04", title: "Customer Support", text: "24/7 support that keeps customers happy." },
+  { icon: "05", title: "Transport & Logistics", text: "Goods and people, moving reliably." },
+  { icon: "06", title: "Tours & Travel", text: "Curated travel, hassle-free planning." },
+  { icon: "07", title: "Lakshya Academy", text: "Training that builds job-ready skills." },
 ];
 
 const values = [
   {
-    title: 'One accountable partner',
-    text: 'Seven services, one team, one point of contact. No finger-pointing between vendors when things matter.',
+    title: "One accountable partner",
+    text: "Seven services, one team. No finger-pointing between vendors.",
   },
   {
-    title: 'Outcomes over output',
-    text: 'We measure success by your growth - leads, sales, retention - not by how many pages we shipped.',
+    title: "Outcomes over output",
+    text: "We measure by your growth, not by pages shipped.",
   },
   {
-    title: 'Local roots, global reach',
-    text: 'Headquartered in Bengaluru with operations and partners across 50+ countries.',
+    title: "Local roots, global reach",
+    text: "Bengaluru headquarters. 50+ countries served.",
   },
   {
-    title: 'Transparent pricing',
-    text: 'Fixed scopes, clear timelines, and honest answers about what is included and what is not.',
+    title: "Transparent pricing",
+    text: "Fixed scopes, clear timelines, honest answers.",
   },
 ];
 
 export default function AboutPage() {
-  // BreadcrumbList structured data
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: SITE_URL,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'About Us',
-        item: `${SITE_URL}/about`,
-      },
-    ],
-  };
-
   return (
-    <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
+    <main className="min-h-screen bg-[#030712] text-white pt-32 pb-24">
       <div className="max-w-6xl mx-auto px-6">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+          <ol className="flex items-center gap-2 text-xs text-zinc-600">
             <li>
               <Link href="/" className="hover:text-white transition-colors">
                 Home
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-neutral-300">
-              About Us
+            <li aria-current="page" className="text-zinc-400">
+              About
             </li>
           </ol>
         </nav>
 
-        <div className="text-center mb-20">
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
-            About Lakshya Groups
+        {/* Hero */}
+        <div className="mb-24">
+          <span className="inline-block px-2.5 py-0.5 mb-6 text-[10px] font-medium tracking-wider uppercase text-amber-400/80 bg-amber-500/5 border border-amber-500/10">
+            About
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            One Partner. <span className="text-amber-400">Seven Services.</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-3xl">
+            One partner.
             <br />
-            Zero Drama.
+            <span className="text-zinc-600">Seven services.</span>
+            <br />
+            Zero drama.
           </h1>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto">
-            Lakshya Groups is a multi-service conglomerate headquartered in
-            Bengaluru, India. We help businesses move faster by handling their
+          <p className="text-lg text-zinc-500 max-w-2xl leading-relaxed">
+            Lakshya Groups is a multi-service company headquartered in
+            Bengaluru. We help businesses move faster by handling their
             technology, operations, logistics, and learning under one roof.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-10">
-            <h2 className="text-2xl font-bold mb-4 text-amber-400">Our Mission</h2>
-            <p className="text-neutral-300 leading-relaxed">
-              To give businesses — from startups to enterprises — reliable
-              technology, practical consulting, and global solutions that
-              turn ambition into measurable results.
+        {/* Mission & Vision */}
+        <div className="grid md:grid-cols-2 gap-px bg-zinc-800/30 mb-24">
+          <div className="bg-[#030712] p-10">
+            <span className="text-[10px] font-medium tracking-wider uppercase text-amber-500/60 mb-4 block">
+              Mission
+            </span>
+            <p className="text-zinc-400 leading-relaxed">
+              To give businesses reliable technology, practical consulting,
+              and global solutions that turn ambition into measurable results.
             </p>
           </div>
-          <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-10">
-            <h2 className="text-2xl font-bold mb-4 text-amber-400">Our Vision</h2>
-            <p className="text-neutral-300 leading-relaxed">
-              A world where every growing business has one trusted partner for
-              everything it needs to scale - technology, trade, support, and
-              talent.
+          <div className="bg-[#030712] p-10">
+            <span className="text-[10px] font-medium tracking-wider uppercase text-amber-500/60 mb-4 block">
+              Vision
+            </span>
+            <p className="text-zinc-400 leading-relaxed">
+              A world where every growing business has one trusted partner
+              for everything it needs to scale.
             </p>
           </div>
         </div>
 
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
-            What We Do
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Services */}
+        <div className="mb-24">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">What we do</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-800/30">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl bg-white/5 border border-white/10 p-8 hover:border-amber-500/40 hover:bg-white/10 transition-all duration-300"
+                className="bg-[#030712] p-8 hover:bg-zinc-900/30 transition-colors duration-300"
               >
-                <div className="text-3xl mb-4">{service.icon}</div>
-                <h3 className="text-lg font-bold mb-2">{service.title}</h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  {service.text}
-                </p>
+                <span className="text-xs font-mono text-amber-500/40 mb-4 block">
+                  {service.icon}
+                </span>
+                <h3 className="text-base font-semibold text-white mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-zinc-500">{service.text}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-2xl bg-white/5 border border-white/10 p-8 text-center"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-neutral-400">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
-            Why Businesses Choose Us
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-6">
+        {/* Values */}
+        <div className="mb-24">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Why businesses choose us</h2>
+          <div className="grid sm:grid-cols-2 gap-8">
             {values.map((value) => (
-              <div
-                key={value.title}
-                className="rounded-2xl bg-white/5 border border-white/10 p-8"
-              >
-                <h3 className="text-lg font-bold mb-2 text-amber-400">
+              <div key={value.title} className="group">
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors duration-300">
                   {value.title}
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <p className="text-sm text-zinc-500 leading-relaxed">
                   {value.text}
                 </p>
               </div>
@@ -186,26 +136,27 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-br from-amber-600/20 to-amber-600/20 border border-amber-500/30 p-12 text-center">
+        {/* CTA */}
+        <div className="border border-zinc-800/50 p-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Let&apos;s build something together
           </h2>
-          <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
-            Tell us about your project and we will show you how one partner can
-            handle it all.
+          <p className="text-zinc-500 mb-8 max-w-xl mx-auto">
+            Tell us about your project and we will show you how one partner
+            can handle it all.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/#contact"
-              className="px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors"
+              className="px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-black font-medium text-sm transition-colors duration-300"
             >
-              Get in Touch
+              Get in touch
             </Link>
             <Link
               href="/blog"
-              className="px-8 py-3 rounded-full border-2 border-white/20 hover:bg-white/10 transition-colors"
+              className="px-8 py-3.5 border border-zinc-800 hover:border-zinc-600 text-zinc-400 hover:text-white font-medium text-sm transition-colors duration-300"
             >
-              Read Our Blog
+              Read our blog
             </Link>
           </div>
         </div>

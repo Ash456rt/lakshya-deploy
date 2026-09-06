@@ -1,107 +1,138 @@
 "use client";
-import React from "react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const testimonials = [
   {
     quote:
-      "Lakshya Groups rebuilt our entire booking platform in 6 weeks. What used to take our team 3 hours now takes 10 minutes. The ROI was visible within the first month.",
+      "Lakshya rebuilt our booking platform in 6 weeks. What used to take 3 hours now takes 10 minutes. The ROI was visible within the first month.",
     name: "Rajesh Patel",
     role: "Operations Director, TravelVue",
-    avatar: "/team.jpg",
-    rating: 5,
+    image: "/testimonial-1.webp",
+    metric: "3 hours to 10 minutes",
   },
   {
     quote:
-      "We were managing 4 different vendors for development, support, logistics, and consulting. Moving to Lakshya cut our coordination overhead by half and actually improved response times.",
+      "We were managing 4 different vendors. Moving to Lakshya cut our coordination overhead by half and improved response times across the board.",
     name: "Priya Sharma",
     role: "CEO, GreenLeaf Exports",
-    avatar: "/laksya-logo.png",
-    rating: 5,
+    image: "/testimonial-2.webp",
+    metric: "50% less overhead",
   },
   {
     quote:
-      "Their consultancy team helped us enter the Southeast Asian market with a clear roadmap. They did not just give us a PDF — they stayed through execution.",
+      "Their consultancy team helped us enter Southeast Asia with a clear roadmap. They did not just hand us a PDF and leave.",
     name: "Amit Kumar",
     role: "Founder, QuickServe Logistics",
-    avatar: "/team.jpg",
-    rating: 5,
+    image: "/testimonial-3.webp",
+    metric: "3 new markets",
   },
   {
     quote:
-      "The Lakshya Academy training program upskilled 12 of our junior developers in 3 months. We saw a measurable improvement in code quality and sprint velocity.",
+      "The training program upskilled 12 junior developers in 3 months. Measurable improvement in code quality and sprint velocity.",
     name: "Deepa Nair",
     role: "CTO, FinServe Solutions",
-    avatar: "/laksya-logo.png",
-    rating: 5,
+    image: "/testimonial-4.webp",
+    metric: "60% faster sprints",
   },
 ];
 
-function StarRating({ count }: { count: number }) {
+function TestimonialCard({
+  t,
+  index,
+}: {
+  t: (typeof testimonials)[number];
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
+
   return (
-    <div className="flex gap-1 mb-4">
-      {Array.from({ length: count }).map((_, i) => (
-        <svg
-          key={i}
-          className="w-4 h-4 text-yellow-400"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
+    <motion.div
+      ref={ref}
+      style={{ y }}
+      initial={{ opacity: 0, y: 25 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="group relative bg-zinc-900/30 border border-zinc-800/50 p-8 hover:border-zinc-700/50 transition-colors duration-500"
+    >
+      {/* Metric badge */}
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 text-xs font-medium text-amber-400/80 bg-amber-500/5 border border-amber-500/10">
+        {t.metric}
+      </div>
+
+      {/* Quote */}
+      <p className="text-zinc-300 leading-relaxed mb-8 text-[15px]">
+        &ldquo;{t.quote}&rdquo;
+      </p>
+
+      {/* Author */}
+      <div className="flex items-center gap-3">
+        {t.image && (
+          <div className="w-9 h-9 shrink-0 overflow-hidden bg-zinc-800 border border-zinc-700">
+            <img
+              src={t.image}
+              alt={t.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+        <div className="min-w-0">
+          <p className="text-sm font-medium text-white truncate">{t.name}</p>
+          <p className="text-xs text-zinc-600 truncate">{t.role}</p>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
 export function Testimonials() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="testimonials" aria-labelledby="testimonials-heading" className="relative py-24 bg-neutral-950">
-      <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 id="testimonials-heading" className="heading-section text-white mb-4">
-            What Our Clients Say
-          </h2>
-          <p className="text-body max-w-2xl">
-            Real feedback from businesses we have helped grow. These are actual
-            results, not marketing copy.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {testimonials.map((t, index) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + index * 0.15, duration: 0.5 }}
-              className="card p-8"
+    <section
+      id="testimonials"
+      aria-labelledby="testimonials-heading"
+      className="relative py-32 bg-[#030712]"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div ref={ref} className="mb-16 max-w-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-xs font-medium tracking-[0.2em] uppercase text-amber-500/60 mb-4 block">
+              Testimonials
+            </span>
+            <h2
+              id="testimonials-heading"
+              className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4"
             >
-              <StarRating count={t.rating} />
-              <p className="text-zinc-300 leading-relaxed mb-6">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-4">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-10 h-10 rounded-full object-cover border border-white/20"
-                />
-                <div>
-                  <p className="font-semibold text-white text-sm">{t.name}</p>
-                  <p className="text-xs text-neutral-500">{t.role}</p>
-                </div>
-              </div>
-            </motion.div>
+              Client results
+            </h2>
+            <p className="text-zinc-500 leading-relaxed">
+              Real feedback from businesses we have helped grow.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Cards — staggered grid with parallax */}
+        <div className="grid md:grid-cols-2 gap-5">
+          {testimonials.map((t, index) => (
+            <TestimonialCard key={t.name} t={t} index={index} />
           ))}
         </div>
       </div>
