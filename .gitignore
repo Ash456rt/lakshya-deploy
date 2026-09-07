@@ -30,8 +30,17 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# environment and secrets — NEVER commit these
+.env
+.env.local
+.env.local.*
+.env.*.local
+.env.vercel
+.env.development.local
+.env.production.local
+!.env.example
+!.env.production
+!.env.staging
 
 # vercel
 .vercel
@@ -47,3 +56,15 @@ dev.log
 .env*
 ADMIN_CREDENTIALS.txt
 izanami-prompt/
+backups/
+ftp_pass.txt
+resend_api_key.txt
+ADMIN_CREDENTIALS.txt
+API_KEYS.txt
+SECRETS.txt
+CREDENTIALS.md
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
