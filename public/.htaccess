@@ -10,6 +10,11 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Canonical host: 301 www -> apex so all ranking signals consolidate
+  # on https://lakshyagroups.in (matches the canonical tags site-wide).
+  RewriteCond %{HTTP_HOST} ^www\.lakshyagroups\.in [NC]
+  RewriteRule ^(.*)$ https://lakshyagroups.in/$1 [R=301,L]
+
   # Directory without index.html, but a sibling .html exists
   # (non-greedy: /login/ must map to login.html, not login/.html)
   RewriteCond %{REQUEST_FILENAME} -d
