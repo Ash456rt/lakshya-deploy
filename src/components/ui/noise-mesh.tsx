@@ -6,10 +6,10 @@ interface NoiseMeshProps {
 }
 
 /**
- * Stunning animated noise mesh — WebGL-powered flowing gradient effect
+ * Stunning animated noise mesh , WebGL-powered flowing gradient effect
  * using raw Canvas 2D for maximum compatibility.
  *
- * Creates a living, breathing background of warm amber tones that
+ * Creates a living, breathing background of cool blue-violet tones that
  * subtly shift and flow, inspired by WebGPU showcase aesthetics.
  */
 export default function NoiseMesh({ className = "" }: NoiseMeshProps) {
@@ -68,13 +68,13 @@ export default function NoiseMesh({ className = "" }: NoiseMeshProps) {
           const n = noise(x, y, t);
           const n2 = noise(x * 2 + 10, y * 2 + 10, t * 0.7);
 
-          // Map noise to warm amber palette
+          // Map noise to the logo's blue-violet metallic palette
           const intensity = (n + 1) * 0.5; // 0-1
           const warmth = (n2 + 1) * 0.5;
 
-          const r = Math.floor(3 + intensity * 25 + warmth * 10);
-          const g = Math.floor(7 + intensity * 18 + warmth * 8);
-          const b = Math.floor(18 + intensity * 8);
+          const r = Math.floor(4 + intensity * 14 + warmth * 12);
+          const g = Math.floor(3 + intensity * 10 + warmth * 18);
+          const b = Math.floor(26 + intensity * 30 + warmth * 40);
 
           ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
           ctx.fillRect(
@@ -95,8 +95,8 @@ export default function NoiseMesh({ className = "" }: NoiseMeshProps) {
         height * 0.5,
         width * 0.6
       );
-      gradient.addColorStop(0, "rgba(245, 158, 11, 0.04)");
-      gradient.addColorStop(0.5, "rgba(245, 158, 11, 0.02)");
+      gradient.addColorStop(0, "rgba(124, 92, 255, 0.04)");
+      gradient.addColorStop(0.5, "rgba(124, 92, 255, 0.02)");
       gradient.addColorStop(1, "rgba(3, 7, 18, 0.3)");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);

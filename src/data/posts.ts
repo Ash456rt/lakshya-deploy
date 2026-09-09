@@ -22,13 +22,13 @@ export const authors: Record<string, Author> = {
     name: 'Shubham Kushwaha',
     role: 'Founder & CEO',
     bio: 'Full-stack developer and entrepreneur with 8+ years building web and mobile products. Leads Lakshya Groups\' technology and strategy divisions.',
-    avatar: '/team.webp',
+    avatar: '/team.jpg',
     linkedin: 'https://linkedin.com/in/shubhamkushwaha',
   },
   team: {
     name: 'Lakshya Groups Team',
     role: 'Content Team',
-    bio: 'The collective insights from our engineering, consulting, and operations teams across 50+ countries.',
+    bio: 'The collective insights from our engineering, consulting, and operations teams across 63 countries.',
     avatar: '/logo.svg',
   },
 };
@@ -37,7 +37,7 @@ export const posts: Post[] = [
   {
     slug: 'our-stack-why-nextjs-supabase-tailwind',
     title: 'Our Tech Stack: Why We Use Next.js, Supabase, and Tailwind for Every Client Project',
-    excerpt: 'After building 30+ projects, we settled on a stack that balances speed, cost, and maintainability. Here is exactly why we chose each tool and when we break our own rules.',
+    excerpt: 'After 300+ projects, our stack balances speed, cost and maintainability. Why we chose Next.js, Supabase and Tailwind - and when we break our own rules.',
     category: 'Web Development',
     date: '2026-08-20',
     readTime: '6 min read',
@@ -61,7 +61,7 @@ export const posts: Post[] = [
       },
       {
         heading: 'When we break our own rules',
-        body: 'This stack is not universal. For a 5-page brochure site, we use plain HTML and Tailwind — no Next.js needed. For WordPress-heavy content sites, we still recommend WordPress. For mobile apps that need deep OS integration, we go native. The right tool is the one your team can maintain, not the one with the most GitHub stars.',
+        body: 'This stack is not universal. For a 5-page brochure site, we use plain HTML and Tailwind , no Next.js needed. For WordPress-heavy content sites, we still recommend WordPress. For mobile apps that need deep OS integration, we go native. The right tool is the one your team can maintain, not the one with the most GitHub stars.',
       },
       {
         heading: 'The cost advantage for clients',
@@ -72,7 +72,7 @@ export const posts: Post[] = [
   {
     slug: 'choosing-web-development-partner',
     title: 'How to Choose the Right Web Development Partner in India',
-    excerpt: 'Price is only one factor. Here is the checklist we give every client before they pick a web development team - and how to spot the difference between a vendor and a partner.',
+    excerpt: 'Price is one factor. Here is the checklist we give every client before picking a web development team - and how to tell a vendor from a partner.',
     category: 'Web Development',
     date: '2026-08-10',
     readTime: '4 min read',
@@ -99,7 +99,7 @@ export const posts: Post[] = [
   {
     slug: 'app-vs-web-development-2026',
     title: 'App vs Web Development: What Does Your Business Actually Need in 2026?',
-    excerpt: 'Native app, or a fast web app? The right answer depends on your customers, not your preferences. Here is a practical breakdown for businesses weighing the decision.',
+    excerpt: 'Native app or fast web app? The answer depends on your customers, not your preferences. A practical breakdown for businesses weighing the decision.',
     category: 'App Development',
     date: '2026-08-05',
     readTime: '4 min read',
@@ -126,7 +126,7 @@ export const posts: Post[] = [
   {
     slug: 'one-partner-many-services',
     title: 'One Partner, Seven Services: Why Consolidating Vendors Saves Real Money',
-    excerpt: 'Managing seven vendors for seven services sounds flexible. In practice, it means seven contracts, seven invoices, and seven points of blame. Here is what consolidation actually saves.',
+    excerpt: 'Seven vendors for seven services means seven contracts and seven points of blame. Here is what consolidating with one partner actually saves.',
     category: 'Business',
     date: '2026-07-28',
     readTime: '3 min read',
@@ -153,7 +153,7 @@ export const posts: Post[] = [
   {
     slug: 'why-nextjs-for-business-websites-2026',
     title: 'Why We Recommend Next.js for Business Websites in 2026 (And When We Dont)',
-    excerpt: 'After building 30+ websites on Next.js, here is what we have learned about when it works brilliantly and when you should pick something simpler.',
+    excerpt: 'After building 300+ websites on Next.js, here is what we have learned about when it works brilliantly and when you should pick something simpler.',
     category: 'Web Development',
     date: '2026-08-18',
     readTime: '5 min read',

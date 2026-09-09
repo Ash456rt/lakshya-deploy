@@ -17,7 +17,7 @@ export function BentoCard({
   description,
   icon,
   className,
-  gradient = "from-amber-500/10 to-amber-500/5",
+  gradient = "from-brand-violet/15 to-brand-violet/10",
   onClick,
 }: BentoCardProps) {
   const [hovered, setHovered] = useState(false);
@@ -25,7 +25,7 @@ export function BentoCard({
   return (
     <motion.div
       className={cn(
-        "relative group overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.03] cursor-pointer",
+        "relative group overflow-hidden rounded-2xl border border-ink/10 bg-white cursor-pointer",
         className
       )}
       onMouseEnter={() => setHovered(true)}
@@ -43,14 +43,14 @@ export function BentoCard({
       />
       <div className="relative z-10 p-6 h-full flex flex-col">
         <div className="mb-4 text-4xl">{icon}</div>
-        <h3 className="text-lg font-semibold text-white mb-2">
+        <h3 className="text-lg font-semibold text-ink mb-2">
           {title}
         </h3>
-        <p className="text-zinc-400 text-sm flex-1">
+        <p className="text-stone-500 text-sm flex-1">
           {description}
         </p>
         <motion.div
-          className="mt-4 flex items-center gap-2 text-sm font-medium text-amber-400"
+          className="mt-4 flex items-center gap-2 text-sm font-medium text-brand-violet-light"
           initial={{ x: 0 }}
           animate={{ x: hovered ? 5 : 0 }}
         >
@@ -71,7 +71,7 @@ export function BentoCard({
         </motion.div>
       </div>
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-500"
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-violet"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: hovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}

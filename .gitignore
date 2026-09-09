@@ -68,3 +68,13 @@ CREDENTIALS.md
 *.p12
 *.jks
 *.keystore
+
+# local logs, screenshots and scratch artifacts
+*.log
+check-*.png
+responsive-*.png
+login-test.png
+mobile-menu-open.png
+lakshya-groups-site.zip
+__pycache__/
+dev-server.log

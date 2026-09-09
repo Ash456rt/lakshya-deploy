@@ -42,14 +42,14 @@ export default function AdminOverview() {
   }, []);
 
   if (loading) {
-    return <p className="text-neutral-400">Loading…</p>;
+    return <p className="text-stone-600">Loading…</p>;
   }
 
   return (
     <div className="space-y-10">
       <div>
         <h1 className="text-3xl font-bold">Admin overview</h1>
-        <p className="text-neutral-400 mt-2">Everything happening across the site, at a glance.</p>
+        <p className="text-stone-600 mt-2">Everything happening across the site, at a glance.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -57,9 +57,9 @@ export default function AdminOverview() {
           <Link
             key={s.label}
             href={s.href}
-            className="glass-dark rounded-2xl p-6 hover:bg-white/5 transition-colors"
+            className="glass-dark rounded-2xl p-6 hover:bg-white transition-colors"
           >
-            <p className="text-sm text-neutral-400">{s.label}</p>
+            <p className="text-sm text-stone-600">{s.label}</p>
             <p className="text-3xl font-bold mt-1">{s.value}</p>
           </Link>
         ))}
@@ -69,7 +69,7 @@ export default function AdminOverview() {
         <section className="glass-dark rounded-2xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-semibold">Latest quotes</h2>
-            <Link href="/admin/quotes" className="text-sm text-amber-300 hover:text-amber-200 transition-colors">
+            <Link href="/admin/quotes" className="text-sm text-accent hover:text-accent transition-colors">
               View all
             </Link>
           </div>
@@ -83,14 +83,14 @@ export default function AdminOverview() {
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-neutral-500">No quotes yet.</p>
+            <p className="text-sm text-stone-500">No quotes yet.</p>
           )}
         </section>
 
         <section className="glass-dark rounded-2xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-semibold">Latest messages</h2>
-            <Link href="/admin/messages" className="text-sm text-amber-300 hover:text-amber-200 transition-colors">
+            <Link href="/admin/messages" className="text-sm text-accent hover:text-accent transition-colors">
               View all
             </Link>
           </div>
@@ -100,14 +100,14 @@ export default function AdminOverview() {
                 <li key={m.id} className="flex items-center justify-between gap-3 border-b border-neutral-800 pb-3 last:border-0 last:pb-0">
                   <div className="min-w-0">
                     <p className="font-medium truncate">{m.name}</p>
-                    <p className="text-xs text-neutral-500 truncate">{m.email}</p>
+                    <p className="text-xs text-stone-500 truncate">{m.email}</p>
                   </div>
                   <StatusBadge status={m.status} />
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-neutral-500">No messages yet.</p>
+            <p className="text-sm text-stone-500">No messages yet.</p>
           )}
         </section>
       </div>

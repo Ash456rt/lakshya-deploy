@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
 
 const statusStyles: Record<string, string> = {
-  in_progress: "bg-amber-500/10 text-amber-300 ring-amber-500/30",
-  on_hold: "bg-amber-500/10 text-amber-300 ring-amber-500/30",
+  in_progress: "bg-brand-violet/15 text-accent ring-brand-violet/30",
+  on_hold: "bg-brand-violet/15 text-accent ring-brand-violet/30",
   completed: "bg-emerald-500/10 text-emerald-300 ring-emerald-500/30",
-  pending: "bg-amber-500/10 text-amber-300 ring-amber-500/30",
-  quoted: "bg-amber-500/10 text-amber-300 ring-amber-500/30",
+  pending: "bg-brand-violet/15 text-accent ring-brand-violet/30",
+  quoted: "bg-brand-violet/15 text-accent ring-brand-violet/30",
   accepted: "bg-emerald-500/10 text-emerald-300 ring-emerald-500/30",
   declined: "bg-red-500/10 text-red-300 ring-red-500/30",
 };
@@ -26,7 +26,7 @@ export function StatusBadge({ status }: { status: string }) {
       className={cn(
         "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ring-1",
         statusStyles[status] ??
-          "bg-neutral-500/10 text-neutral-300 ring-neutral-500/30"
+          "bg-neutral-500/10 text-stone-800 ring-neutral-500/30"
       )}
     >
       {statusLabels[status] ?? status}

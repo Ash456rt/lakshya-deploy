@@ -9,6 +9,7 @@ interface Particle {
   size: number;
   opacity: number;
   hue: number;
+  accent: boolean;
   life: number;
   maxLife: number;
 }
@@ -24,11 +25,12 @@ interface AmberParticlesProps {
 }
 
 /**
- * Stunning amber particle field — lightweight Canvas-based alternative
- * to heavy WebGL effects. Particles drift, connect, and respond to mouse.
+ * Stunning particle field in the Lakshya brand palette , lightweight
+ * Canvas-based alternative to heavy WebGL effects. Particles drift,
+ * connect, and respond to mouse.
  *
- * Inspired by WebGPU showcase effects but implemented with pure Canvas
- * for maximum compatibility and performance.
+ * Tuned to the logo's metallic blue-violet (hue ~230-265) with the
+ * occasional copper-bronze accent (~32) echoing the inner target ring.
  */
 export default function AmberParticles({
   className = "",
@@ -55,7 +57,8 @@ export default function AmberParticles({
           vy: (Math.random() - 0.5) * speed,
           size: Math.random() * 2 + 0.5,
           opacity: Math.random() * 0.5 + 0.2,
-          hue: 35 + Math.random() * 15, // warm amber range (35-50)
+          hue: 230 + Math.random() * 35, // blue-violet metallic range
+          accent: Math.random() < 0.15, // ~15% copper-bronze accents
           life: Math.random() * 200,
           maxLife: 200 + Math.random() * 300,
         });
@@ -142,7 +145,7 @@ export default function AmberParticles({
         p.vx *= 0.99;
         p.vy *= 0.99;
 
-        // Life cycle — gentle fade in/out
+        // Life cycle , gentle fade in/out
         p.life += 1;
         const lifeRatio = p.life / p.maxLife;
         const fadeIn = Math.min(lifeRatio * 5, 1);
@@ -165,7 +168,9 @@ export default function AmberParticles({
           p.maxLife = 200 + Math.random() * 300;
         }
 
-        // Draw particle — warm amber glow
+        // Draw particle , cool blue-violet metallic glow,
+        // with occasional copper-bronze accents like the logo ring
+        const drawHue = p.accent ? 32 : p.hue;
         const glowSize = p.size * 3;
         const gradient = ctx.createRadialGradient(
           p.x,
@@ -177,15 +182,15 @@ export default function AmberParticles({
         );
         gradient.addColorStop(
           0,
-          `hsla(${p.hue}, 90%, 60%, ${p.opacity})`
+          `hsla(${drawHue}, 90%, 60%, ${p.opacity})`
         );
         gradient.addColorStop(
           0.4,
-          `hsla(${p.hue}, 80%, 50%, ${p.opacity * 0.4})`
+          `hsla(${drawHue}, 80%, 50%, ${p.opacity * 0.4})`
         );
         gradient.addColorStop(
           1,
-          `hsla(${p.hue}, 70%, 40%, 0)`
+          `hsla(${drawHue}, 70%, 40%, 0)`
         );
 
         ctx.beginPath();
@@ -196,7 +201,7 @@ export default function AmberParticles({
         // Draw core dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 0.5, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue}, 95%, 75%, ${p.opacity * 1.2})`;
+        ctx.fillStyle = `hsla(${drawHue}, 95%, 75%, ${p.opacity * 1.2})`;
         ctx.fill();
       }
 

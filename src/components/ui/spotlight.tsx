@@ -35,7 +35,7 @@ export function Spotlight({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative overflow-hidden rounded-xl border border-white/[0.06]",
+        "relative overflow-hidden rounded-xl border border-ink/10",
         className
       )}
     >

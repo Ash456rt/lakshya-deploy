@@ -49,7 +49,7 @@ export function SignupForm() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-1">Create your account</h1>
-      <p className="text-neutral-400 text-sm mb-8">
+      <p className="text-stone-600 text-sm mb-8">
         Join the Lakshya Groups client portal to track projects and request quotes.
       </p>
 
@@ -66,7 +66,7 @@ export function SignupForm() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="full_name" className="block text-sm font-medium text-neutral-300 mb-2">
+          <label htmlFor="full_name" className="block text-sm font-medium text-stone-800 mb-2">
             Full name
           </label>
           <input
@@ -77,12 +77,12 @@ export function SignupForm() {
             autoComplete="name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
+            className="w-full rounded-lg bg-white/85 border border-stone-300 px-4 py-3 text-sm text-ink placeholder-stone-400 outline-none focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 transition"
             placeholder="Your name"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-stone-800 mb-2">
             Email
           </label>
           <input
@@ -93,12 +93,12 @@ export function SignupForm() {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
+            className="w-full rounded-lg bg-white/85 border border-stone-300 px-4 py-3 text-sm text-ink placeholder-stone-400 outline-none focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 transition"
             placeholder="you@company.com"
           />
         </div>
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-neutral-300 mb-2">
+          <label htmlFor="password" className="block text-sm font-medium text-stone-800 mb-2">
             Password
           </label>
           <input
@@ -110,22 +110,22 @@ export function SignupForm() {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
+            className="w-full rounded-lg bg-white/85 border border-stone-300 px-4 py-3 text-sm text-ink placeholder-stone-400 outline-none focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 transition"
             placeholder="At least 6 characters"
           />
         </div>
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-lg bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-500 hover:to-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 transition"
+          className="w-full rounded-lg bg-accent hover:bg-accent-strong disabled:opacity-60 disabled:cursor-not-allowed text-ink font-semibold py-3 transition"
         >
           {pending ? "Creating account…" : "Create account"}
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-neutral-400">
+      <p className="mt-6 text-center text-sm text-stone-600">
         Already have an account?{" "}
-        <a href="/login" className="text-amber-400 hover:text-amber-300 font-medium transition-colors">
+        <a href="/login" className="text-brand-violet-light hover:text-accent font-medium transition-colors">
           Sign in
         </a>
       </p>

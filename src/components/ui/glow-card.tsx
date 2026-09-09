@@ -17,7 +17,7 @@ export function GlowCard({
   return (
     <motion.div
       className={cn(
-        "relative group rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6 overflow-hidden",
+        "relative group rounded-2xl bg-white border border-ink/10 p-6 overflow-hidden",
         className
       )}
       whileHover={{ scale: 1.02 }}

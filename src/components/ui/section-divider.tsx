@@ -6,8 +6,8 @@ import React from "react";
  * Place between two sections to create visual flow.
  */
 export function SectionDivider({
-  from = "bg-neutral-950",
-  to = "bg-neutral-900",
+  from = "bg-paper",
+  to = "bg-white",
 }: {
   from?: string;
   to?: string;

@@ -1,0 +1,215 @@
+{
+  "summary": {
+    "health_score": 78,
+    "business_type": "Local multi-service company (IT services, consultancy, trade, logistics, education) — hybrid local + global service business",
+    "top_findings": [
+      "CRITICAL (FIXED during audit): canonical URLs and og:image pointed to http://localhost:3000 on every page — rebuilt and redeployed mid-audit; now correct",
+      "No llms.txt — AI crawlers (GPTBot, ClaudeBot, PerplexityBot) have no curated site map for citations",
+      "Blog depth thin: 6 posts averaging ~400 words from a 2,420-word data file — below the 800–1,200 competitive floor for B2B keywords",
+      "Only 9 unique internal links on the homepage — weak link equity distribution to blog and case studies",
+      "sitemap.xml lacks lastmod dates; 27 URLs listed vs 22 public pages found — some URLs may be stale"
+    ],
+    "quick_wins": [
+      "Add llms.txt and allow AI crawlers in robots.txt (30 min)",
+      "Convert remaining JPG images to WebP (hero-bg.jpg 116KB, import-export.jpg 100KB)",
+      "Add lastmod to sitemap.xml generation",
+      "Add 3–5 internal links from homepage to blog/case studies",
+      "Expand two weakest blog posts to 800+ words with FAQ sections"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 88,
+      "what_works": [
+        "Clean robots.txt with proper private-area disallows (/portal, /admin, /api, /auth)",
+        "sitemap.xml present with 27 URLs including all blog posts and case studies",
+        "Excellent security headers: CSP, HSTS (1yr, includeSubDomains), X-Frame-Options DENY, nosniff",
+        "CDN-served (hcdn), HTTPS enforced with upgrade-insecure-requests",
+        "Static export = inherently fast TTFB (~0.31s from CDN)"
+      ],
+      "findings": [
+        {
+          "title": "Canonical URLs pointed to localhost (FIXED during audit)",
+          "severity": "Critical",
+          "description": "NEXT_PUBLIC_SITE_URL was http://localhost:3000, so every page emitted <link rel=canonical href=http://localhost:3000/...> and og:image on localhost. Google consolidates signals toward the declared canonical — this can suppress indexing of the real domain.",
+          "recommendation": "Fixed: env set to https://lakshyagroups.in, rebuilt, redeployed, verified live. Monitor GSC indexing over the next 2 weeks."
+        },
+        {
+          "title": "Sitemap lacks lastmod dates",
+          "severity": "Low",
+          "description": "sitemap.xml lists 27 URLs but no <lastmod>, so Google cannot prioritize recrawls of changed content.",
+          "recommendation": "Emit lastmod from post/page updatedAt fields in the sitemap generator."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 62,
+      "what_works": [
+        "Consistent E-E-A-T signals: named founder, real Bengaluru address, concrete service pages",
+        "Case studies with quantified outcomes (12 developers upskilled, 4 vendors consolidated)",
+        "Clear, jargon-free copy with strong readability"
+      ],
+      "findings": [
+        {
+          "title": "Blog posts are thin",
+          "severity": "High",
+          "description": "6 posts sharing ~2,420 words total (~400 words each). Competing B2B content for these keywords runs 800–1,500 words. Thin content limits ranking and AI-citation potential.",
+          "recommendation": "Expand top 3 posts to 900–1,200 words: add original examples, pricing frameworks, comparison tables, and FAQ sections (FAQ sections also enable rich results)."
+        },
+        {
+          "title": "Only 9 unique internal links from homepage",
+          "severity": "Medium",
+          "description": "The homepage links to main sections but barely to blog posts or case studies, so those pages receive little link equity and crawl priority.",
+          "recommendation": "Add a 'Latest writing' and 'Client results' section on the homepage linking to 3 blog posts + 3 case studies."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 82,
+      "what_works": [
+        "Exactly one H1 per page across all sampled pages",
+        "Healthy heading pyramid (1 h1, 8 h2, 21 h3 on home)",
+        "Unique, keyword-rich titles within length limits on all pages (post-fix: no duplicated brand suffix)",
+        "Meta descriptions present and specific on all sampled pages",
+        "Canonicals now correct on every page"
+      ],
+      "findings": [
+        {
+          "title": "Titles had doubled brand suffix (FIXED earlier today)",
+          "severity": "High (resolved)",
+          "description": "12 pages baked '| Lakshya Groups | Bengaluru' into their title while the layout template appended it again. Fixed with title.absolute on all 12 pages; verified live.",
+          "recommendation": "No further action; keep pattern for future pages."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 74,
+      "what_works": [
+        "Rich implementation: Organization, LocalBusiness, WebSite+SearchAction, BreadcrumbList on key pages",
+        "Service pages carry Service + OfferCatalog + Offer markup",
+        "FAQ page has FAQPage schema",
+        "Person schema for the founder"
+      ],
+      "findings": [
+        {
+          "title": "No Article schema on blog posts",
+          "severity": "Medium",
+          "description": "Blog posts lack Article/BlogPosting JSON-LD with author, datePublished, headline — losing rich-result eligibility and AI-citation clarity.",
+          "recommendation": "Add BlogPosting schema to the blog [slug] template with author, dates, and image."
+        },
+        {
+          "title": "No AggregateRating/Review signals",
+          "severity": "Low",
+          "description": "Testimonials exist visually but carry no Review/AggregateRating schema (correctly not faked — but real reviews could be marked up once collected).",
+          "recommendation": "Collect 5+ verifiable client reviews, then add Review schema."
+        }
+      ]
+    },
+    {
+      "name": "Performance (Core Web Vitals)",
+      "score": 90,
+      "what_works": [
+        "TTFB 0.31–0.46s from CDN across sampled pages (excellent)",
+        "Total HTML weight 44–75KB — lean pages",
+        "Static export, minimal client JS for a marketing site",
+        "Founder image optimized to WebP 44KB during this session"
+      ],
+      "findings": [
+        {
+          "title": "hero-bg.jpg still 116KB JPG",
+          "severity": "Low",
+          "description": "Largest image on the site; likely LCP element on mobile home. WebP would cut it to ~50KB.",
+          "recommendation": "Convert hero-bg.jpg (and import-export.jpg 100KB) to WebP at quality 82."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 55,
+      "what_works": [
+        "Clean semantic HTML, single-H1 structure, descriptive headings — good passage extraction",
+        "FAQ page with matching FAQPage schema — citable format",
+        "Concrete numbers throughout (63 countries, 7 services) — strong citation hooks"
+      ],
+      "findings": [
+        {
+          "title": "No llms.txt and no AI-crawler policy",
+          "severity": "Medium",
+          "description": "llms.txt returns 404. robots.txt does not explicitly allow GPTBot/ClaudeBot/PerplexityBot. AI engines may under-cite the site.",
+          "recommendation": "Add llms.txt summarizing the business, services, and key pages; explicitly allow AI user-agents in robots.txt."
+        },
+        {
+          "title": "Thin blog reduces citability",
+          "severity": "Medium",
+          "description": "AI systems favor comprehensive pages when choosing citation sources; 400-word posts rarely win citations.",
+          "recommendation": "Same fix as content depth — expand posts with data, tables, and FAQs."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 84,
+      "what_works": [
+        "Zero img tags missing alt text (14/14 have alt)",
+        "Modern formats partially adopted (WebP for founder, og-image)",
+        "Reasonable file sizes overall"
+      ],
+      "findings": [
+        {
+          "title": "Two heavy JPGs remain",
+          "severity": "Low",
+          "description": "hero-bg.jpg (116KB) and import-export.jpg (100KB) still serve as JPG despite WebP usage elsewhere.",
+          "recommendation": "Convert both to WebP (~60% size cut) and update references."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "DONE: canonical/og:url fix deployed — monitor GSC 'Pages' report for 2 weeks for indexing recovery",
+          "Request re-indexing of 5 key pages in Google Search Console",
+          "Add llms.txt + explicit AI-crawler allows in robots.txt"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Expand 3 blog posts to 900-1,200 words with FAQ sections",
+          "Add BlogPosting schema to blog template",
+          "Add homepage sections linking to blog + case studies (internal links)"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Publish 2 new in-depth posts targeting customer questions",
+          "Collect and markup 5+ real client reviews",
+          "Convert remaining JPGs to WebP; add sitemap lastmod"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Set up GSC + GA4 monthly review",
+          "Re-run this audit monthly (scripts/responsive-audit.mjs + this checklist)",
+          "Track AI-citation presence in Perplexity/ChatGPT for 'web development company Bengaluru'"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

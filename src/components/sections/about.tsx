@@ -18,7 +18,7 @@ const features = [
   {
     title: "Local roots, global reach",
     description:
-      "Headquartered in Bengaluru with operations and partners across 50+ countries.",
+      "Headquartered in Bengaluru with operations and partners across 63 countries.",
     number: "03",
   },
   {
@@ -60,24 +60,24 @@ export function About() {
       ref={containerRef}
       id="about"
       aria-labelledby="about-heading"
-      className="relative py-32 bg-[#030712] overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-32 bg-paper overflow-hidden"
     >
       {/* Subtle side accent line */}
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-zinc-900" />
+      <div className="absolute left-0 top-0 bottom-0 w-px bg-paper-deep" />
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section header — left aligned, asymmetric */}
+        {/* Section header , left aligned, asymmetric */}
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 mb-24">
           <div>
             <RevealText>
-              <span className="text-xs font-medium tracking-[0.2em] uppercase text-amber-500/60 mb-4 block">
+              <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
                 About
               </span>
             </RevealText>
             <RevealText delay={0.1}>
               <h2
                 id="about-heading"
-                className="text-4xl md:text-5xl font-bold text-white leading-tight"
+                className="font-[family-name:var(--font-newsreader)] text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-ink md:text-5xl"
               >
                 One Partner.
                 <br />
@@ -87,7 +87,7 @@ export function About() {
           </div>
           <div className="lg:pt-8">
             <RevealText delay={0.2}>
-              <p className="text-lg text-zinc-500 leading-relaxed max-w-xl">
+              <p className="text-lg text-stone-600 leading-relaxed max-w-xl">
                 We started as a web development shop in Bengaluru. Today, Lakshya
                 Groups runs seven service divisions because our clients kept asking
                 us to solve the next problem too. Each service exists because
@@ -100,10 +100,10 @@ export function About() {
         {/* Animated divider line */}
         <motion.div
           style={{ width: lineWidth }}
-          className="h-px bg-zinc-800 mb-24"
+          className="mb-24 h-px bg-accent/50"
         />
 
-        {/* Values grid — numbered, asymmetric layout */}
+        {/* Values grid , numbered, asymmetric layout */}
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
           {features.map((feature, index) => {
             const FeatureItem = () => {
@@ -119,14 +119,14 @@ export function About() {
                   className="group"
                 >
                   <div className="flex items-start gap-4 mb-3">
-                    <span className="text-xs font-mono text-amber-500/40 mt-1.5 shrink-0">
+                    <span className="mt-1.5 shrink-0 text-xs font-mono text-accent">
                       {feature.number}
                     </span>
-                    <h3 className="text-xl font-semibold text-white group-hover:text-amber-400 transition-colors duration-300">
+                    <h3 className="text-xl font-semibold text-ink">
                       {feature.title}
                     </h3>
                   </div>
-                  <p className="text-sm text-zinc-500 leading-relaxed pl-10">
+                  <p className="text-sm text-stone-600 leading-relaxed pl-10">
                     {feature.description}
                   </p>
                 </motion.div>

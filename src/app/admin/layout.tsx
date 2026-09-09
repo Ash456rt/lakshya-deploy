@@ -46,14 +46,14 @@ export default function AdminLayout({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-neutral-950 text-white flex items-center justify-center">
-        <p className="text-neutral-400">Loading…</p>
+      <div className="min-h-screen bg-paper text-ink flex items-center justify-center">
+        <p className="text-stone-600">Loading…</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white">
+    <div className="min-h-screen bg-paper text-ink">
       <header className="sticky top-0 z-40 border-b border-neutral-800 bg-black/70 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center">
@@ -64,24 +64,24 @@ export default function AdminLayout({
             />
           </Link>
           <div className="flex items-center gap-6">
-            <span className="hidden sm:inline-flex rounded-full bg-amber-500/10 text-amber-300 ring-1 ring-amber-500/30 px-3 py-1 text-xs font-medium">
+            <span className="hidden sm:inline-flex rounded-full bg-brand-violet/15 text-accent ring-1 ring-brand-violet/30 px-3 py-1 text-xs font-medium">
               Admin
             </span>
             <Link
               href="/portal"
-              className="text-sm text-neutral-400 hover:text-white transition-colors"
+              className="text-sm text-stone-600 hover:text-ink transition-colors"
             >
               Client portal
             </Link>
             <Link
               href="/"
-              className="text-sm text-neutral-400 hover:text-white transition-colors"
+              className="text-sm text-stone-600 hover:text-ink transition-colors"
             >
               Home
             </Link>
             <button
               onClick={handleSignOut}
-              className="text-sm text-neutral-400 hover:text-red-400 transition-colors"
+              className="text-sm text-stone-600 hover:text-red-400 transition-colors"
             >
               Sign out
             </button>

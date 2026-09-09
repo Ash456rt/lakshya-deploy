@@ -7,7 +7,7 @@ import { StatusBadge } from "@/components/portal/status-badge";
 const STATUSES = ["pending", "quoted", "accepted", "declined"] as const;
 
 const inputClasses =
-  "rounded-lg bg-neutral-900/80 border border-neutral-700 px-3 py-2 text-sm text-white outline-none focus:border-amber-500";
+  "rounded-lg bg-white/85 border border-stone-300 px-3 py-2 text-sm text-ink outline-none focus:border-brand-violet";
 
 export default function AdminQuotes() {
   const [quotes, setQuotes] = useState<Array<{
@@ -23,7 +23,7 @@ export default function AdminQuotes() {
       admin.from("quote_requests").select("*").order("created_at", { ascending: false }),
       admin.from("profiles").select("id, full_name, company"),
     ]);
-    // Also get emails from auth (best effort — may not work with anon key)
+    // Also get emails from auth (best effort , may not work with anon key)
     setQuotes(q ?? []);
     setProfiles(p ?? []);
     setLoading(false);
@@ -43,13 +43,13 @@ export default function AdminQuotes() {
     await loadData();
   };
 
-  if (loading) return <p className="text-neutral-400">Loading…</p>;
+  if (loading) return <p className="text-stone-600">Loading…</p>;
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold">Quote requests</h1>
-        <p className="text-neutral-400 mt-2">Review requests and update their status — clients see it instantly in their portal.</p>
+        <p className="text-stone-600 mt-2">Review requests and update their status , clients see it instantly in their portal.</p>
       </div>
 
       {quotes.length > 0 ? (
@@ -61,8 +61,8 @@ export default function AdminQuotes() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="min-w-0">
                     <p className="font-semibold">{q.service}</p>
-                    <p className="text-sm text-neutral-400 mt-1">{q.details || "No details."}</p>
-                    <p className="text-xs text-neutral-500 mt-2">
+                    <p className="text-sm text-stone-600 mt-1">{q.details || "No details."}</p>
+                    <p className="text-xs text-stone-500 mt-2">
                       {profile?.full_name || "Unknown client"}
                       {profile?.company ? ` · ${profile.company}` : ""}
                       {" · "}
@@ -74,9 +74,9 @@ export default function AdminQuotes() {
                     <form onSubmit={(e) => handleUpdate(e, q.id)} className="flex items-center gap-2">
                       <input type="hidden" name="id" value={q.id} />
                       <select name="status" defaultValue={q.status} className={inputClasses}>
-                        {STATUSES.map((s) => <option key={s} value={s} className="bg-neutral-900">{s}</option>)}
+                        {STATUSES.map((s) => <option key={s} value={s} className="bg-white">{s}</option>)}
                       </select>
-                      <button type="submit" className="rounded-lg bg-amber-500/20 text-amber-300 ring-1 ring-amber-500/30 hover:bg-amber-500/30 text-sm font-medium px-4 py-2 transition">
+                      <button type="submit" className="rounded-lg bg-brand-violet/20 text-accent ring-1 ring-brand-violet/30 hover:bg-brand-violet/25 text-sm font-medium px-4 py-2 transition">
                         Update
                       </button>
                     </form>
@@ -87,7 +87,7 @@ export default function AdminQuotes() {
           })}
         </ul>
       ) : (
-        <p className="text-sm text-neutral-500 glass-dark rounded-xl p-5">No quote requests yet.</p>
+        <p className="text-sm text-stone-500 glass-dark rounded-xl p-5">No quote requests yet.</p>
       )}
     </div>
   );

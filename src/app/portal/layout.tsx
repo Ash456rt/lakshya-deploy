@@ -43,14 +43,14 @@ export default function PortalLayout({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-neutral-950 text-white flex items-center justify-center">
-        <p className="text-neutral-400">Loading…</p>
+      <div className="min-h-screen bg-paper text-ink flex items-center justify-center">
+        <p className="text-stone-600">Loading…</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white">
+    <div className="min-h-screen bg-paper text-ink">
       <header className="sticky top-0 z-40 border-b border-neutral-800 bg-black/70 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center">
@@ -63,13 +63,13 @@ export default function PortalLayout({
           <div className="flex items-center gap-6">
             <Link
               href="/"
-              className="text-sm text-neutral-400 hover:text-white transition-colors"
+              className="text-sm text-stone-600 hover:text-ink transition-colors"
             >
               Home
             </Link>
             <button
               onClick={handleSignOut}
-              className="text-sm text-neutral-400 hover:text-red-400 transition-colors"
+              className="text-sm text-stone-600 hover:text-red-400 transition-colors"
             >
               Sign out
             </button>

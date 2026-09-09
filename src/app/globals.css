@@ -1,47 +1,104 @@
 @import "tailwindcss";
 
-/* ── Design Tokens ─────────────────────────────────────────── */
+/* ── Design Tokens ───────────────────────────────────────────
+   Light "paper editorial" system.
+   Warm paper canvas, ink text, one cobalt accent, near-black
+   primary CTAs. Serif display (Newsreader) for headlines only,
+   Geist for UI/body, Geist Mono for metadata labels. */
 :root {
-  --background: #030712;
-  --foreground: #fafafa;
-  --surface: #0a0a0a;
-  --surface-elevated: #111113;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-hover: rgba(255, 255, 255, 0.12);
-  --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --accent: #f59e0b;
-  --accent-hover: #fbbf24;
+  --background: #f5f1e8;            /* warm paper */
+  --background-elevated: #fbf9f3;   /* hairline-tinted paper */
+  --foreground: #1c1914;            /* ink */
+  --surface: #ffffff;
+  --surface-elevated: #fdfcf9;
+  --border: rgba(28, 25, 20, 0.10);
+  --border-hover: rgba(28, 25, 20, 0.22);
+  --text-primary: #201c16;
+  --text-secondary: #5b554b;
+  --text-muted: #8b8476;
+  /* Single accent family: cobalt. Deep enough for AA on paper. */
+  --accent: #2433b3;
+  --accent-strong: #1c2a9c;
+  --accent-soft: #e7e9fa;
+  /* Legacy brand tokens now resolve to the single accent family
+     (admin/portal chips, links). Copper/CTAs are handled at use site. */
+  --brand-blue: #2433b3;
+  --brand-blue-deep: #1c2a9c;
+  --brand-violet: #2433b3;
+  --brand-violet-light: #4a54c7;
+  --brand-copper: #201c16;          /* primary CTA = ink */
+  --brand-copper-light: #38332a;
+  --metal-gradient: linear-gradient(100deg, #2433b3 0%, #4a54c7 55%, #8b8476 100%);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-paper: var(--background);
+  --color-paper-deep: var(--background-elevated);
+  --color-ink: var(--text-primary);
+  --color-ink-secondary: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
   --color-border: var(--border);
   --color-border-hover: var(--border-hover);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-deep: var(--brand-blue-deep);
+  --color-brand-violet: var(--brand-violet);
+  --color-brand-violet-light: var(--brand-violet-light);
+  --color-brand-copper: var(--brand-copper);
+  --color-brand-copper-light: var(--brand-copper-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+}
+
+/* Metallic brand-text gradient — legacy; only the wordmark mark uses it. */
+.text-metal {
+  background-image: var(--metal-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Lenis smooth scroll ───────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 /* ── Base ──────────────────────────────────────────────────── */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(120, 119, 198, 0.2) transparent;
+  scrollbar-color: rgba(36, 51, 179, 0.3) transparent;
 }
 
 *::-webkit-scrollbar { width: 6px; }
 *::-webkit-scrollbar-track { background: transparent; }
-*::-webkit-scrollbar-thumb { background: rgba(120, 119, 198, 0.2); border-radius: 3px; }
-*::-webkit-scrollbar-thumb:hover { background: rgba(120, 119, 198, 0.4); }
+*::-webkit-scrollbar-thumb { background: rgba(36, 51, 179, 0.3); border-radius: 3px; }
+*::-webkit-scrollbar-thumb:hover { background: rgba(36, 51, 179, 0.5); }
 
 html {
-  scroll-behavior: smooth;
-  color-scheme: dark;
+  scroll-padding-top: 5.5rem; /* keep anchor targets clear of the fixed navbar */
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -54,23 +111,25 @@ body {
 }
 
 ::selection {
-  background: rgba(245, 158, 11, 0.3);
-  color: white;
+  background: rgba(36, 51, 179, 0.18);
+  color: var(--text-primary);
 }
 
 /* ── Typography Utilities ──────────────────────────────────── */
 .heading-display {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
   color: var(--text-primary);
 }
 
 .heading-section {
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.08;
   letter-spacing: -0.01em;
   color: var(--text-primary);
 }
@@ -93,29 +152,42 @@ body {
   color: var(--text-muted);
 }
 
-/* ── Section Label Pill ────────────────────────────────────── */
-.section-pill {
-  display: inline-block;
-  padding: 6px 16px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+/* ── Section label (plain print rule, not a pill) ──────────── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
+  color: var(--text-muted);
 }
 
-/* ── Card System ───────────────────────────────────────────── */
+.section-label::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
+  flex: none;
+}
+
+/* ── Card System (light) ───────────────────────────────────── */
 .card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 40px -24px rgba(32, 28, 22, 0.35);
+}
+
+/* ── Hairline helpers ──────────────────────────────────────── */
+.hairline {
+  border-color: var(--border);
 }
 
 /* ── Section Transitions ───────────────────────────────────── */
@@ -171,10 +243,9 @@ body {
   animation: gradient-shift 8s ease infinite;
 }
 
-
-/* ── Glass (reserve for navbar only) ───────────────────────── */
+/* ── Navbar surface ────────────────────────────────────────── */
 .glass-nav {
-  background: rgba(3, 7, 18, 0.8);
+  background: rgba(245, 241, 232, 0.86);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
@@ -186,11 +257,12 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 40px -24px rgba(32, 28, 22, 0.3);
 }
 
 /* ── Focus Ring ────────────────────────────────────────────── */
-*:focus-visible {    outline: 2px solid #f59e0b;
+*:focus-visible {
+  outline: 2px solid #2433b3;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -205,4 +277,151 @@ body {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* ── Driver.js guided tour — light theme matched to the site ─ */
+.driver-popover {
+  background-color: #ffffff !important;
+  color: #3a352c !important;
+  border: 1px solid rgba(28, 25, 20, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 24px 60px -24px rgba(32, 28, 22, 0.4) !important;
+}
+
+.driver-popover .driver-popover-title {
+  color: #201c16 !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+}
+
+.driver-popover .driver-popover-description {
+  color: #5b554b !important;
+  line-height: 1.6 !important;
+}
+
+.driver-popover .driver-popover-progress-text {
+  color: #8b8476 !important;
+}
+
+.driver-popover .driver-popover-close-btn {
+  color: #8b8476 !important;
+}
+
+.driver-popover .driver-popover-close-btn:hover {
+  color: #201c16 !important;
+}
+
+.driver-popover .driver-popover-navigation-btns button {
+  background-color: #2433b3 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  text-shadow: none !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.driver-popover .driver-popover-navigation-btns button:hover {
+  background-color: #1c2a9c !important;
+}
+
+.driver-popover .driver-popover-navigation-btns button.driver-popover-prev-btn {
+  background-color: transparent !important;
+  color: #5b554b !important;
+  border: 1px solid rgba(28, 25, 20, 0.15) !important;
+}
+
+.driver-popover .driver-popover-navigation-btns button.driver-popover-prev-btn:hover {
+  color: #201c16 !important;
+  border-color: rgba(28, 25, 20, 0.35) !important;
+}
+
+.driver-popover .driver-popover-arrow-side-left.driver-popover-arrow {
+  border-left-color: #ffffff !important;
+}
+.driver-popover .driver-popover-arrow-side-right.driver-popover-arrow {
+  border-right-color: #ffffff !important;
+}
+.driver-popover .driver-popover-arrow-side-top.driver-popover-arrow {
+  border-top-color: #ffffff !important;
+}
+.driver-popover .driver-popover-arrow-side-bottom.driver-popover-arrow {
+  border-bottom-color: #ffffff !important;
+}
+
+.driver-progress-bar {
+  background-color: #2433b3 !important;
+}
+
+/* ── Mobile ergonomics ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Remove the grey flash on tap (iOS) and kill double-tap zoom delay on controls */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a,
+  button,
+  select,
+  label,
+  input[type="submit"],
+  [role="button"] {
+    touch-action: manipulation;
+    min-height: 44px; /* WCAG 2.5.5 — touch target min size */
+    min-width: 44px;
+  }
+
+  /* Ensure all interactive elements meet 44px touch target on mobile */
+  .section-label,
+  .text-caption,
+  .text-xs,
+  .text-sm {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* iOS zooms into any input whose font-size is under 16px */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Mobile nav spacing */
+  .nav-links {
+    gap: 0.5rem !important;
+  }
+
+  /* Prevent horizontal overflow on mobile */
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl,
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Respect the notch / home indicator on notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Respect users who prefer reduced motion (accessibility + older phones) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

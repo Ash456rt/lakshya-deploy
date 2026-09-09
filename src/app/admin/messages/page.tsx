@@ -28,13 +28,13 @@ export default function AdminMessages() {
     await loadData();
   };
 
-  if (loading) return <p className="text-neutral-400">Loading…</p>;
+  if (loading) return <p className="text-stone-600">Loading…</p>;
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold">Contact messages</h1>
-        <p className="text-neutral-400 mt-2">
+        <p className="text-stone-600 mt-2">
           Leads submitted through the contact form on the homepage.
         </p>
       </div>
@@ -44,15 +44,15 @@ export default function AdminMessages() {
           {messages.map((m) => (
             <li
               key={m.id}
-              className={`rounded-2xl p-6 ${m.status === "new" ? "glass-dark ring-1 ring-amber-500/30" : "bg-neutral-900/40"}`}
+              className={`rounded-2xl p-6 ${m.status === "new" ? "glass-dark ring-1 ring-brand-violet/30" : "bg-white/70"}`}
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="min-w-0">
                   <p className="font-semibold">{m.name}</p>
-                  <p className="text-sm text-neutral-400">
+                  <p className="text-sm text-stone-600">
                     <a
                       href={`mailto:${m.email}`}
-                      className="hover:text-amber-300 transition-colors"
+                      className="hover:text-accent transition-colors"
                     >
                       {m.email}
                     </a>
@@ -60,19 +60,19 @@ export default function AdminMessages() {
                     {" · "}
                     {new Date(m.created_at).toLocaleString()}
                   </p>
-                  <p className="text-sm text-neutral-300 mt-2 whitespace-pre-wrap">
+                  <p className="text-sm text-stone-800 mt-2 whitespace-pre-wrap">
                     {m.message}
                   </p>
                 </div>
                 {m.status === "new" ? (
                   <button
                     onClick={() => markRead(m.id)}
-                    className="rounded-lg bg-amber-500/20 text-amber-300 ring-1 ring-amber-500/30 hover:bg-amber-500/30 text-sm font-medium px-4 py-2 transition"
+                    className="rounded-lg bg-brand-violet/20 text-accent ring-1 ring-brand-violet/30 hover:bg-brand-violet/25 text-sm font-medium px-4 py-2 transition"
                   >
                     Mark as read
                   </button>
                 ) : (
-                  <span className="inline-flex rounded-full bg-neutral-500/10 text-neutral-400 ring-1 ring-neutral-500/30 px-3 py-1 text-xs font-medium">
+                  <span className="inline-flex rounded-full bg-neutral-500/10 text-stone-600 ring-1 ring-neutral-500/30 px-3 py-1 text-xs font-medium">
                     Read
                   </span>
                 )}
@@ -81,7 +81,7 @@ export default function AdminMessages() {
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-neutral-500 glass-dark rounded-xl p-5">
+        <p className="text-sm text-stone-500 glass-dark rounded-xl p-5">
           No messages yet.
         </p>
       )}

@@ -30,15 +30,15 @@ export default function QuotePage() {
   }, []);
 
   if (loading) {
-    return <p className="text-neutral-400">Loading…</p>;
+    return <p className="text-stone-600">Loading…</p>;
   }
 
   return (
     <div className="space-y-10">
       <div>
         <h1 className="text-3xl font-bold">Request a quote</h1>
-        <p className="text-neutral-400 mt-2">
-          Tell us what you need — we usually respond within one business day.
+        <p className="text-stone-600 mt-2">
+          Tell us what you need , we usually respond within one business day.
         </p>
       </div>
 
@@ -53,12 +53,12 @@ export default function QuotePage() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="min-w-0">
                     <p className="font-medium">{q.service}</p>
-                    <p className="text-sm text-neutral-400 mt-1">
+                    <p className="text-sm text-stone-600 mt-1">
                       {q.details || "No details provided."}
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs text-neutral-500">
+                    <span className="text-xs text-stone-500">
                       {new Date(q.created_at).toLocaleDateString()}
                     </span>
                     <StatusBadge status={q.status} />
@@ -68,8 +68,8 @@ export default function QuotePage() {
             ))}
           </ul>
         ) : (
-          <p className="text-sm text-neutral-500 glass-dark rounded-xl p-5">
-            No requests yet — use the form above to ask for a quote.
+          <p className="text-sm text-stone-500 glass-dark rounded-xl p-5">
+            No requests yet , use the form above to ask for a quote.
           </p>
         )}
       </div>

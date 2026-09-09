@@ -58,32 +58,33 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#030712] border-t border-zinc-800/50" role="contentinfo">
+    <footer className="bg-paper border-t border-stone-200/50" role="contentinfo">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <a href="/" className="inline-flex items-center mb-4" aria-label="Lakshya Groups Home">
-              <span className="text-amber-400 font-semibold text-lg tracking-tight"
+              <span
+                className="text-metal font-bold text-xl tracking-tight"
                 style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
               >
                 Lakshya
-                <span className="text-white">Groups</span>
+                <span className="text-ink"> Groups</span>
               </span>
             </a>
-            <p className="text-zinc-500 text-sm mb-6 leading-relaxed max-w-xs">
+            <p className="text-stone-500 text-sm mb-6 leading-relaxed max-w-xs">
               Seven services, one team. Bengaluru-based, globally active.
             </p>
-            <div className="space-y-2 text-sm text-zinc-600 mb-6">
+            <div className="space-y-2 text-sm text-stone-500 mb-6">
               <a
                 href="mailto:admin@lakshyagroups.in"
-                className="block hover:text-zinc-300 transition-colors"
+                className="block hover:text-ink transition-colors"
               >
                 admin@lakshyagroups.in
               </a>
               <a
                 href="tel:+919902841875"
-                className="block hover:text-zinc-300 transition-colors"
+                className="block hover:text-ink transition-colors"
               >
                 +91 99028 41875
               </a>
@@ -93,7 +94,7 @@ export function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-8 h-8 flex items-center justify-center text-zinc-600 hover:text-amber-400 transition-colors duration-300"
+                  className="w-8 h-8 flex items-center justify-center text-stone-500 hover:text-brand-violet-light transition-colors duration-300"
                   aria-label={social.label}
                   rel="me noopener noreferrer"
                   target="_blank"
@@ -107,7 +108,7 @@ export function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-xs font-medium text-zinc-400 uppercase tracking-wider mb-4">
+              <h3 className="text-xs font-medium text-stone-500 uppercase tracking-wider mb-4">
                 {category}
               </h3>
               <ul className="space-y-2.5">
@@ -115,7 +116,7 @@ export function Footer() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-sm text-zinc-600 hover:text-zinc-300 transition-colors duration-300"
+                      className="text-sm text-stone-500 hover:text-ink transition-colors duration-300"
                     >
                       {link.name}
                     </a>
@@ -127,20 +128,20 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-zinc-800/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-zinc-700 text-xs">
+        <div className="border-t border-stone-200/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-stone-500 text-xs">
             &copy; {new Date().getFullYear()} Lakshya Groups. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a
               href="/privacy"
-              className="text-zinc-700 text-xs hover:text-zinc-400 transition-colors"
+              className="text-stone-500 text-xs hover:text-ink transition-colors"
             >
               Privacy
             </a>
             <a
               href="/terms"
-              className="text-zinc-700 text-xs hover:text-zinc-400 transition-colors"
+              className="text-stone-500 text-xs hover:text-ink transition-colors"
             >
               Terms
             </a>

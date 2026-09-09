@@ -24,17 +24,25 @@ export default function AdminUsers() {
 
   const toggleAdmin = async (id: string, currentIsAdmin: boolean) => {
     const admin = createClient();
-    await admin.from("profiles").update({ is_admin: !currentIsAdmin }).eq("id", id);
+    // Server-side check inside the function; only real admins can flip the flag.
+    const { error } = await admin.rpc("set_user_admin", {
+      target_user: id,
+      admin_flag: !currentIsAdmin,
+    });
+    if (error) {
+      console.error("set_user_admin failed:", error.message);
+      alert("Could not update admin status: " + error.message);
+    }
     await loadData();
   };
 
-  if (loading) return <p className="text-neutral-400">Loading…</p>;
+  if (loading) return <p className="text-stone-600">Loading…</p>;
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold">Users</h1>
-        <p className="text-neutral-400 mt-2">
+        <p className="text-stone-600 mt-2">
           All registered clients. Admins can access the admin dashboard.
         </p>
       </div>
@@ -48,11 +56,11 @@ export default function AdminUsers() {
             >
               <div className="min-w-0">
                 <p className="font-semibold">{p.full_name || "Unnamed client"}</p>
-                <p className="text-sm text-neutral-400">
+                <p className="text-sm text-stone-600">
                   {p.company ? `${p.company}` : ""}
                   {p.phone ? ` · ${p.phone}` : ""}
                 </p>
-                <p className="text-xs text-neutral-500 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   Joined {new Date(p.created_at).toLocaleDateString()}
                 </p>
               </div>
@@ -60,15 +68,15 @@ export default function AdminUsers() {
                 <span
                   className={
                     p.is_admin
-                      ? "inline-flex rounded-full bg-amber-500/10 text-amber-300 ring-1 ring-amber-500/30 px-3 py-1 text-xs font-medium"
-                      : "inline-flex rounded-full bg-neutral-500/10 text-neutral-300 ring-1 ring-neutral-500/30 px-3 py-1 text-xs font-medium"
+                      ? "inline-flex rounded-full bg-brand-violet/15 text-accent ring-1 ring-brand-violet/30 px-3 py-1 text-xs font-medium"
+                      : "inline-flex rounded-full bg-neutral-500/10 text-stone-800 ring-1 ring-neutral-500/30 px-3 py-1 text-xs font-medium"
                   }
                 >
                   {p.is_admin ? "Admin" : "Client"}
                 </span>
                 <button
                   onClick={() => toggleAdmin(p.id, p.is_admin)}
-                  className="rounded-lg border border-neutral-700 hover:border-amber-500/50 hover:text-amber-300 text-sm px-4 py-2 transition"
+                  className="rounded-lg border border-stone-300 hover:border-brand-violet/40 hover:text-accent text-sm px-4 py-2 transition"
                 >
                   {p.is_admin ? "Remove admin" : "Make admin"}
                 </button>
@@ -77,7 +85,7 @@ export default function AdminUsers() {
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-neutral-500 glass-dark rounded-xl p-5">
+        <p className="text-sm text-stone-500 glass-dark rounded-xl p-5">
           No users yet.
         </p>
       )}

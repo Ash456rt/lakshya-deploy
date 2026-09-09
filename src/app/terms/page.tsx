@@ -30,7 +30,7 @@ export default function TermsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+    <main className="min-h-screen bg-paper text-ink pt-32 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -39,30 +39,30 @@ export default function TermsPage() {
       <article className="max-w-3xl mx-auto px-6">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+          <ol className="flex items-center gap-2 text-sm text-stone-500">
             <li>
-              <Link href="/" className="hover:text-white transition-colors">
+              <Link href="/" className="hover:text-ink transition-colors">
                 Home
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-neutral-300">
+            <li aria-current="page" className="text-stone-800">
               Terms of Service
             </li>
           </ol>
         </nav>
 
-        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
+        <span className="inline-block mb-8 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-muted">
           Legal
         </span>
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Terms of Service
         </h1>
-        <p className="text-neutral-500 mb-12">Last updated: August 20, 2026</p>
+        <p className="text-stone-500 mb-12">Last updated: August 20, 2026</p>
 
-        <div className="space-y-8 text-neutral-300 leading-relaxed">
+        <div className="space-y-8 text-stone-800 leading-relaxed">
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               1. Acceptance of Terms
             </h2>
             <p>
@@ -74,7 +74,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               2. Services
             </h2>
             <p>
@@ -88,7 +88,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               3. Payment Terms
             </h2>
             <ul className="list-disc list-inside space-y-2 ml-4">
@@ -111,7 +111,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               4. Refund Policy
             </h2>
             <ul className="list-disc list-inside space-y-2 ml-4">
@@ -133,7 +133,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               5. Intellectual Property
             </h2>
             <p>
@@ -146,7 +146,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               6. Confidentiality
             </h2>
             <p>
@@ -158,7 +158,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               7. Limitation of Liability
             </h2>
             <p>
@@ -170,7 +170,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               8. Termination
             </h2>
             <p>
@@ -181,21 +181,21 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-amber-400 mb-3">
+            <h2 className="text-2xl font-bold text-brand-violet-light mb-3">
               9. Contact
             </h2>
             <p>
               For questions about these terms, contact us at{" "}
               <a
                 href="mailto:admin@lakshyagroups.in"
-                className="text-amber-400 hover:text-amber-300"
+                className="text-brand-violet-light hover:text-accent"
               >
                 admin@lakshyagroups.in
               </a>{" "}
               or call{" "}
               <a
                 href="tel:+919902841875"
-                className="text-amber-400 hover:text-amber-300"
+                className="text-brand-violet-light hover:text-accent"
               >
                 +91 99028 41875
               </a>
@@ -213,7 +213,7 @@ export default function TermsPage() {
           </Link>
           <Link
             href="/"
-            className="px-6 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors text-center"
+            className="px-6 py-3 rounded-full bg-accent hover:bg-accent-strong text-ink font-semibold transition-colors text-center"
           >
             Back to Home
           </Link>

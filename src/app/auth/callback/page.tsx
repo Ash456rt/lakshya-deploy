@@ -27,14 +27,14 @@ function AuthCallbackInner() {
   }, [searchParams, router]);
 
   return (
-    <p className="text-neutral-400">Signing you in…</p>
+    <p className="text-stone-600">Signing you in…</p>
   );
 }
 
 export default function AuthCallback() {
   return (
-    <div className="flex items-center justify-center min-h-[60vh] bg-neutral-950 text-white">
-      <Suspense fallback={<p className="text-neutral-400">Loading…</p>}>
+    <div className="flex items-center justify-center min-h-[60vh] bg-paper text-ink">
+      <Suspense fallback={<p className="text-stone-600">Loading…</p>}>
         <AuthCallbackInner />
       </Suspense>
     </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQ | Lakshya Groups Services, Pricing & Timelines",
+  title: { absolute: "FAQ | Lakshya Groups Services, Pricing & Timelines" },
   description:
     "Frequently asked questions about Lakshya Groups services, pricing, timelines, and how we work. Web development, consultancy, import & export, and more.",
   alternates: { canonical: `${SITE_URL}/faq` },
@@ -105,7 +105,7 @@ export default function FAQPage() {
   };
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+    <main className="min-h-screen bg-paper text-ink pt-32 pb-24">
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -119,29 +119,29 @@ export default function FAQPage() {
       <div className="max-w-3xl mx-auto px-6">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+          <ol className="flex items-center gap-2 text-sm text-stone-500">
             <li>
-              <Link href="/" className="hover:text-white transition-colors">
+              <Link href="/" className="hover:text-ink transition-colors">
                 Home
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-neutral-300">
+            <li aria-current="page" className="text-stone-800">
               FAQ
             </li>
           </ol>
         </nav>
 
-        <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full">
+        <span className="inline-block mb-8 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-muted">
           Help Center
         </span>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Frequently Asked Questions
         </h1>
-        <p className="text-lg text-neutral-400 max-w-2xl mb-14">
+        <p className="text-lg text-stone-600 max-w-2xl mb-14">
           Everything you need to know before working with us. Still have
           questions?{" "}
-          <Link href="/#contact" className="text-amber-400 hover:text-amber-300">
+          <Link href="/#contact" className="text-brand-violet-light hover:text-accent">
             Contact us
           </Link>{" "}
           and we reply within 24 hours.
@@ -151,12 +151,12 @@ export default function FAQPage() {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group rounded-2xl bg-white/5 border border-white/10 overflow-hidden"
+              className="group rounded-2xl bg-white border border-ink/10 overflow-hidden"
             >
-              <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none text-lg font-semibold hover:text-amber-400 transition-colors">
+              <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none text-lg font-semibold hover:text-brand-violet-light transition-colors">
                 {faq.question}
                 <svg
-                  className="w-5 h-5 shrink-0 text-neutral-500 group-open:rotate-180 transition-transform"
+                  className="w-5 h-5 shrink-0 text-stone-500 group-open:rotate-180 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -169,24 +169,24 @@ export default function FAQPage() {
                   />
                 </svg>
               </summary>
-              <div className="px-6 pb-6 text-neutral-400 leading-relaxed">
+              <div className="px-6 pb-6 text-stone-600 leading-relaxed">
                 {faq.answer}
               </div>
             </details>
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl bg-gradient-to-br from-amber-600/20 to-amber-600/20 border border-amber-500/30 p-12 text-center">
+        <div className="mt-16 rounded-2xl bg-gradient-to-br from-brand-blue-deep/20 to-brand-blue-deep/20 border border-brand-violet/30 p-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Still have questions?
           </h2>
-          <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
+          <p className="text-stone-600 mb-8 max-w-xl mx-auto">
             We are happy to help. Reach out and we will get back to you within
             24 hours.
           </p>
           <Link
             href="/#contact"
-            className="inline-block px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors"
+            className="inline-block px-8 py-3 rounded-full bg-accent hover:bg-accent-strong text-ink font-semibold transition-colors"
           >
             Contact Us
           </Link>

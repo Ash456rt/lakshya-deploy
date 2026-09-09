@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 const inputClasses =
-  "w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition";
+  "w-full rounded-lg bg-white/85 border border-stone-300 px-4 py-3 text-sm text-ink placeholder-stone-400 outline-none focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 transition";
 
 export function ProfileForm({
   fullName,
@@ -60,19 +60,19 @@ export function ProfileForm({
       {msg && <p className="text-sm text-emerald-400">{msg}</p>}
       {err && <p className="text-sm text-red-400">{err}</p>}
       <div>
-        <label htmlFor="full_name" className="block text-sm font-medium text-neutral-300 mb-2">
+        <label htmlFor="full_name" className="block text-sm font-medium text-stone-800 mb-2">
           Full name
         </label>
         <input id="full_name" name="full_name" type="text" value={name} onChange={(e) => setName(e.target.value)} className={inputClasses} />
       </div>
       <div>
-        <label htmlFor="company" className="block text-sm font-medium text-neutral-300 mb-2">
+        <label htmlFor="company" className="block text-sm font-medium text-stone-800 mb-2">
           Company
         </label>
         <input id="company" name="company" type="text" value={comp} onChange={(e) => setComp(e.target.value)} className={inputClasses} placeholder="Your company" />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-neutral-300 mb-2">
+        <label htmlFor="phone" className="block text-sm font-medium text-stone-800 mb-2">
           Phone
         </label>
         <input id="phone" name="phone" type="tel" value={ph} onChange={(e) => setPh(e.target.value)} className={inputClasses} placeholder="+91 ..." />
@@ -80,7 +80,7 @@ export function ProfileForm({
       <button
         type="submit"
         disabled={pending}
-        className="rounded-lg bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-500 hover:to-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold px-5 py-2.5 transition"
+        className="rounded-lg bg-gradient-to-r from-brand-blue-deep to-brand-blue-deep hover:from-brand-violet hover:to-brand-violet-light disabled:opacity-60 disabled:cursor-not-allowed text-ink text-sm font-semibold px-5 py-2.5 transition"
       >
         {pending ? "Saving…" : "Save profile"}
       </button>

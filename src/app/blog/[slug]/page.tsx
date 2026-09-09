@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white pt-32 pb-24">
+    <main className="min-h-screen bg-paper text-ink pt-32 pb-24">
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
@@ -116,20 +116,20 @@ export default async function BlogPostPage({ params }: Props) {
       <article className="max-w-3xl mx-auto px-6">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-sm text-neutral-500">
+          <ol className="flex items-center gap-2 text-sm text-stone-500">
             <li>
-              <Link href="/" className="hover:text-white transition-colors">
+              <Link href="/" className="hover:text-ink transition-colors">
                 Home
               </Link>
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link href="/blog" className="hover:text-white transition-colors">
+              <Link href="/blog" className="hover:text-ink transition-colors">
                 Blog
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-neutral-300">
+            <li aria-current="page" className="text-stone-800">
               {post.title.length > 50 ? post.title.slice(0, 50) + '…' : post.title}
             </li>
           </ol>
@@ -137,15 +137,15 @@ export default async function BlogPostPage({ params }: Props) {
 
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-10 text-sm"
+          className="inline-flex items-center gap-2 text-stone-600 hover:text-ink transition-colors mb-10 text-sm"
         >
           &larr; Back to blog
         </Link>
         <div className="flex items-center gap-3 mb-6 text-sm">
-          <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
             {post.category}
           </span>
-          <time dateTime={post.date} className="text-neutral-500">
+          <time dateTime={post.date} className="text-stone-500">
             {post.date} · {post.readTime}
           </time>
         </div>
@@ -153,25 +153,25 @@ export default async function BlogPostPage({ params }: Props) {
           {post.title}
         </h1>
         {/* Author Box */}
-        <div className="flex items-center gap-4 mb-10 p-4 rounded-2xl bg-white/5 border border-white/10">
+        <div className="flex items-center gap-4 mb-10 p-4 rounded-2xl bg-white border border-ink/10">
           <img
             src={post.author.avatar}
             alt={post.author.name}
-            className="w-12 h-12 rounded-full object-cover border-2 border-amber-500/30"
+            className="w-12 h-12 rounded-full object-cover border-2 border-brand-violet/30"
             width={48}
             height={48}
             loading="lazy"
           />
           <div>
-            <p className="font-semibold text-white">{post.author.name}</p>
-            <p className="text-sm text-neutral-400">{post.author.role}</p>
+            <p className="font-semibold text-ink">{post.author.name}</p>
+            <p className="text-sm text-stone-600">{post.author.role}</p>
           </div>
           {post.author.linkedin && (
             <a
               href={post.author.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-auto text-neutral-400 hover:text-amber-400 transition-colors"
+              className="ml-auto text-stone-600 hover:text-brand-violet-light transition-colors"
               aria-label={`${post.author.name} LinkedIn profile`}
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -183,21 +183,21 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="space-y-8 mb-12">
           {post.content.map((section) => (
             <section key={section.heading}>
-              <h2 className="text-2xl font-bold mb-3 text-amber-400">
+              <h2 className="text-2xl font-bold mb-3 text-brand-violet-light">
                 {section.heading}
               </h2>
-              <p className="text-neutral-300 leading-relaxed">{section.body}</p>
+              <p className="text-stone-800 leading-relaxed">{section.body}</p>
             </section>
           ))}
         </div>
-        <div className="rounded-2xl bg-white/5 border border-white/10 p-8 text-center mb-12">
+        <div className="rounded-2xl bg-white border border-ink/10 p-8 text-center mb-12">
           <h3 className="text-xl font-bold mb-2">Ready to build with us?</h3>
-          <p className="text-neutral-400 mb-6">
+          <p className="text-stone-600 mb-6">
             Get a free consultation on your next project.
           </p>
           <Link
             href="/#contact"
-            className="inline-block px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-colors"
+            className="inline-block px-8 py-3 rounded-full bg-accent hover:bg-accent-strong text-ink font-semibold transition-colors"
           >
             Contact Us
           </Link>
@@ -214,15 +214,15 @@ export default async function BlogPostPage({ params }: Props) {
                 <Link
                   key={related.slug}
                   href={`/blog/${related.slug}`}
-                  className="group rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-amber-500/40 transition-all duration-300"
+                  className="group rounded-2xl bg-white border border-ink/10 p-6 hover:border-brand-violet/35 transition-all duration-300"
                 >
-                  <span className="text-xs text-amber-400 mb-2 block">
+                  <span className="text-xs text-brand-violet-light mb-2 block">
                     {related.category}
                   </span>
-                  <h4 className="font-bold group-hover:text-amber-400 transition-colors mb-2">
+                  <h4 className="font-bold group-hover:text-brand-violet-light transition-colors mb-2">
                     {related.title}
                   </h4>
-                  <p className="text-sm text-neutral-400 line-clamp-2">
+                  <p className="text-sm text-stone-600 line-clamp-2">
                     {related.excerpt}
                   </p>
                 </Link>

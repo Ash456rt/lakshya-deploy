@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 
@@ -13,12 +13,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
+});
+
+import { Chatbot } from "@/components/chat/chatbot";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { SITE_URL } from "@/lib/site";
 
 const TITLE =
   "Lakshya Groups | Web Development & Consultancy in Bengaluru";
 const DESCRIPTION =
-  "Lakshya Groups is a Bengaluru-based multi-service company offering web & app development, business consultancy, import & export, customer support, transport & logistics, tours & travel, and professional training through Lakshya Academy.";
+  "Lakshya Groups: Bengaluru multi-service company for web & app development, consultancy, import & export, support, logistics, travel and training.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -75,17 +84,26 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
-        <meta name="theme-color" content="#030712" />
+        <meta name="theme-color" content="#f5f1e8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="A0hSyyGtpIy06RtZHlsRWFgXJ5qflDfnuo-RLAvWwuk" />
-        {/* Tell Dark Reader this site is already dark — prevents style injection */}
-        <meta name="color-scheme" content="dark" />
-      </head>      <body className="min-h-full flex flex-col bg-neutral-950 text-white" suppressHydrationWarning>
-        {/* Browser tab icon — Lakshya Groups logo */}
+        <meta name="color-scheme" content="light" />
+        {/* Preview-host guard: on any domain other than production (e.g. the
+            laksya-groups.vercel.app preview deploy), noindex the page and point
+            crawlers at the production URL so previews never compete in search. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'if(location.hostname!=="lakshyagroups.in"&&location.hostname!=="www.lakshyagroups.in"){var m=document.createElement("meta");m.name="robots";m.content="noindex,nofollow";document.head.appendChild(m);var l=document.createElement("link");l.rel="canonical";l.href="https://lakshyagroups.in"+location.pathname+location.search;document.head.appendChild(l);}',
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-paper text-ink" suppressHydrationWarning>
+        {/* Browser tab icon , Lakshya Groups logo */}
         <link rel="icon" type="image/png" href="/laksya-logo-300.webp" />
         <link rel="apple-touch-icon" href="/laksya-logo-300.webp" />
 
@@ -102,10 +120,14 @@ export default function RootLayout({
             gtag('config', 'G-SGR6KY1CMC');
           `}
         </Script>
+        <SmoothScroll>
+          {children}
 
-        {children}
+          {/* Site-wide chat assistant , hidden on /admin and /portal by the component itself */}
+          <Chatbot />
+        </SmoothScroll>
 
-        {/* JSON-LD Structured Data — Organization + WebSite + LocalBusiness */}
+        {/* JSON-LD Structured Data , Organization + WebSite + LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -147,7 +169,6 @@ export default function RootLayout({
                     "https://x.com/lakshyagroups",
                     "https://linkedin.com/company/lakshya-groups",
                     "https://www.instagram.com/groupslakshya?igsi=ZHdrbnRsc2xhMzFp",
-
                   ],
                 },
                 {

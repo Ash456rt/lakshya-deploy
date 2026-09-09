@@ -26,8 +26,8 @@ export function PortalNav({ isAdmin }: { isAdmin?: boolean }) {
             className={cn(
               "whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-medium transition-colors",
               active
-                ? "bg-amber-600/20 text-amber-300 ring-1 ring-amber-500/30"
-                : "text-neutral-400 hover:bg-white/5 hover:text-white"
+                ? "bg-brand-blue-deep/20 text-accent ring-1 ring-brand-violet/30"
+                : "text-stone-600 hover:bg-white hover:text-ink"
             )}
           >
             {item.name}
@@ -40,8 +40,8 @@ export function PortalNav({ isAdmin }: { isAdmin?: boolean }) {
           className={cn(
             "whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-medium transition-colors",
             pathname.startsWith("/admin")
-              ? "bg-amber-500/20 text-amber-300 ring-1 ring-amber-500/30"
-              : "text-neutral-400 hover:bg-white/5 hover:text-white"
+              ? "bg-brand-violet/20 text-accent ring-1 ring-brand-violet/30"
+              : "text-stone-600 hover:bg-white hover:text-ink"
           )}
         >
           Admin

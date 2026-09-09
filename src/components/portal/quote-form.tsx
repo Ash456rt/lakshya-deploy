@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 const inputClasses =
-  "w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition";
+  "w-full rounded-lg bg-white/85 border border-stone-300 px-4 py-3 text-sm text-ink placeholder-stone-400 outline-none focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 transition";
 
 const services = [
   "App & Web Development",
@@ -46,7 +46,7 @@ export function QuoteForm() {
       if (error) {
         setErr(error.message);
       } else {
-        setMsg("Quote request submitted — we'll get back to you soon.");
+        setMsg("Quote request submitted , we'll get back to you soon.");
         setService("");
         setDetails("");
       }
@@ -62,20 +62,20 @@ export function QuoteForm() {
       {msg && <p className="text-sm text-emerald-400">{msg}</p>}
       {err && <p className="text-sm text-red-400">{err}</p>}
       <div>
-        <label htmlFor="service" className="block text-sm font-medium text-neutral-300 mb-2">
+        <label htmlFor="service" className="block text-sm font-medium text-stone-800 mb-2">
           Service
         </label>
         <select id="service" name="service" required value={service} onChange={(e) => setService(e.target.value)} className={inputClasses}>
-          <option value="" className="bg-neutral-900">Select a service…</option>
+          <option value="" className="bg-white">Select a service…</option>
           {services.map((s) => (
-            <option key={s} value={s} className="bg-neutral-900">
+            <option key={s} value={s} className="bg-white">
               {s}
             </option>
           ))}
         </select>
       </div>
       <div>
-        <label htmlFor="details" className="block text-sm font-medium text-neutral-300 mb-2">
+        <label htmlFor="details" className="block text-sm font-medium text-stone-800 mb-2">
           What do you need?
         </label>
         <textarea
@@ -92,7 +92,7 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={pending}
-        className="rounded-lg bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-500 hover:to-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold px-6 py-3 transition"
+        className="rounded-lg bg-gradient-to-r from-brand-blue-deep to-brand-blue-deep hover:from-brand-violet hover:to-brand-violet-light disabled:opacity-60 disabled:cursor-not-allowed text-ink font-semibold px-6 py-3 transition"
       >
         {pending ? "Submitting…" : "Submit quote request"}
       </button>

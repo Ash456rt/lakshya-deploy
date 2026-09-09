@@ -67,7 +67,7 @@ function PortalLink({
         })
         .catch(() => {});
     } catch {
-      // Supabase not configured yet — keep the default labels.
+      // Supabase not configured yet , keep the default labels.
     }
     return () => {
       mounted = false;
@@ -75,8 +75,8 @@ function PortalLink({
   }, []);
 
   const linkClasses = mobile
-    ? "text-lg font-medium text-white"
-    : "text-sm font-medium text-zinc-400 hover:text-amber-400 transition-colors";
+    ? "text-lg font-medium text-ink"
+    : "text-sm font-medium text-stone-500 hover:text-brand-violet-light transition-colors";
 
   return (
     <>
@@ -115,7 +115,7 @@ function Dropdown({
   return (
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
-        className="flex items-center gap-1 text-sm font-medium text-zinc-400 hover:text-amber-400 transition-colors"
+        className="flex items-center gap-1 text-sm font-medium text-stone-500 hover:text-brand-violet-light transition-colors"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="true"
@@ -137,14 +137,14 @@ function Dropdown({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full left-0 mt-2 w-48 py-2 bg-neutral-900/95 backdrop-blur-xl border border-white/[0.06] rounded-xl shadow-xl"
+            className="absolute top-full left-0 mt-2 w-48 py-2 bg-white/95 backdrop-blur-xl border border-ink/10 rounded-xl shadow-xl"
           >
             {group.items.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={onItemClick}
-                className="block px-4 py-2.5 text-sm text-zinc-400 hover:text-white hover:bg-white/[0.05] transition-colors"
+                className="block px-4 py-2.5 text-sm text-stone-500 hover:text-ink hover:bg-stone-100 transition-colors"
               >
                 {item.name}
               </a>
@@ -169,10 +169,11 @@ export function Navbar() {
 
   return (
     <motion.header
+      id="navbar-tour-target"
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-neutral-950/80 backdrop-blur-xl border-b border-white/[0.06]"
+          ? "bg-paper/85 backdrop-blur-xl border-b border-ink/10"
           : "bg-transparent"
       )}
       initial={{ y: -100 }}
@@ -186,13 +187,13 @@ export function Navbar() {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
         >
-          {/* Lakshya Groups logo — kept in header as you asked */}
+          {/* Lakshya Groups logo , kept in header as you asked */}
           <img
-            src="/laksya-logo.png"
+            src="/laksya-logo-300.webp"
             alt="Lakshya Groups"
             className="h-12 w-auto object-contain"
-            width={1240}
-            height={799}
+            width={300}
+            height={193}
           />
         </motion.a>
 
@@ -205,7 +206,7 @@ export function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-zinc-400 hover:text-amber-400 transition-colors"
+                className="text-sm font-medium text-stone-500 hover:text-brand-violet-light transition-colors"
               >
                 {item.name}
               </a>
@@ -219,7 +220,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden flex flex-col gap-1.5"
+          className="md:hidden flex flex-col gap-1.5 p-3 -m-3"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMobileOpen}
@@ -245,7 +246,7 @@ export function Navbar() {
         {isMobileOpen && (
           <motion.div
             id="mobile-menu"
-            className="md:hidden bg-neutral-950/95 backdrop-blur-xl border-b border-white/[0.06]"
+            className="md:hidden bg-paper/95 backdrop-blur-xl border-b border-ink/10"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -256,7 +257,7 @@ export function Navbar() {
                 isGroup(item) ? (
                   <div key={item.name} className="flex flex-col items-center gap-2">
                     <button
-                      className="flex items-center gap-1 text-lg font-medium text-white"
+                      className="flex items-center gap-1 text-lg font-medium text-ink"
                       onClick={() =>
                         setMobileOpenGroup(
                           mobileOpenGroup === item.name ? null : item.name
@@ -288,7 +289,7 @@ export function Navbar() {
                             <a
                               key={sub.name}
                               href={sub.href}
-                              className="text-base text-zinc-400 hover:text-white transition-colors"
+                              className="text-base text-stone-500 hover:text-ink transition-colors"
                               onClick={() => setIsMobileOpen(false)}
                             >
                               {sub.name}
@@ -302,7 +303,7 @@ export function Navbar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-lg font-medium text-white"
+                    className="text-lg font-medium text-ink"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     {item.name}
@@ -313,7 +314,7 @@ export function Navbar() {
                 mobile
                 onClick={() => setIsMobileOpen(false)}
               />
-              <MagneticButton href="#contact" className="!px-8 !py-3">Get a Free Consultation</MagneticButton>
+              <MagneticButton href="#contact" className="!px-8 !py-4 !text-base">Get a Free Consultation</MagneticButton>
             </div>
           </motion.div>
         )}

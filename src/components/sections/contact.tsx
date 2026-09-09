@@ -97,14 +97,14 @@ export function Contact() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 bg-transparent border border-zinc-800 text-white placeholder-zinc-600 focus:border-amber-500/50 focus:outline-none transition-colors duration-300 text-sm";
+    "w-full px-4 py-3 min-h-[48px] bg-transparent border border-stone-200 text-ink placeholder-stone-600 focus:border-brand-violet/40 focus:outline-none transition-colors duration-300 text-base sm:text-sm";
 
   return (
     <section
       ref={sectionRef}
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative py-32 bg-[#030712] overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-32 bg-paper overflow-hidden"
     >
       {/* Parallax background accent */}
       <motion.div
@@ -114,7 +114,7 @@ export function Contact() {
         <div
           className="w-full h-full"
           style={{
-            background: "radial-gradient(ellipse at 70% 30%, rgba(245,158,11,1) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse at 70% 30%, rgba(36,51,179,1) 0%, transparent 60%)",
           }}
         />
       </motion.div>
@@ -127,16 +127,16 @@ export function Contact() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] uppercase text-amber-500/60 mb-4 block">
+            <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
               Contact
             </span>
             <h2
               id="contact-heading"
-              className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4"
+              className="mb-5 font-[family-name:var(--font-newsreader)] text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-ink md:text-5xl"
             >
               Start a conversation
             </h2>
-            <p className="text-zinc-500 leading-relaxed">
+            <p className="text-stone-600 leading-relaxed">
               Have a project in mind? Reach out and let us discuss how we
               can help.
             </p>
@@ -150,7 +150,7 @@ export function Contact() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form id="contact-tour-target" onSubmit={handleSubmit} className="space-y-5">
               <input
                 type="text"
                 name="_honey"
@@ -159,9 +159,9 @@ export function Contact() {
                 aria-hidden="true"
                 className="absolute -left-[9999px] h-0 w-0 opacity-0"
               />
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-zinc-500 mb-2 uppercase tracking-wider">
+                  <label className="block text-xs font-medium text-stone-500 mb-2 uppercase tracking-wider">
                     Name
                   </label>
                   <input
@@ -175,7 +175,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-zinc-500 mb-2 uppercase tracking-wider">
+                  <label className="block text-xs font-medium text-stone-500 mb-2 uppercase tracking-wider">
                     Email
                   </label>
                   <input
@@ -190,7 +190,7 @@ export function Contact() {
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-zinc-500 mb-2 uppercase tracking-wider">
+                <label className="block text-xs font-medium text-stone-500 mb-2 uppercase tracking-wider">
                   Service
                 </label>
                 <select
@@ -200,18 +200,18 @@ export function Contact() {
                   className={inputClasses + " appearance-none"}
                   required
                 >
-                  <option value="" className="bg-neutral-950">Select a service</option>
-                  <option value="development" className="bg-neutral-950">App & Web Development</option>
-                  <option value="consultancy" className="bg-neutral-950">Strategic Consultancy</option>
-                  <option value="import-export" className="bg-neutral-950">Import & Export</option>
-                  <option value="customer-support" className="bg-neutral-950">Customer Support</option>
-                  <option value="transport" className="bg-neutral-950">Transport & Logistics</option>
-                  <option value="travel" className="bg-neutral-950">Tours & Travel</option>
-                  <option value="academy" className="bg-neutral-950">Lakshya Academy</option>
+                  <option value="" className="bg-paper">Select a service</option>
+                  <option value="development" className="bg-paper">App & Web Development</option>
+                  <option value="consultancy" className="bg-paper">Strategic Consultancy</option>
+                  <option value="import-export" className="bg-paper">Import & Export</option>
+                  <option value="customer-support" className="bg-paper">Customer Support</option>
+                  <option value="transport" className="bg-paper">Transport & Logistics</option>
+                  <option value="travel" className="bg-paper">Tours & Travel</option>
+                  <option value="academy" className="bg-paper">Lakshya Academy</option>
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-medium text-zinc-500 mb-2 uppercase tracking-wider">
+                <label className="block text-xs font-medium text-stone-500 mb-2 uppercase tracking-wider">
                   Message
                 </label>
                 <textarea
@@ -226,12 +226,12 @@ export function Contact() {
               </div>
 
               {submitStatus === "success" && (
-                <p className="text-sm text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-4 py-3">
+                <p className="px-4 py-3 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200">
                   Thank you! Your message has been sent.
                 </p>
               )}
               {submitStatus === "error" && (
-                <p className="text-sm text-red-400 bg-red-500/5 border border-red-500/10 px-4 py-3">
+                <p className="px-4 py-3 text-sm text-red-700 bg-red-50 border border-red-200">
                   {errorMessage}
                 </p>
               )}
@@ -239,7 +239,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-black font-medium text-sm transition-colors duration-300 disabled:opacity-50"
+                className="w-full px-6 py-4 min-h-[52px] bg-ink text-paper hover:bg-[#3a352c] active:bg-[#2b2620] font-medium text-base sm:text-sm transition-colors duration-300 disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Send message"}
               </button>
@@ -257,22 +257,22 @@ export function Contact() {
               <a
                 key={method.label}
                 href={method.href}
-                className="group flex items-start gap-4 p-5 bg-zinc-900/30 border border-zinc-800/50 hover:border-zinc-700/50 transition-colors duration-300"
+                className="group flex items-start gap-4 p-5 bg-paper-deep/30 border border-stone-200/50 hover:border-stone-400/50 transition-colors duration-300"
               >
-                <div className="text-zinc-500 group-hover:text-amber-400 transition-colors duration-300 mt-0.5 shrink-0">
+                <div className="text-stone-500 group-hover:text-brand-violet-light transition-colors duration-300 mt-0.5 shrink-0">
                   {method.icon}
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-zinc-600 uppercase tracking-wider mb-1">
+                  <p className="text-xs font-medium text-stone-500 uppercase tracking-wider mb-1">
                     {method.label}
                   </p>
-                  <p className="text-sm text-zinc-300">{method.value}</p>
+                  <p className="text-sm text-ink">{method.value}</p>
                 </div>
               </a>
             ))}
 
             {/* Map */}
-            <div className="relative h-56 overflow-hidden border border-zinc-800/50">
+            <div className="relative h-56 overflow-hidden border border-stone-200/50">
               <iframe
                 src="https://www.google.com/maps?q=Lakshya%20Groups%2C%20Maragondanahalli%20Main%20Rd%2C%20TC%20Palya%2C%20Bengaluru%2C%20Karnataka%20560036&z=16&output=embed"
                 className="w-full h-full border-0 grayscale opacity-80"

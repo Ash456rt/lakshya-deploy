@@ -34,7 +34,7 @@ export default function PortalOverview() {
   }, []);
 
   if (loading) {
-    return <p className="text-neutral-400">Loading…</p>;
+    return <p className="text-stone-600">Loading…</p>;
   }
 
   const firstName =
@@ -53,7 +53,7 @@ export default function PortalOverview() {
         <h1 className="text-3xl font-bold">
           Welcome, {firstName}
         </h1>
-        <p className="text-neutral-400 mt-2">
+        <p className="text-stone-600 mt-2">
           Your account: {user?.email}
         </p>
       </div>
@@ -61,15 +61,15 @@ export default function PortalOverview() {
       {/* Stats */}
       <div className="grid gap-4 sm:grid-cols-3">
         <div className="glass-dark rounded-2xl p-6">
-          <p className="text-sm text-neutral-400">Projects</p>
+          <p className="text-sm text-stone-600">Projects</p>
           <p className="text-3xl font-bold mt-1">{totalProjects}</p>
         </div>
         <div className="glass-dark rounded-2xl p-6">
-          <p className="text-sm text-neutral-400">Active</p>
+          <p className="text-sm text-stone-600">Active</p>
           <p className="text-3xl font-bold mt-1">{activeProjects}</p>
         </div>
         <div className="glass-dark rounded-2xl p-6">
-          <p className="text-sm text-neutral-400">Quote requests</p>
+          <p className="text-sm text-stone-600">Quote requests</p>
           <p className="text-3xl font-bold mt-1">{totalQuotes}</p>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function PortalOverview() {
             <h2 className="font-semibold">Recent projects</h2>
             <Link
               href="/portal/projects"
-              className="text-sm text-amber-400 hover:text-amber-300 transition-colors"
+              className="text-sm text-brand-violet-light hover:text-accent transition-colors"
             >
               View all
             </Link>
@@ -94,20 +94,20 @@ export default function PortalOverview() {
                     <p className="font-medium">{p.title}</p>
                     <StatusBadge status={p.status} />
                   </div>
-                  <div className="mt-2 h-1.5 rounded-full bg-neutral-800 overflow-hidden">
+                  <div className="mt-2 h-1.5 rounded-full bg-paper-deep overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400"
+                      className="h-full rounded-full bg-gradient-to-r from-brand-violet to-brand-violet-light"
                       style={{ width: `${p.progress}%` }}
                     />
                   </div>
-                  <p className="text-xs text-neutral-500 mt-1">{p.progress}% complete</p>
+                  <p className="text-xs text-stone-500 mt-1">{p.progress}% complete</p>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-neutral-500">
+            <p className="text-sm text-stone-500">
               No projects yet.{" "}
-              <Link href="/portal/quote" className="text-amber-400 hover:text-amber-300">
+              <Link href="/portal/quote" className="text-brand-violet-light hover:text-accent">
                 Request a quote
               </Link>{" "}
               to get started.
@@ -121,7 +121,7 @@ export default function PortalOverview() {
             <h2 className="font-semibold">Recent quote requests</h2>
             <Link
               href="/portal/quote"
-              className="text-sm text-amber-400 hover:text-amber-300 transition-colors"
+              className="text-sm text-brand-violet-light hover:text-accent transition-colors"
             >
               View all
             </Link>
@@ -134,14 +134,14 @@ export default function PortalOverview() {
                     <p className="font-medium">{q.service}</p>
                     <StatusBadge status={q.status} />
                   </div>
-                  <p className="text-xs text-neutral-500 mt-1">
+                  <p className="text-xs text-stone-500 mt-1">
                     {new Date(q.created_at).toLocaleDateString()}
                   </p>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-neutral-500">No quote requests yet.</p>
+            <p className="text-sm text-stone-500">No quote requests yet.</p>
           )}
         </section>
       </div>

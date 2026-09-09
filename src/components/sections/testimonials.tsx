@@ -5,35 +5,43 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "Lakshya rebuilt our booking platform in 6 weeks. What used to take 3 hours now takes 10 minutes. The ROI was visible within the first month.",
-    name: "Rajesh Patel",
-    role: "Operations Director, TravelVue",
-    image: "/testimonial-1.webp",
-    metric: "3 hours to 10 minutes",
+      "As a tuition centre we get a lot of parent calls during admission season. The website Lakshya built answers most questions before people even ring us, and the enquiry form sends details straight to our inbox. It has honestly made admission season calmer.",
+    name: "Sri Lakshmi",
+    role: "Director, Sri Lakshmi Tutorials",
+    image: "/partners/sri-lakshmi.png",
+    metric: "Fewer missed enquiries",
   },
   {
     quote:
-      "We were managing 4 different vendors. Moving to Lakshya cut our coordination overhead by half and improved response times across the board.",
-    name: "Priya Sharma",
-    role: "CEO, GreenLeaf Exports",
-    image: "/testimonial-2.webp",
-    metric: "50% less overhead",
+      "We needed a site that works well on phones because most of our customers browse on mobile. Lakshya delivered that and kept the pricing clear from the start. When we asked for changes they were done in days, not weeks.",
+    name: "First Zone",
+    role: "Management, First Zone",
+    image: "/partners/first-zone.png",
+    metric: "Mobile-first delivery",
   },
   {
     quote:
-      "Their consultancy team helped us enter Southeast Asia with a clear roadmap. They did not just hand us a PDF and leave.",
-    name: "Amit Kumar",
-    role: "Founder, QuickServe Logistics",
-    image: "/testimonial-3.webp",
-    metric: "3 new markets",
+      "What stood out was the communication. We always knew what was being worked on and when it would be ready. The site looks professional and loads fast even on slow connections, which matters for our audience.",
+    name: "Avans",
+    role: "Team, Avans",
+    image: "/partners/avans.png",
+    metric: "Clear communication",
   },
   {
     quote:
-      "The training program upskilled 12 junior developers in 3 months. Measurable improvement in code quality and sprint velocity.",
-    name: "Deepa Nair",
-    role: "CTO, FinServe Solutions",
-    image: "/testimonial-4.webp",
-    metric: "60% faster sprints",
+      "Lakshya handled our website and follow-up support without drama. Small requests get fixed quickly and bigger ones get a proper estimate first. That reliability is why we keep coming back to them.",
+    name: "ZetPeak",
+    role: "Team, ZetPeak",
+    image: "/partners/zetpeak.png",
+    metric: "Reliable support",
+  },
+  {
+    quote:
+      "Our old website was slow and hard to update. The new one loads quickly, shows up better on Google, and the team showed us how to make simple changes ourselves. Straightforward people to work with.",
+    name: "Cayrys",
+    role: "Team, Cayrys",
+    image: "/partners/cayrys.png",
+    metric: "Faster, easier site",
   },
 ];
 
@@ -64,32 +72,33 @@ function TestimonialCard({
         delay: index * 0.1,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative bg-zinc-900/30 border border-zinc-800/50 p-8 hover:border-zinc-700/50 transition-colors duration-500"
+      className="group relative bg-paper-deep/30 border border-stone-200/50 p-8 hover:border-stone-400/50 transition-colors duration-500"
     >
-      {/* Metric badge */}
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 text-xs font-medium text-amber-400/80 bg-amber-500/5 border border-amber-500/10">
+      {/* Metric label */}
+      <div className="mb-5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+        <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
         {t.metric}
       </div>
 
       {/* Quote */}
-      <p className="text-zinc-300 leading-relaxed mb-8 text-[15px]">
+      <p className="text-stone-800 leading-relaxed mb-8 text-[15px]">
         &ldquo;{t.quote}&rdquo;
       </p>
 
       {/* Author */}
       <div className="flex items-center gap-3">
         {t.image && (
-          <div className="w-9 h-9 shrink-0 overflow-hidden bg-zinc-800 border border-zinc-700">
+          <div className="w-9 h-9 shrink-0 overflow-hidden bg-stone-100 border border-stone-200 flex items-center justify-center">
             <img
               src={t.image}
-              alt={t.name}
-              className="w-full h-full object-cover"
+              alt={`${t.name} logo`}
+              className="w-full h-full object-contain"
             />
           </div>
         )}
         <div className="min-w-0">
-          <p className="text-sm font-medium text-white truncate">{t.name}</p>
-          <p className="text-xs text-zinc-600 truncate">{t.role}</p>
+          <p className="text-sm font-medium text-ink truncate">{t.name}</p>
+          <p className="text-xs text-stone-500 truncate">{t.role}</p>
         </div>
       </div>
     </motion.div>
@@ -104,9 +113,21 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-labelledby="testimonials-heading"
-      className="relative py-32 bg-[#030712]"
+      className="relative py-16 sm:py-20 md:py-32 bg-paper"
     >
       <div className="max-w-6xl mx-auto px-6">
+        {/* Tagline */}
+        <div className="mb-12 max-w-2xl">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-xs sm:text-sm font-mono font-semibold tracking-[0.15em] uppercase text-ink/70 bg-ink/5 border border-ink/10 rounded px-4 py-2 inline-block"
+          >
+            Ship small. Fix fast. Don't ship garbage.
+          </motion.p>
+        </div>
+
         {/* Header */}
         <div ref={ref} className="mb-16 max-w-xl">
           <motion.div
@@ -114,22 +135,22 @@ export function Testimonials() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] uppercase text-amber-500/60 mb-4 block">
+            <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
               Testimonials
             </span>
             <h2
               id="testimonials-heading"
-              className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4"
+              className="mb-5 font-[family-name:var(--font-newsreader)] text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-ink md:text-5xl"
             >
               Client results
             </h2>
-            <p className="text-zinc-500 leading-relaxed">
-              Real feedback from businesses we have helped grow.
+            <p className="text-stone-500 leading-relaxed">
+              What our partners say about working with us.
             </p>
           </motion.div>
         </div>
 
-        {/* Cards — staggered grid with parallax */}
+        {/* Cards , staggered grid with parallax */}
         <div className="grid md:grid-cols-2 gap-5">
           {testimonials.map((t, index) => (
             <TestimonialCard key={t.name} t={t} index={index} />

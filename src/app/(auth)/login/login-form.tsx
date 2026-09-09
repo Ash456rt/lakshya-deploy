@@ -18,7 +18,7 @@ export function LoginForm() {
 
   useEffect(() => {
     if (confirmed) {
-      setSuccess("Email confirmed — you can sign in now.");
+      setSuccess("Email confirmed , you can sign in now.");
     }
   }, [confirmed]);
 
@@ -39,7 +39,7 @@ export function LoginForm() {
         return;
       }
 
-      // Safe redirect — only allow internal paths
+      // Safe redirect , only allow internal paths
       if (next.startsWith("/") && !next.startsWith("//")) {
         router.push(next);
       } else {
@@ -55,7 +55,7 @@ export function LoginForm() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-1">Welcome back</h1>
-      <p className="text-neutral-400 text-sm mb-8">Sign in to your client portal.</p>
+      <p className="text-stone-600 text-sm mb-8">Sign in to your client portal.</p>
 
       {success && (
         <div className="mb-6 rounded-lg bg-emerald-500/10 border border-emerald-500/30 px-4 py-3 text-sm text-emerald-300">
@@ -70,7 +70,7 @@ export function LoginForm() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-stone-800 mb-2">
             Email
           </label>
           <input
@@ -81,12 +81,12 @@ export function LoginForm() {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
+            className="w-full rounded-lg bg-white/85 border border-stone-300 px-4 py-3 text-sm text-ink placeholder-stone-400 outline-none focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 transition"
             placeholder="you@company.com"
           />
         </div>
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-neutral-300 mb-2">
+          <label htmlFor="password" className="block text-sm font-medium text-stone-800 mb-2">
             Password
           </label>
           <input
@@ -97,22 +97,22 @@ export function LoginForm() {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-lg bg-neutral-900/80 border border-neutral-700 px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition"
+            className="w-full rounded-lg bg-white/85 border border-stone-300 px-4 py-3 text-sm text-ink placeholder-stone-400 outline-none focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 transition"
             placeholder="••••••••"
           />
         </div>
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-lg bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-500 hover:to-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 transition"
+          className="w-full rounded-lg bg-accent hover:bg-accent-strong disabled:opacity-60 disabled:cursor-not-allowed text-ink font-semibold py-3 transition"
         >
           {pending ? "Signing in…" : "Sign in"}
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-neutral-400">
+      <p className="mt-6 text-center text-sm text-stone-600">
         New client?{" "}
-        <a href="/signup" className="text-amber-400 hover:text-amber-300 font-medium transition-colors">
+        <a href="/signup" className="text-brand-violet-light hover:text-accent font-medium transition-colors">
           Create an account
         </a>
       </p>

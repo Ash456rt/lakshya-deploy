@@ -20,20 +20,20 @@ export function Partners() {
   return (
     <section
       ref={ref}
-      className="relative py-16 bg-[#030712] border-t border-b border-zinc-800/30"
+      className="relative py-16 bg-paper border-t border-b border-stone-200/30"
     >
       <div className="max-w-6xl mx-auto px-6">
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center text-[10px] font-medium tracking-[0.3em] uppercase text-zinc-600 mb-10"
+          className="text-center text-[10px] font-medium tracking-[0.3em] uppercase text-stone-500 mb-10"
         >
           Trusted by teams across industries
         </motion.p>
 
-        {/* Logo row — monochrome, low opacity, like Stripe/Vercel */}
-        <div className="flex items-center justify-center flex-wrap gap-x-12 gap-y-6">
+        {/* Logo row , full color, no hover gimmicks */}
+        <div className="flex items-center justify-center flex-wrap gap-x-8 md:gap-x-12 gap-y-6">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
@@ -45,7 +45,7 @@ export function Partners() {
               <img
                 src={partner.src}
                 alt={`${partner.name} logo`}
-                className="h-8 md:h-10 w-auto object-contain opacity-30 hover:opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+                className="h-9 md:h-11 w-auto object-contain"
               />
             </motion.div>
           ))}

@@ -46,7 +46,7 @@ export function MagneticButton({
       ref={ref}
       type={type}
       className={cn(
-        "relative inline-flex items-center justify-center px-8 py-4 font-medium text-sm text-white bg-amber-500 hover:bg-amber-400 text-black transition-colors duration-300",
+        "relative inline-flex items-center justify-center px-8 py-4 font-medium text-sm bg-ink text-paper hover:bg-[#3a352c] transition-colors duration-300",
         className
       )}
       animate={{ x: position.x, y: position.y }}

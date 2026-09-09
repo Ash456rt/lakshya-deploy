@@ -40,26 +40,27 @@ export function Process() {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 bg-[#030712]"
+      id="process"
+      className="relative py-16 sm:py-20 md:py-32 bg-paper"
     >
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="mb-20 max-w-xl">
-          <span className="text-xs font-medium tracking-[0.2em] uppercase text-amber-500/60 mb-4 block">
+          <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
             Process
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="font-[family-name:var(--font-newsreader)] text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-ink md:text-5xl">
             How we work
           </h2>
         </div>
 
         {/* Steps with animated connecting line */}
         <div className="relative">
-          {/* Vertical line — animates on scroll */}
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-zinc-800/50">
+          {/* Vertical line , animates on scroll */}
+          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-stone-200/70">
             <motion.div
               style={{ height: lineHeight }}
-              className="w-full bg-amber-500/30"
+              className="w-full bg-accent/60"
             />
           </div>
 
@@ -83,8 +84,8 @@ export function Process() {
                   >
                     {/* Step number dot */}
                     <div className="relative z-10 shrink-0">
-                      <div className="w-10 h-10 bg-[#030712] border border-zinc-700 flex items-center justify-center">
-                        <span className="text-xs font-mono text-amber-400/80">
+                      <div className="w-10 h-10 bg-paper border border-stone-200 flex items-center justify-center">
+                        <span className="text-xs font-mono text-accent">
                           {step.number}
                         </span>
                       </div>
@@ -93,14 +94,14 @@ export function Process() {
                     {/* Content */}
                     <div className="pt-1.5">
                       <div className="flex items-baseline gap-3 mb-2">
-                        <h3 className="text-xl font-semibold text-white">
+                        <h3 className="text-xl font-semibold text-ink">
                           {step.title}
                         </h3>
-                        <span className="text-xs text-zinc-600 font-mono">
+                        <span className="text-xs text-stone-500 font-mono">
                           {step.duration}
                         </span>
                       </div>
-                      <p className="text-sm text-zinc-500 leading-relaxed max-w-md">
+                      <p className="text-sm text-stone-500 leading-relaxed max-w-md">
                         {step.description}
                       </p>
                     </div>

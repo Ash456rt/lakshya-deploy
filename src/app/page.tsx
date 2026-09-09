@@ -12,13 +12,14 @@ import { BlogPreview } from "@/components/sections/blog-preview";
 import { CTA } from "@/components/sections/cta";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
+import { SiteTour } from "@/components/ui/site-tour";
 
 export default function Home() {
   return (
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-amber-600 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-blue-deep focus:text-ink"
       >
         Skip to main content
       </a>
@@ -36,6 +37,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <SiteTour />
     </>
   );
 }

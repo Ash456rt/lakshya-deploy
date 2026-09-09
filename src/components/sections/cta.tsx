@@ -14,7 +14,7 @@ export function CTA() {
   return (
     <section
       ref={ref}
-      className="relative py-32 bg-[#030712] overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-32 bg-paper overflow-hidden"
     >
       {/* Parallax background glow */}
       <motion.div
@@ -24,7 +24,7 @@ export function CTA() {
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] opacity-[0.04]"
           style={{
-            background: "radial-gradient(ellipse, rgba(245,158,11,1) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(36,51,179,1) 0%, transparent 70%)",
           }}
         />
       </motion.div>
@@ -35,15 +35,12 @@ export function CTA() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Ready to build
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-              something real?
-            </span>
+          <h2 className="mb-6 font-[family-name:var(--font-newsreader)] text-5xl font-medium leading-[1.02] tracking-[-0.015em] text-ink md:text-6xl">
+            Ready to build{" "}
+            <em className="font-medium italic text-accent">something real?</em>
           </h2>
 
-          <p className="text-zinc-500 mb-10 max-w-lg mx-auto leading-relaxed">
+          <p className="text-stone-600 mb-10 max-w-lg mx-auto leading-relaxed">
             Tell us about your project and we will show you how one partner can
             handle it all. Free consultation, no commitment.
           </p>
@@ -55,7 +52,7 @@ export function CTA() {
           >
             <a
               href="/#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-amber-500 hover:bg-amber-400 text-black font-medium text-sm transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-ink text-paper hover:bg-[#3a352c] font-medium text-sm transition-colors duration-300"
             >
               Get a free consultation
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
