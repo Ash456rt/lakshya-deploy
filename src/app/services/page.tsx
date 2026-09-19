@@ -49,7 +49,7 @@ const services = [
   {
     title: "Lakshya Academy",
     description: "Professional training and certification programs in web development, React, Next.js, and corporate upskilling.",
-    href: "/lakshya-deploy/",
+    href: "/services/lakshya-academy",
     image: "/academy.webp",
   },
 ];

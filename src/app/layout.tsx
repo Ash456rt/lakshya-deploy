@@ -168,7 +168,7 @@ export default function RootLayout({
                   sameAs: [
                     "https://x.com/lakshyagroups",
                     "https://linkedin.com/company/lakshya-groups",
-                    "https://www.instagram.com/groupslakshya?igsi=ZHdrbnRsc2xhMzFp",
+                    "https://www.instagram.com/lakshya.groups",
                   ],
                 },
                 {

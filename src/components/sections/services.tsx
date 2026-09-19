@@ -52,7 +52,7 @@ const serviceDetails: {
     description:
       "Professional training and certification programs in technology and business management.",
     image: "/academy.webp",
-    href: "/lakshya-deploy/",
+    href: "/services/lakshya-academy",
   },
 ];
 

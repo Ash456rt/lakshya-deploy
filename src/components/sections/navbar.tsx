@@ -24,7 +24,7 @@ const navigation: (NavItem | NavGroup)[] = [
   {
     name: "Platforms",
     items: [
-      { name: "Lakshya Academy", href: "/lakshya-deploy/" },
+      { name: "Lakshya Academy", href: "/services/lakshya-academy" },
       { name: "Lakshya Travels", href: "/travels/" },
     ],
   },
