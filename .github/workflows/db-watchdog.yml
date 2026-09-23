@@ -42,9 +42,9 @@ jobs:
           # 200 = healthy. 401/4xx with valid key = project answers (schema issue, not down).
           # 000/timeout/5xx/503 = project unreachable/paused/outage.
           if [ "$HTTP" = "200" ] || [ "$HTTP" = "401" ] || [ "$HTTP" = "404" ]; then
-            echo "healthy" >> "$GITHUB_OUTPUT"
+            echo "result=healthy" >> "$GITHUB_OUTPUT"
           else
-            echo "down" >> "$GITHUB_OUTPUT"
+            echo "result=down" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Open alert issue when database is unreachable
