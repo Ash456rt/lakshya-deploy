@@ -145,7 +145,8 @@ export function Testimonials() {
               Client results
             </h2>
             <p className="text-stone-500 leading-relaxed">
-              What our partners say about working with us.
+              What our partners say about working with us. Worked with us?{" "}
+              <a href="/reviews" className="text-brand-violet underline underline-offset-4 hover:text-brand-violet-light transition-colors">Leave a review</a> — it takes two minutes.
             </p>
           </motion.div>
         </div>

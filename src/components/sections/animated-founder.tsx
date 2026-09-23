@@ -66,12 +66,6 @@ function MagneticTiltCard({
 
 const founderRecognition = [
   {
-    badge: "Google",
-    tag: "Partner ecosystem",
-    note: "Listed among trusted Google partner consultants for SMB digital transformation.",
-    href: "#",
-  },
-  {
     badge: "Twitter / X",
     tag: "Building in public",
     note: "Active voice in the Indian startup and developer community on X.",

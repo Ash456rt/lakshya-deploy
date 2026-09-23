@@ -1,0 +1,110 @@
+name: DB Watchdog
+
+# Monitors the Supabase project behind lakshyagroups.in every 15 minutes.
+# If the REST API stops answering (project paused for inactivity, outage,
+# expired credits), it emails via Brevo AND opens a GitHub issue as a
+# persistent alert. Runs only in THIS repo — secrets stay here.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {} # manual "Run workflow" button
+
+permissions:
+  issues: write
+
+concurrency:
+  group: db-watchdog
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        id: ping
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+          HTTP=$(curl -s -o /tmp/resp.txt -w "%{http_code}" --max-time 20 \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            "$SUPABASE_URL/rest/v1/programs?select=id&limit=1") || HTTP=000
+          BODY=$(head -c 300 /tmp/resp.txt 2>/dev/null || echo "")
+          echo "http=$HTTP" >> "$GITHUB_OUTPUT"
+          {
+            echo "body<<EOF"
+            echo "$BODY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          # 200 = healthy. 401/4xx with valid key = project answers (schema issue, not down).
+          # 000/timeout/5xx/503 = project unreachable/paused/outage.
+          if [ "$HTTP" = "200" ] || [ "$HTTP" = "401" ] || [ "$HTTP" = "404" ]; then
+            echo "healthy" >> "$GITHUB_OUTPUT"
+          else
+            echo "down" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open alert issue when database is unreachable
+        if: steps.ping.outputs.result == 'down'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'db-down', per_page: 1,
+            });
+            const body = `Supabase REST API did NOT answer at ${new Date().toISOString()}.\n\n` +
+              `HTTP status: \`${{ steps.ping.outputs.http }}\`\n\n` +
+              'Response: ```' + (${{ toJSON(steps.ping.outputs.body) }} || 'empty') + '```\n\n' +
+              `Likely causes: project paused for inactivity (7-day free-tier rule), billing/credits issue, or an outage. ` +
+              `Fix: supabase.com/dashboard → restore project.`;
+            if (issues.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: '🚨 Database unreachable — Supabase project paused or down',
+                labels: ['db-down'],
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issues[0].number, body,
+              });
+            }
+
+      - name: Close alert issue when database recovers
+        if: steps.ping.outputs.result == 'healthy'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'db-down', per_page: 5,
+            });
+            for (const i of issues) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: i.number,
+                body: `Database recovered at ${new Date().toISOString()} (HTTP ${{ steps.ping.outputs.http }}). Closing.`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: i.number, state: 'closed',
+              });
+            }
+
+      - name: Email alert via Brevo (optional)
+        if: steps.ping.outputs.result == 'down'
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          HTTP: ${{ steps.ping.outputs.http }}
+        run: |
+          [ -n "$BREVO_API_KEY" ] && [ -n "$ALERT_EMAIL" ] || { echo "Brevo not configured — skipping email"; exit 0; }
+          curl -s -X POST https://api.brevo.com/v3/smtp/email \
+            -H "api-key: $BREVO_API_KEY" -H "Content-Type: application/json" \
+            -d "{\"sender\":{\"name\":\"DB Watchdog\",\"email\":\"noreply@lakshyagroups.in\"},\"to\":[{\"email\":\"$ALERT_EMAIL\"}],\"subject\":\"🚨 lakshyagroups.in database DOWN (HTTP $HTTP)\",\"htmlContent\":\"<p>Supabase REST API failed at $(date -u +%FT%TZ) with HTTP <b>$HTTP</b>.</p><p>Restore: supabase.com/dashboard → project uhwnavhmnbqrxqcoueii.</p>\"}" \
+            || echo "email failed (non-fatal)"
