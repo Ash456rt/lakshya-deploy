@@ -8,7 +8,7 @@ const testimonials = [
       "As a tuition centre we get a lot of parent calls during admission season. The website Lakshya built answers most questions before people even ring us, and the enquiry form sends details straight to our inbox. It has honestly made admission season calmer.",
     name: "Sri Lakshmi",
     role: "Director, Sri Lakshmi Tutorials",
-    image: "/partners/sri-lakshmi.png?v=1",
+    image: "/partners/sri-lakshmi.webp?v=1",
     metric: "Fewer missed enquiries",
   },
   {
@@ -16,7 +16,7 @@ const testimonials = [
       "We needed a site that works well on phones because most of our customers browse on mobile. Lakshya delivered that and kept the pricing clear from the start. When we asked for changes they were done in days, not weeks.",
     name: "First Zone",
     role: "Management, First Zone",
-    image: "/partners/first-zone.png?v=1",
+    image: "/partners/first-zone.webp?v=1",
     metric: "Mobile-first delivery",
   },
   {
@@ -24,7 +24,7 @@ const testimonials = [
       "What stood out was the communication. We always knew what was being worked on and when it would be ready. The site looks professional and loads fast even on slow connections, which matters for our audience.",
     name: "Avans",
     role: "Team, Avans",
-    image: "/partners/avans.png?v=1",
+    image: "/partners/avans.webp?v=1",
     metric: "Clear communication",
   },
   {
@@ -32,7 +32,7 @@ const testimonials = [
       "Lakshya handled our website and follow-up support without drama. Small requests get fixed quickly and bigger ones get a proper estimate first. That reliability is why we keep coming back to them.",
     name: "ZetPeak",
     role: "Team, ZetPeak",
-    image: "/partners/zetpeak.png?v=2",
+    image: "/partners/zetpeak.webp?v=1",
     metric: "Reliable support",
   },
   {
@@ -40,7 +40,7 @@ const testimonials = [
       "Our old website was slow and hard to update. The new one loads quickly, shows up better on Google, and the team showed us how to make simple changes ourselves. Straightforward people to work with.",
     name: "Cayrys",
     role: "Team, Cayrys",
-    image: "/partners/cayrys.png?v=1",
+    image: "/partners/cayrys.webp?v=1",
     metric: "Faster, easier site",
   },
 ];
