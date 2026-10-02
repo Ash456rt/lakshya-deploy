@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { driver, type DriveStep } from "driver.js";
 import "driver.js/dist/driver.css";
 
-const STORAGE_KEY = "lakshya-tour-seen-v1";
+const STORAGE_KEY = "lakshya-tour-seen-v2";
 
 function buildSteps(): DriveStep[] {
   return [
@@ -87,6 +87,7 @@ export function SiteTour() {
     initializedRef.current = true;
 
     driverRef.current = driver({
+      steps: buildSteps(),
       showProgress: true,
       showButtons: ["next", "previous", "close"],
       progressText: "{{current}} of {{total}}",
@@ -98,7 +99,7 @@ export function SiteTour() {
       animate: true,
       onDestroyed: () => {
         try {
-          sessionStorage.setItem(STORAGE_KEY, "1");
+          localStorage.setItem(STORAGE_KEY, "1");
         } catch {
           /* private mode; ignore */
         }
@@ -107,7 +108,7 @@ export function SiteTour() {
 
     let autoStarted = false;
     try {
-      autoStarted = sessionStorage.getItem(STORAGE_KEY) === "1";
+      autoStarted = localStorage.getItem(STORAGE_KEY) === "1";
     } catch {
       autoStarted = false;
     }
