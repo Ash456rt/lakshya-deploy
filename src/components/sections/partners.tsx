@@ -4,13 +4,13 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const partners = [
-  { name: "Avans", src: "/partners/avans.png" },
-  { name: "First Zone", src: "/partners/first-zone.png" },
-  { name: "Saif Learn", src: "/partners/saif-learn.png" },
-  { name: "Sri Lakshmi", src: "/partners/sri-lakshmi.png" },
-  { name: "ZetPeak", src: "/partners/zetpeak.png" },
-  { name: "Cayrys", src: "/partners/cayrys.png" },
-  { name: "Bank", src: "/partners/bank.png" },
+  { name: "Avans", src: "/partners/avans.png?v=1" },
+  { name: "First Zone", src: "/partners/first-zone.png?v=1" },
+  { name: "Saif Learn", src: "/partners/saif-learn.png?v=1" },
+  { name: "Sri Lakshmi", src: "/partners/sri-lakshmi.png?v=1" },
+  { name: "ZetPeak", src: "/partners/zetpeak.png?v=2" },
+  { name: "Cayrys", src: "/partners/cayrys.png?v=1" },
+  { name: "Bank", src: "/partners/bank.png?v=1" },
 ];
 
 export function Partners() {
