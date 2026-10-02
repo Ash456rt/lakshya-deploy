@@ -21,6 +21,7 @@ const newsreader = Newsreader({
 });
 
 import { Chatbot } from "@/components/chat/chatbot";
+import { WhatsAppFloat } from "@/components/sections/whatsapp-float";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SITE_URL } from "@/lib/site";
 
@@ -125,6 +126,8 @@ export default function RootLayout({
 
           {/* Site-wide chat assistant , hidden on /admin and /portal by the component itself */}
           <Chatbot />
+          {/* Site-wide WhatsApp CTA — appears past the hero on every page */}
+          <WhatsAppFloat />
         </SmoothScroll>
 
         {/* JSON-LD Structured Data , Organization + WebSite + LocalBusiness */}

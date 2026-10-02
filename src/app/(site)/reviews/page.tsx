@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/sections/navbar";
-import { Footer } from "@/components/sections/footer";
 import { SiteReviews } from "@/components/sections/site-reviews";
 
 const SITE = "https://lakshyagroups.in";
@@ -53,11 +51,9 @@ export default function ReviewsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
-      <Navbar />
       <main className="min-h-screen bg-paper text-ink">
         <SiteReviews />
       </main>
-      <Footer />
     </>
   );
 }

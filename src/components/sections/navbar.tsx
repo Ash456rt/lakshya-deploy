@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { createClient } from "@/lib/supabase/client";
@@ -31,6 +32,18 @@ const navigation: (NavItem | NavGroup)[] = [
   },
   { name: "Contact", href: "#contact" },
 ];
+
+/* On inner pages, "Contact" goes to the real /contact page; on the homepage
+   the same label scrolls to the contact section. */
+function useNavItems(): (NavItem | NavGroup)[] {
+  const pathname = usePathname();
+  if (pathname && pathname !== "/") {
+    return navigation.map((item) =>
+      !isGroup(item) && item.href === "#contact" ? { ...item, href: "/contact" } : item,
+    );
+  }
+  return navigation;
+}
 
 function isGroup(item: NavItem | NavGroup): item is NavGroup {
   return "items" in item;
@@ -161,6 +174,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [mobileOpenGroup, setMobileOpenGroup] = useState<string | null>(null);
+  const navItems = useNavItems();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -183,7 +197,7 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main navigation">
         <motion.a
-          href="#home"
+          href="/"
           className="flex items-center"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -200,7 +214,7 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-7">
-          {navigation.map((item) =>
+          {navItems.map((item) =>
             isGroup(item) ? (
               <Dropdown key={item.name} group={item} />
             ) : (
@@ -254,7 +268,7 @@ export function Navbar() {
             role="menu"
           >
             <div className="flex flex-col items-center gap-4 py-6">
-              {navigation.map((item) =>
+              {navItems.map((item) =>
                 isGroup(item) ? (
                   <div key={item.name} className="flex flex-col items-center gap-2">
                     <button
