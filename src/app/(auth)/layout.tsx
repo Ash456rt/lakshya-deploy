@@ -14,13 +14,14 @@ export default function AuthLayout({
         <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full bg-brand-blue-deep/10 blur-[120px]" />
       </div>
 
-      <Link href="/" className="mb-10 relative">          {/* Clean text mark on auth pages too */}
-          <span className="text-brand-violet-light font-semibold text-xl tracking-tight"
-            style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
-          >
-            Lakshya
-            <span className="text-ink">Groups</span>
-          </span>
+      <Link href="/" className="mb-10 relative">          {/* Brand logo on the portal's front door */}
+          <img
+            src="/laksya-logo-300.webp"
+            alt="Lakshya Groups"
+            width={300}
+            height={193}
+            className="h-12 w-auto object-contain"
+          />
       </Link>
 
       <div className="w-full max-w-md glass-dark rounded-2xl p-8 relative">
