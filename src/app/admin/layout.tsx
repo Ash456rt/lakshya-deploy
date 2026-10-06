@@ -54,13 +54,15 @@ export default function AdminLayout({
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <header className="sticky top-0 z-40 border-b border-neutral-800 bg-black/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/85 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center">
             <img
-              src="/logo.svg"
+              src="/laksya-logo-300.webp"
               alt="Lakshya Groups"
-              className="h-10 w-auto object-contain"
+              width={300}
+              height={193}
+              className="h-12 w-auto object-contain"
             />
           </Link>
           <div className="flex items-center gap-6">
