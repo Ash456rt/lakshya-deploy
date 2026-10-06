@@ -106,7 +106,7 @@ export function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
+              <span data-gsap="eyebrow" className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
                 Services
               </span>
               <h2

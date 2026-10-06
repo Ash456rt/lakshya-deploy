@@ -68,7 +68,7 @@ export default function AppWebDevPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-3xl">App & Web Development</h1>
           <p className="text-lg text-stone-500 max-w-2xl leading-relaxed mb-8">Full-stack development for web and mobile. We build with modern technologies and ship in fixed scopes with weekly demos.</p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Link href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-ink text-paper hover:bg-[#3a352c] font-medium text-sm transition-colors duration-300">Start a project<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></Link>
+            <Link href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-ink text-paper hover:bg-[#3a352c] font-medium text-sm transition-colors duration-300">Start a project<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6-6 6" /></svg></Link>
             <Link href="/services" className="inline-flex items-center gap-2 px-7 py-3.5 border border-stone-200 hover:border-stone-400 text-stone-500 hover:text-ink font-medium text-sm transition-colors duration-300">View all services</Link>
           </div>
         </div>

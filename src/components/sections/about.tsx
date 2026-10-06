@@ -70,7 +70,7 @@ export function About() {
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 mb-24">
           <div>
             <RevealText>
-              <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
+              <span data-gsap="eyebrow" className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
                 About
               </span>
             </RevealText>

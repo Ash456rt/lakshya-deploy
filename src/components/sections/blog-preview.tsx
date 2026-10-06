@@ -17,13 +17,13 @@ export function BlogPreview() {
       className="relative py-16 sm:py-20 md:py-32 bg-paper"
     >
       <div className="max-w-6xl mx-auto px-6">
-        <div ref={ref} className="mb-16 max-w-xl">
+        <div ref={ref} className="mb-12 max-w-xl md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
+            <span data-gsap="eyebrow" className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
               Blog
             </span>
             <h2
@@ -39,7 +39,7 @@ export function BlogPreview() {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 mb-12">
+        <div className="grid md:grid-cols-3 gap-5 mb-10">
           {latestPosts.map((post, index) => {
             const PostCard = () => {
               const cardRef = useRef<HTMLDivElement>(null);
@@ -103,7 +103,7 @@ export function BlogPreview() {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6-6 6" />
           </svg>
         </Link>
       </div>

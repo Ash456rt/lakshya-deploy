@@ -24,11 +24,11 @@ export function Stats() {
       ref={containerRef}
       id="stats"
       aria-labelledby="stats-heading"
-      className="relative py-12 sm:py-16 md:py-24 bg-paper"
+      className="relative bg-paper py-10 sm:py-12 md:py-16"
     >
       <div className="max-w-6xl mx-auto px-6">
         {/* Section header */}
-        <div className="mb-16">
+        <div className="mb-10 md:mb-12">
           <motion.h2
             id="stats-heading"
             className="font-[family-name:var(--font-newsreader)] text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-ink md:text-5xl"
@@ -40,7 +40,7 @@ export function Stats() {
         {/* Animated divider */}
         <motion.div
           style={{ width: lineWidth }}
-          className="mb-16 h-px bg-accent/60"
+          className="mb-10 h-px bg-accent/60 md:mb-12"
         />
 
         {/* Stats grid , clean, no cards */}

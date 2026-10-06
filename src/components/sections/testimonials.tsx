@@ -2,45 +2,36 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
+/* Reviews are shown as the client's words only , no company names, no logos. */
 const testimonials = [
   {
+    id: "admission-season",
     quote:
       "As a tuition centre we get a lot of parent calls during admission season. The website Lakshya built answers most questions before people even ring us, and the enquiry form sends details straight to our inbox. It has honestly made admission season calmer.",
-    name: "Sri Lakshmi",
-    role: "Director, Sri Lakshmi Tutorials",
-    image: "/partners/sri-lakshmi.webp?v=1",
     metric: "Fewer missed enquiries",
   },
   {
+    id: "mobile-first",
     quote:
       "We needed a site that works well on phones because most of our customers browse on mobile. Lakshya delivered that and kept the pricing clear from the start. When we asked for changes they were done in days, not weeks.",
-    name: "First Zone",
-    role: "Management, First Zone",
-    image: "/partners/first-zone.webp?v=1",
     metric: "Mobile-first delivery",
   },
   {
+    id: "communication",
     quote:
       "What stood out was the communication. We always knew what was being worked on and when it would be ready. The site looks professional and loads fast even on slow connections, which matters for our audience.",
-    name: "Avans",
-    role: "Team, Avans",
-    image: "/partners/avans.webp?v=1",
     metric: "Clear communication",
   },
   {
+    id: "reliable-support",
     quote:
       "Lakshya handled our website and follow-up support without drama. Small requests get fixed quickly and bigger ones get a proper estimate first. That reliability is why we keep coming back to them.",
-    name: "ZetPeak",
-    role: "Team, ZetPeak",
-    image: "/partners/zetpeak.webp?v=1",
     metric: "Reliable support",
   },
   {
+    id: "faster-site",
     quote:
       "Our old website was slow and hard to update. The new one loads quickly, shows up better on Google, and the team showed us how to make simple changes ourselves. Straightforward people to work with.",
-    name: "Cayrys",
-    role: "Team, Cayrys",
-    image: "/partners/cayrys.webp?v=1",
     metric: "Faster, easier site",
   },
 ];
@@ -72,35 +63,26 @@ function TestimonialCard({
         delay: index * 0.1,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative bg-paper-deep/30 border border-stone-200/50 p-8 hover:border-stone-400/50 transition-colors duration-500"
+      className="group relative overflow-hidden bg-paper-deep/30 border border-stone-200/50 p-8 transition-colors duration-500 hover:border-stone-400/50"
     >
-      {/* Metric label */}
-      <div className="mb-5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+      {/* Decorative quote mark */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-2 right-5 select-none font-[family-name:var(--font-newsreader)] text-[7rem] leading-none text-accent/15"
+      >
+        &rdquo;
+      </span>
+
+      {/* Outcome label */}
+      <div className="relative mb-5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
         <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
         {t.metric}
       </div>
 
-      {/* Quote */}
-      <p className="text-stone-800 leading-relaxed mb-8 text-[15px]">
+      {/* The review itself */}
+      <p className="relative text-[15px] leading-relaxed text-stone-800">
         &ldquo;{t.quote}&rdquo;
       </p>
-
-      {/* Author */}
-      <div className="flex items-center gap-3">
-        {t.image && (
-          <div className="w-9 h-9 shrink-0 overflow-hidden bg-stone-100 border border-stone-200 flex items-center justify-center">
-            <img
-              src={t.image}
-              alt={`${t.name} logo`}
-              className="w-full h-full object-contain"
-            />
-          </div>
-        )}
-        <div className="min-w-0">
-          <p className="text-sm font-medium text-ink truncate">{t.name}</p>
-          <p className="text-xs text-stone-500 truncate">{t.role}</p>
-        </div>
-      </div>
     </motion.div>
   );
 }
@@ -117,7 +99,7 @@ export function Testimonials() {
     >
       <div className="max-w-6xl mx-auto px-6">
         {/* Tagline */}
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-8 max-w-2xl sm:mb-10">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -129,13 +111,13 @@ export function Testimonials() {
         </div>
 
         {/* Header */}
-        <div ref={ref} className="mb-16 max-w-xl">
+        <div ref={ref} className="mb-12 max-w-xl md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
+            <span data-gsap="eyebrow" className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
               Testimonials
             </span>
             <h2
@@ -145,16 +127,22 @@ export function Testimonials() {
               Client results
             </h2>
             <p className="text-stone-500 leading-relaxed">
-              What our partners say about working with us. Worked with us?{" "}
-              <a href="/reviews" className="text-brand-violet underline underline-offset-4 hover:text-brand-violet-light transition-colors">Leave a review</a> — it takes two minutes.
+              What our clients say about working with us. Worked with us?{" "}
+              <a
+                href="/reviews"
+                className="text-brand-violet underline underline-offset-4 hover:text-brand-violet-light transition-colors"
+              >
+                Leave a review
+              </a>{" "}
+              — it takes two minutes.
             </p>
           </motion.div>
         </div>
 
-        {/* Cards , staggered grid with parallax */}
+        {/* Reviews , staggered grid with parallax */}
         <div className="grid md:grid-cols-2 gap-5">
           {testimonials.map((t, index) => (
-            <TestimonialCard key={t.name} t={t} index={index} />
+            <TestimonialCard key={t.id} t={t} index={index} />
           ))}
         </div>
       </div>

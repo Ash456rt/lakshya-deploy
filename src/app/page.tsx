@@ -13,6 +13,7 @@ import { CTA } from "@/components/sections/cta";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 import { SiteTour } from "@/components/ui/site-tour";
+import { ScrollChoreography } from "@/components/ui/scroll-choreography";
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
       </main>
       <Footer />
       <SiteTour />
+      <ScrollChoreography />
     </>
   );
 }

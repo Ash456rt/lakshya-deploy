@@ -63,7 +63,7 @@ export function Hero() {
           initial={{ opacity: 0, scaleX: 0.6 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
-          className="mx-auto mb-10 flex items-center justify-center gap-4"
+          className="mx-auto mb-8 flex items-center justify-center gap-4 sm:mb-10"
         >
           <span className="block h-px w-10 bg-accent" aria-hidden="true" />
           <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-stone-500">
@@ -100,7 +100,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75 }}
-          className="mx-auto mb-10 mt-8 max-w-xl text-base leading-relaxed text-stone-600 md:text-lg"
+          className="mx-auto mb-8 mt-7 max-w-xl text-base leading-relaxed text-stone-600 sm:mb-10 sm:mt-8 md:text-lg"
         >
           Web &amp; app development, consultancy, logistics, travel, and
           professional training, from one Bengaluru team for clients in 63 countries.
@@ -119,7 +119,7 @@ export function Hero() {
           >
             Start a project
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6-6 6" />
             </svg>
           </a>
           <a
@@ -134,7 +134,7 @@ export function Hero() {
       {/* Product window , real screenshot of the live site */}
       <motion.div
         style={{ y: windowY }}
-        className="relative z-10 mt-16 w-full max-w-4xl px-6 will-change-transform sm:mt-20"
+        className="relative z-10 mt-12 w-full max-w-4xl px-6 will-change-transform sm:mt-14 lg:mt-16"
       >
         <motion.div
           style={{ x: mouseX, y: mouseY }}
