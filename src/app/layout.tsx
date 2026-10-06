@@ -105,8 +105,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-paper text-ink" suppressHydrationWarning>
         {/* Browser tab icon , Lakshya Groups logo */}
-        <link rel="icon" type="image/png" href="/laksya-logo-300.webp" />
-        <link rel="apple-touch-icon" href="/laksya-logo-300.webp" />
+        <link rel="icon" type="image/webp" href="/laksya-emblem.webp" />
+        <link rel="apple-touch-icon" href="/laksya-emblem-512.png" />
 
         {/* Google Analytics */}
         <Script

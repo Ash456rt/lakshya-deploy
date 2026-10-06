@@ -186,11 +186,11 @@ export function Chatbot() {
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3 bg-paper-deep border-b border-stone-200">
               <img
-                src="/laksya-logo-300.webp"
+                src="/laksya-emblem.webp"
                 alt=""
                 className="w-8 h-8 object-contain"
-                width={32}
-                height={32}
+                width={512}
+                height={512}
               />
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-ink leading-tight">Lakshya Assistant</p>

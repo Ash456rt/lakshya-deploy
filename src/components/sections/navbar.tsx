@@ -204,11 +204,11 @@ export function Navbar() {
         >
           {/* Lakshya Groups logo , kept in header as you asked */}
           <img
-            src="/laksya-logo-300.webp"
+            src="/laksya-logo-brand.webp"
             alt="Lakshya Groups"
             className="h-12 w-auto object-contain"
-            width={300}
-            height={193}
+            width={480}
+            height={310}
           />
         </motion.a>
 

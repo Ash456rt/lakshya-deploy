@@ -16,10 +16,10 @@ export default function AuthLayout({
 
       <Link href="/" className="mb-10 relative">          {/* Brand logo on the portal's front door */}
           <img
-            src="/laksya-logo-300.webp"
+            src="/laksya-logo-brand.webp"
             alt="Lakshya Groups"
-            width={300}
-            height={193}
+            width={480}
+            height={310}
             className="h-12 w-auto object-contain"
           />
       </Link>

@@ -58,10 +58,10 @@ export default function AdminLayout({
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center">
             <img
-              src="/laksya-logo-300.webp"
+              src="/laksya-logo-brand.webp"
               alt="Lakshya Groups"
-              width={300}
-              height={193}
+              width={480}
+              height={310}
               className="h-12 w-auto object-contain"
             />
           </Link>
