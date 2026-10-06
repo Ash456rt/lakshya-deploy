@@ -64,13 +64,13 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <a href="/" className="inline-flex items-center mb-4" aria-label="Lakshya Groups Home">
-              <span
-                className="text-metal font-bold text-xl tracking-tight"
-                style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
-              >
-                Lakshya
-                <span className="text-ink"> Groups</span>
-              </span>
+              <img
+                src="/laksya-logo-brand.webp"
+                alt="Lakshya Groups"
+                width={480}
+                height={310}
+                className="h-14 w-auto object-contain"
+              />
             </a>
             <p className="text-stone-500 text-sm mb-6 leading-relaxed max-w-xs">
               Seven services, one team. Bengaluru-based, globally active.
