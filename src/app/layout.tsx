@@ -25,6 +25,8 @@ import { WhatsAppFloat } from "@/components/sections/whatsapp-float";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SITE_URL } from "@/lib/site";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const TITLE =
   "Lakshya Groups | Web Development & Consultancy in Bengaluru";
 const DESCRIPTION =
@@ -104,9 +106,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-paper text-ink" suppressHydrationWarning>
-        {/* Browser tab icon , Lakshya Groups logo */}
-        <link rel="icon" type="image/webp" href="/laksya-emblem.webp" />
-        <link rel="apple-touch-icon" href="/laksya-emblem-512.png" />
+        {/* Browser tab icon */}
+        <link rel="icon" href={`${BASE_PATH}/favicon.ico`} sizes="32x32" />
+        <link rel="icon" href={`${BASE_PATH}/favicon.svg`} type="image/svg+xml" />
+        <link rel="icon" type="image/png" sizes="96x96" href={`${BASE_PATH}/favicon-96x96.png`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${BASE_PATH}/apple-touch-icon.png`} />
+        <link rel="manifest" href={`${BASE_PATH}/site.webmanifest`} />
 
         {/* Google Analytics */}
         <Script
